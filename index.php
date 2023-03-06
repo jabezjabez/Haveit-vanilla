@@ -28,12 +28,15 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/style.css">
-    <script src="scri"></script>
+    <link rel="stylesheet" href="CSS/style.css" >
+
     <title>Document</title>
 </head>
 <body>
-        <div class="reg_container">
+        <div class="regcontainer">
+            <div class="registration_title">
+                    <h1>REGISTRATION</h1>
+            </div>
             <form action="" method="post">
                 <input type="text"  class="form-control" name="first_name" placeholder="First Name">
                 <input type="text"  class="form-control" name="last_name" placeholder="Last Name">
