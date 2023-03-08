@@ -1,0 +1,11 @@
+.topNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.list{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
