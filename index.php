@@ -8,12 +8,15 @@
 </head>
 <body>
     <form action="login.php" method="post">
+        <?php if(isset($_GET['error'])) { ?>
+            <p class="error"> <?php echo $_GET['error']; ?></p>
+        <?php } ?>
         <label>USERNAME</label>
         <input type="text" name="username" placeholder="username">
         <label>PASSWORD</label>
         <input type="password" name="password" placeholder="password">
         <button type="submit">Log in</button>
-
+        <a href="registration.php">REGISTER</a>
     .
     </form>
 </body>

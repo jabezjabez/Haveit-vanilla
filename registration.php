@@ -46,6 +46,7 @@ if(isset($_POST['submit'])){
                 <input type="password"  class="form-control" name="password" placeholder="Password">
                 <br><br><br>
                 <button type="submit" class="btn" name="submit">Register</button>
+                <a href="index.php">login</a>
             </form>
         </div>
 </body>

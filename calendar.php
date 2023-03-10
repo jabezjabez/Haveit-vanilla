@@ -11,15 +11,16 @@
     <script src='dist/index.global.js'></script>  
 </head>
 <body>
-    <nav class="topNav">
+    
+    <!-- <nav class="topNav">
         <ul class="list">
             <li>HOME</li>
             <li>CALENDAR</li>
             <li>TASKS LIST</li>
             <li>DASH BOARD</li>
         </ul>
-    </nav>
-    <div class="parentholder">
+    </nav> -->
+    <div class="parentholder">  
         <div id='calendar'></div>
     </div>
     
