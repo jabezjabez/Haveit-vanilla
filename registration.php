@@ -1,25 +1,22 @@
 <?php
 include "db_conn.php";
+$emptyfield= "A field was left empty, please fill it up";
 
 if(isset($_POST['submit'])){
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-
+    $firstName = $_POST['first_name'];
+    $lastName = $_POST['last_name'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email'];
 
-    $sql = "INSERT INTO `tbl_accounts`(`id`, `userName`, `password`, `last_name`, `first_name`, `email`) VALUES (null,'$username','$password','$last_name','$first_name','$email')";
-
-    $result = mysqli_query($conn, $sql);
-
-    if($result){
-        header("location: index.php?msg=New record created successfully");
-    }else
-    {
-        echo "failed" . mysqli_error($conn);
+    if(empty(trim($username))| empty(trim($lastName)) | empty(trim($firstName)) | empty(trim($password)) | empty(trim($email))){
+        echo $emptyfield;
+    }else{
+        $sql = "INSERT INTO `tbl_accounts`(`id`, `userName`, `password`, `lastName`, `firstName`, `email`) VALUES (null,'$username','$password','$lastName','$firstName','$email')";
+        $result = mysqli_query($conn, $sql);
     }
 }
+
 
 ?>
 <!DOCTYPE html>

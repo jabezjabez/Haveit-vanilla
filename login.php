@@ -47,6 +47,4 @@ if (isset($_POST['username']) && isset($_POST['username'])) {
         header("location: index.php");
         exit();
     }
-
-
 ?>

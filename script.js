@@ -5,14 +5,16 @@ document.addEventListener('DOMContentLoaded', function() {
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+        right: 'multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay,listMonth'
       },
       initialDate: '2023-01-12',
       navLinks: true, // can click day/week names to navigate views
-      businessHours: true, // display business hours
       editable: true,
       selectable: true,
-      events: [
+      events: 'event.php'
+
+      
+      // [
         // {
         //   title: 'Business Lunch',
         //   start: '2023-01-03T13:00:00',
@@ -63,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         //   display: 'background',
         //   color: '#ff9f89'
         // }
-      ]
+      // ]
     });
 
     calendar.render();

@@ -11,15 +11,18 @@
     <script src='dist/index.global.js'></script>  
 </head>
 <body>
-    
-    <!-- <nav class="topNav">
+    <span>
+        <div class="profile"><a href="profile.php">PROFILE</a></div>
+        <div class="logout"><a href="logout.php">LOG OUT</a></div>
+    </span>
+    <nav class="topNav">
         <ul class="list">
-            <li>HOME</li>
-            <li>CALENDAR</li>
-            <li>TASKS LIST</li>
-            <li>DASH BOARD</li>
+            <li><a href="HOME.php">HOME</a></li>
+            <li><a href="CALLENDAR.php">CALLENDAR</a></li>
+            <li><a href="TASKLIST.php">TASK LIST</a></li>
+            <li><a href="DASHBOARD.php">DASHBOARD</a></li>
         </ul>
-    </nav> -->
+    </nav>
     <div class="parentholder">  
         <div id='calendar'></div>
     </div>
