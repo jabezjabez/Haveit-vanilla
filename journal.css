@@ -4,10 +4,7 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
-:root
-{
-    --clr:#293241;
-}
+
 body{
     background: #293241;
 }
@@ -23,14 +20,20 @@ body{
     margin-right: 20px;
 
 }
+.user:hover{
+    color: #ffc2b3;
+    transition: 0.5s;
+}
 button{
     padding:15px;
     margin-right: 10px;
+    justify-content: center;
     background-color:#EE6C4D;
     color: #E0FBFC;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
+
 }
 .nav-buttons{
     display: flex;
@@ -54,10 +57,79 @@ ul.bt{
 }
 .nb{
 
-    font-size: 37px;
+    font-size: 39px;
+    border-radius: 8px;
+    margin-top: 5px;
 }
 .nb:hover{
     color: #ffc2b3;
     font-size: 45px;
     transition: 0.5s;
 }
+.container {
+    background-color: #fefefe;
+    width: 90vmin;
+    padding: 25px 35px;
+    margin-top: 120px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 10px;
+    box-shadow: 0 25px 50px rgba(180, 251, 246, 0.442);
+  }
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+  }
+
+  select {
+    padding: 7px;
+    border: 2px solid #020929;
+    border-radius: 5px;
+  }
+  .options label,
+  .options select {
+    font-family: "Poppins", sans-serif;
+  }
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  input[type="color"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 40px;
+    height: 28px;
+    border: none;
+    cursor: pointer;
+  }
+  input[type="color"]::-webkit-color-swatch {
+    border-radius: 15px;
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #020929;
+  }
+  input[type="color"]::-moz-color-swatch {
+    border-radius: 15px;
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #020929;
+  }
+  #text-input {
+    margin-top: 10px;
+    border: 1px solid #dddddd;
+    padding: 20px;
+    height: 50vh;
+  }
+  .active {
+    background-color: #e0e9ff;
+  }
+
+  .save{
+    margin-left: 1000px;
+    margin-bottom: 100px;
+    font-size: 20px;
+    padding: 15px;
+  }
