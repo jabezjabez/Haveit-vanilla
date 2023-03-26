@@ -66,3 +66,27 @@ ul.bt{
     font-size: 45px;
     transition: 0.5s;
 }
+a{
+    margin: auto;
+}
+a:link, a:visited {
+    background-color: #EE6C4D;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: #ffc2b3;
+  }
+
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
