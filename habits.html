@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title> HABITS - HAVE IT</title>
-    <link rel="stylesheet" type="text/css" href="journal.css">
+    <link rel="stylesheet" type="text/css" href="habits.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
 
@@ -31,5 +31,43 @@
         </div>
 <br><br><br>
 <hr>
+<div class="container">
+    <h2>HABITS</h2>
+    <p></p>
+    <form class="add-habit">
+      <input
+        class="habit"
+        type="text"
+        name="habit"
+        placeholder="Enter Habit Name"
+        required
+      />
+      <input
+        type="number"
+        name="reps"
+        placeholder="# of Repetitions"
+        min="1"
+        required
+      />
+      <div class="frequency">
+        <label for="timeframe">Frequency: </label>
+        <select name="timeframe" id="timeframe">
+          <option value="Daily">Daily</option>
+          <option value="Weekly">Weekly</option>
+          <option value="Monthly">Monthly</option>
+          <option value="Yearly">Yearly</option>
+        </select>
+      </div>
+      <input type="submit" value="+ Add Habit" />
+    </form>
+
+    <ul class="habits">
+      <li>Loading...</li>
+    </ul>
+  </div>
+
+  <script src="habits.js"></script>
 </body>
 </html>
+
+
