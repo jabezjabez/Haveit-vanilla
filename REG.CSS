@@ -1,28 +1,41 @@
+@font-face {
+    font-family: "Party Confetti";
+    src: url('Fonts/Party-Confetti.ttf');
+}
+
+@font-face {
+    font-family: "Berlin Rounded Regular";
+    src: url('Fonts/BerlinRounded-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Berlin Rounded Light";
+    src: url('Fonts/BerlinRounded-Light.ttf');
+}
+
+@font-face {
+    font-family: "Berlin Rounded Bold";
+    src: url('Fonts/BerlinRounded-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Berlin Rounded Extra Bold";
+    src: url('Fonts/BerlinRounded-Extra-Bold.ttf');
+}
+
+
+/* BODY */ 
 body {
-	font-family: Arial, sans-serif;
-	background-color: #f2f2f2;
+	font-family: Berlin Rounded Regular, Arial, sans-serif;
+	color: #fff;
+	background-color: #0e0e0e;
 }
 
-.item-itemA {
-    
-}
 
-.item1{
-padding: 80px;
-margin-right: auto;
-background-color: #98C1D9;
-display: flex;
-flex-direction: column;
-justify-content: center;
-}
-
-.item2{
-    padding:80px;
-    margin-right: 30px;
-}
+/* REGISTRATION BOX */ 
 .register-container {
-	background-color: #fff;
-	border-radius: 5px;
+	background-color: rgb(28, 28, 28);
+	border-radius: 15px;
 	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
 	margin: 50px auto;
     display: flex;
@@ -31,26 +44,110 @@ justify-content: center;
 	max-width: 900px;
 	text-align: center;
 }
-.alr{
-    margin-top: 30px;
+
+/* GREETINGS SECTION */
+.greetings {
+	font-family: Party Confetti;
+	padding: 80px;
+	margin-right: auto;
+	border-radius: 15px 0px 0px 15px;
+	background-color: #4c4c4c;
+	background-size: cover;
+	background-blend-mode: overlay;
+	background-image: url(CSS/Images/Have-It-Greetings-BG.png);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 30%;
+}
+
+.logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.logo img {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.subtext {
+	font-size: 5vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.subtext2 {
+	font-size: 3vh;
+	font-style: italic;
+	opacity: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* FORMS SECTION */
+.forms {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 65%;
+	padding: 30px;
+}
+
+.fields {
+	width: 100%;
+}
+
+.fields input {
+	box-sizing: border-box;
+	width: 100%;
+	font-family: Berlin Rounded Regular, Arial, sans-serif;
 }
 
 h1 {
-	color: #333;
-	margin-bottom: 30px;
+	background: linear-gradient(to right, #4B77FF, rgb(248, 237, 111));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 5vh;
+	margin: none;
+}
+
+h3 {
+	letter-spacing: 1px;
 }
 
 label {
 	display: block;
-	font-size: 16px;
+	font-size: 2vh;
 	font-weight: bold;
 	margin-bottom: 10px;
 }
 
+.divTAC, .divPP {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 100%;
+}
+
+.alr {
+    margin-top: 30px;
+}
+
+
 input[type="text"],
 input[type="password"] {
+	background-color: black;
+	color: #fff;
+	caret-color: #4B77FF;
 	border: none;
-	border-radius: 3px;
+	border-radius: 10px;
 	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
 	display: block;
 	font-size: 16px;
@@ -66,14 +163,15 @@ input[type="password"] {
 }
 
 input[type="checkbox"] {
-	margin-right: 10px;
+	display: flex;
+	align-self: flex-start;
 }
 
-
 input[type="submit"] {
-	background-color: #EE6C4D;
+	background-color: #4B77FF;
+	font-family: Berlin Rounded Regular, Arial, sans-serif;
 	border: none;
-	border-radius: 3px;
+	border-radius: 10px;
 	color: #fff;
 	cursor: pointer;
 	font-size: 16px;
@@ -85,5 +183,31 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-	background-color: #f8b09e;
+	transition: .2s;
+	background-color: #9bb4ff;
+	color: #0e0e0e;
+}
+
+input[type="submit"]:active {
+	transition: .2s;
+	background-color: #f8ff9b;
+	color: #0e0e0e;
+}
+
+
+/* LINKS */
+a:link {
+	color: #4B77FF;
+}
+
+a:hover {
+	color: #9bb4ff;
+}
+
+a:active {
+	color: #f8ff9b;
+}
+
+a:visited {
+	color: #1f377e;
 }
