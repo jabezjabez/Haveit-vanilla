@@ -1,35 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title> CALENDAR - HAVE IT</title>
-    <link rel="stylesheet" type="text/css" href="calendar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-
-    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HAVE IT - HOME</title>
+	<link rel="stylesheet" type="text/css" href="calendar.css">
+	<link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 </head>
+<body>
+    <div class="wrapperGrid">
+        <!--SIDEBAR-->
+        <div class="sidebarSect">
+            <div class="logoBox">
+                <img src="CSS/Images/Have-It-Logo-White.png">
+            </div>
 
-<body> 
-        <div class="gbuttons">
-            <div class="buttons">
-                <button class="user" onclick="document.location='profile.php'"><i class="fa fa-user"></i> Name</button>
-                <button class="user" onclick="document.location='login.html'">Log out</button>
+            <div class="tabsBox">
+                <nav>
+                    <button class="activeButton"><span class="material-symbols-outlined" onclick="document.location='index.html'" title="Go to Home">home</span>&nbsp;HOME</button>
+                    <button class="navButton"><span class="material-symbols-outlined" onclick="document.location='calendar.html'" title="Go to Home">calendar_month</span>&nbsp;CALENDAR</button>
+                    <button class="navButton"><span class="material-symbols-outlined">cycle</span>&nbsp;HABITS</button>
+                    <button class="navButton"><span class="material-symbols-outlined">auto_stories</span>&nbsp;JOURNAL</button>
+                    <button class="navButton"><span class="material-symbols-outlined">monitoring</span>&nbsp;DASHBOARD</button>
+                </nav>
             </div>
+
+            <div class="accountBox">
+                <div class="accountPic">
+                    <img src="CSS/Images/Account-Placeholder.png">
+                </div>
+
+                <div class="accountName">
+                    <span>Daniel Austin Berba</span>
+                </div>
             </div>
-        <div class="nav-buttons">
-            <div class="navnav">
-                <ul class="bt">
-                    <li><button class="nb" onclick="document.location='index.html'" title="Go to Home"></i>HOME</button></li>
-                    <li><button class="calendar " onclick="document.location='calendar.html'" title="Go to Calendar">CALENDAR</button></li>
-                    <li><button class="nb" onclick="document.location='habits.html'" title="Go to Habits">HABITS</button></li>
-                    <li><button class="nb" onclick="document.location='journal.html'" title="Go to Journal">JOURNAL</button></li>   
-                    <li><button class="nb" onclick="document.location='dboard.html'"title="Go to Dashboard"></i>DASHBOARD</button></li>   
-        </ul>
         </div>
+
+        <!--CONTENT-->
+        <div class="contentSect">
+            <div class="greetingsText">
+                <p>Welcome <span>[Insert Name]</span>, make your day productive!</p>
+            </div>
+        
+            <div class="shortcutSect">
+                <div class="graphic">
+                    <button class="check">CHECKLIST</button>
+                </div>
+                <a href="calendar.html">
+                    <div class="shortcutBox">
+                        <img src="CSS/Images/bean.jpg">
+                        <span>Plan with your Calendar</span>
+                    </div>
+                </a>
+                <a href="habits.html">
+                    <div class="shortcutBox">
+                        <img src="CSS/Images/bean.jpg">
+                        <span>Manage your Habits</span>
+                    </div>
+                </a>
+                <a href="journal.html">
+                    <div class="shortcutBox">
+                        <img src="CSS/Images/bean.jpg">
+                        <span>Write your Journal</span>
+                    </div>
+                </a>
+                <a href="dashboard.html">
+                    <div class="shortcutBox">
+                        <img src="CSS/Images/bean.jpg">
+                        <span>View your Progress</span>
+                    </div>
+                </a>
+            </div>
+
+            <footer>
+                <div class="footerGrid">
+                    <div class="copyrightBox">
+                        &copy;2023 "HAVE IT" and "Have it your way!" under MALINTA KALIWA. All rights reserved.
+                    </div>
+                </div>
+            </footer>
         </div>
-        </div>
-<br><br><br>
-<hr>
+
+    </div>
 </body>
+
 </html>
