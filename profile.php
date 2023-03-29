@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<a href="#" id="delete-account">Delete Account</a>
+<a href="logout.php" id="delete-account">Delete Account</a>
 
 <script>
     // Add a click event listener to the delete account button or link

@@ -280,3 +280,13 @@ a:active {
 a:visited {
 	color: none;
 }
+.check{
+    background-color:#4B77FF ;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}

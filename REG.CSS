@@ -167,7 +167,7 @@ input[type="checkbox"] {
 	align-self: flex-start;
 }
 
-input[type="submit"] {
+input[type="submit"]{
 	background-color: #4B77FF;
 	font-family: Berlin Rounded Regular, Arial, sans-serif;
 	border: none;

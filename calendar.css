@@ -210,8 +210,6 @@ nav .navButton:active {
 
 
 
-
-
 .graphic img, .shortcutBox img {
     width: 100%;
     object-fit: cover;
@@ -369,11 +367,12 @@ a:visited {
   }
   
   /* Style the input */
+  textarea,
   input {
     margin: 0;
-    border: none;
+    border-color:#3E5187, 5px;
     border-radius: 0;
-    width: 75%;
+    width: 100%;
     padding: 10px;
     float: left;
     font-size: 16px;
