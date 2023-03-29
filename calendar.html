@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-
+        
         <!--CONTENT-->
         <div class="contentSect">
             <div class="greetingsText">
@@ -45,45 +45,40 @@
             </div>
         
             <div class="shortcutSect">
-                <div class="graphic">
-                    <button class="check">CHECKLIST</button>
-                </div>
-                <a href="calendar.html">
-                    <div class="shortcutBox">
-                        <img src="CSS/Images/bean.jpg">
-                        <span>Plan with your Calendar</span>
-                    </div>
-                </a>
-                <a href="habits.html">
-                    <div class="shortcutBox">
-                        <img src="CSS/Images/bean.jpg">
-                        <span>Manage your Habits</span>
-                    </div>
-                </a>
-                <a href="journal.html">
-                    <div class="shortcutBox">
-                        <img src="CSS/Images/bean.jpg">
-                        <span>Write your Journal</span>
-                    </div>
-                </a>
-                <a href="dashboard.html">
-                    <div class="shortcutBox">
-                        <img src="CSS/Images/bean.jpg">
-                        <span>View your Progress</span>
-                    </div>
-                </a>
-            </div>
+                
+                        <div class="shortcutBox">
+                            <div id="myDIV" class="header" style="margin: 10px 10px 10px 10px;">
+                                <h2>My Goals</h2>
+                                <input type="text" id="myInput" placeholder="Title  ...">
+                                <span onclick="newElement()" class="addBtn">Add goal</span>
+                            
+                            </div>
 
+                              <ul id="myUL">
+                                <li>SDT</li>
+                                <li class="checked">PLATFORM</li>
+                                <li>CAPSTONE</li>
+                                <li>GAMEDEV</li>
+                                <li>ASDFGH</li>
+                                <li>BSIT</li>
+                              </ul>
+                           
+                        </div>
+                    </div>
+            </div>
+        </div>
             <footer>
                 <div class="footerGrid">
                     <div class="copyrightBox">
                         &copy;2023 "HAVE IT" and "Have it your way!" under MALINTA KALIWA. All rights reserved.
-                    </div>
+                    </div><br>
                 </div>
             </footer>
-        </div>
+       
 
-    </div>
+  
+
+    <script src="calendar.js"></script>
 </body>
 
 </html>
