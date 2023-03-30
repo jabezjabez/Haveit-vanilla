@@ -1,3 +1,23 @@
+<?php
+include "db_conn.php";
+$emptyfield= "A field was left empty, please fill it up";
+
+if(isset($_POST['submit'])){
+    $firstName = $_POST['first_name'];
+    $lastName = $_POST['last_name'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+
+    if(empty(trim($username))| empty(trim($lastName)) | empty(trim($firstName)) | empty(trim($password)) | empty(trim($email))){
+        echo $emptyfield;
+    }else{
+        $sql = "INSERT INTO `tbl_accounts`(`id`, `userName`, `password`, `lastName`, `firstName`, `email`) VALUES (null,'$username','$password','$lastName','$firstName','$email')";
+        $result = mysqli_query($conn, $sql);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +42,7 @@
         <div class="forms">
 			<h1>WELCOME TO HAVE IT!</h1>
 			<h3>Register by filling up the fields:</h3>
-			<form>
+			<form method="post">
 				<div class="fields">
 					<input type="text" id="email" name="email" placeholder="Email" required>
 
@@ -47,7 +67,7 @@
 			</form>
 
         	<div class="alr">
-				Already have an account? <a href="logIn.html">LOG IN HERE</a>
+				Already have an account? <a href="index.php">LOG IN HERE</a>
     		</div>
 		</div>
 	</div>

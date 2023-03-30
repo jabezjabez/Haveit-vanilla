@@ -35,7 +35,7 @@
 				<input type="submit" value="LOG IN">
 			</form>
     		<div class="dont">
-				Don't have an account yet? <a href="reg.html">REGISTER HERE</a>
+				Don't have an account yet? <a href="reg.php">REGISTER HERE</a>
     		</div>
 		</div>
 	</div>
