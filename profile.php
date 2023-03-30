@@ -49,9 +49,26 @@
                     <!-- Any additional form fields here -->
                     <button id="delete-account-btn" type="submit" class="btn btn-danger">Delete Account</button>
                 </form>
+                <form action="logout.php" method="post">
+                    <button type="submit" name="logout" class="btn btn-danger">Logout</button>
+                </form>
                 </div>
             </div>
             
+            <!-- <div class="update">
+            <form method="post">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" value="<?php echo $username; ?>">
+                <br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="<?php echo $email; ?>">
+                <br><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" value="<?php echo $password; ?>">
+                <br><br>
+                <input type="submit" name="update" value="Update">
+            </form>
+            </div> -->
             <footer>
                 <div class="footerGrid">
                     <div class="copyrightBox">
@@ -61,6 +78,8 @@
             </footer>
         </div>
     </div>
+
+
 
 
     <script>
@@ -76,6 +95,25 @@
             }
         });
     </script>
+
+    <!-- <script>
+                $('#edit').click(function() {
+            var id = $(this).attr('data-id')
+            if (!!scheds[id]) {
+                var _form = $('#schedule-form')
+                console.log(String(scheds[id].start_datetime), String(scheds[id].start_datetime).replace(" ", "\\t"))
+                _form.find('[name="id"]').val(id)
+                _form.find('[name="title"]').val(scheds[id].title)
+                _form.find('[name="description"]').val(scheds[id].description)
+                _form.find('[name="start_datetime"]').val(String(scheds[id].start_datetime).replace(" ", "T"))
+                _form.find('[name="end_datetime"]').val(String(scheds[id].end_datetime).replace(" ", "T"))
+                $('#event-details-modal').modal('hide')
+                _form.find('[name="title"]').focus()
+            } else {
+                alert("Event is undefined");
+            }
+        })
+    </script> -->
 </body>
 </html>
 
