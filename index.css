@@ -50,7 +50,7 @@ body {
     justify-content: center;
     align-items: center;
     position: fixed;
-    border-right: 5px solid #3E5187;
+    border-right: 5px solid #4B77FF;
 }
 
 .logoBox {
@@ -233,7 +233,7 @@ nav .navButton:active {
 
 .graphic img, .shortcutBox img {
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .graphic span, .shortcutBox span {
@@ -274,9 +274,9 @@ a:hover {
 }
 
 a:active {
-	color: none;
+	color: #fff;
 }
 
 a:visited {
-	color: none;
+	color: #fff;
 }

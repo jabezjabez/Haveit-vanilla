@@ -17,7 +17,7 @@ let fontList = [
   "Garamond",
   "Georgia",
   "Courier New",
-  "cursive",
+  "Cursive",
 ];
 
 //Initial Settings

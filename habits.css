@@ -1,175 +1,409 @@
-*
-{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+@font-face {
+  font-family: "Party Confetti";
+  src: url('Fonts/Party-Confetti.ttf');
 }
 
-body{
-  background: #E0FBFC;
+@font-face {
+  font-family: "Berlin Rounded Regular";
+  src: url('Fonts/BerlinRounded-Regular.ttf');
 }
-.gbuttons{
-    padding-top: 10px;
+
+@font-face {
+  font-family: "Berlin Rounded Light";
+  src: url('Fonts/BerlinRounded-Light.ttf');
+}
+
+@font-face {
+  font-family: "Berlin Rounded Bold";
+  src: url('Fonts/BerlinRounded-Bold.ttf');
+}
+
+@font-face {
+  font-family: "Berlin Rounded Extra Bold";
+  src: url('Fonts/BerlinRounded-Extra-Bold.ttf');
+}
+
+
+/* BODY */ 
+body {
+  font-family: Berlin Rounded Regular, Arial, sans-serif;
+  color: #fff;
+  background-color: #0e0e0e;
+  margin: 0 0 0 0;
+  overflow-x: hidden;
+}
+
+
+/* MAIN GRID */ 
+.wrapperGrid {
+  display: grid;
+  grid-template-columns: 15vh 85vh;
+}
+
+
+/* SIDEBAR */ 
+.sidebarSect {
+  background-color: rgb(28, 28, 28);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 28vh;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  border-right: 5px solid #FFEF30;
+}
+
+.logoBox {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+}
+
+.logoBox img {
+  opacity: 0.3;
+  display: flex;
+  width: 90%;
+  user-select: none;
+}
+
+.logoBox img:hover {
+  opacity: 1;
+  transition: 0.1s;
+}
+
+.tabsBox {
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.activeButton {
+  display: flex;
+  background-color: #FFEF30;
+  font-family: Party Confetti;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  height: 50px;
+  border: none;
+  color: #0e0e0e;
+  padding: 10px;
+  border-radius: 5px 0px 0px 5px;
+  cursor: default;
+  padding-left: 15px;
+}
+
+nav .navButton {
+  font-family: Party Confetti;
+  letter-spacing: 1.5px;
+  display: flex;
+  font-size: 20px;
+  height: 50px;
+  border: none;
+  color: #fff;
+  background-color: #0e0e0e00;
+  padding: 10px;
+  border-radius: 5px 0px 0px 5px;
+  cursor: pointer;
+  padding-left: 15px;
+}
+
+nav .navButton:hover {
+  background-color: #e0d44e;
+  color: #0e0e0e;
+  transition: 0.2s;
+}
+
+nav .navButton:active {
+  background-color: #fff373;
+  color: #0e0e0e;
+  transition: 0.1s;
+}
+
+.accountBox {
+  display: flex;
+  width: 90%;
+  height: 7vh;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-self: flex-end;
+  border: 2px solid rgba(255, 255, 255, 0.363);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.accountBox .accountPic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accountBox .accountPic img {
+  filter: invert(1);
+  width: 80%;
+}
+
+.accountBox:hover {
+  background-color: #EE6C4D;
+  color: #0e0e0e;
+  transition: 0.1s;
+  border-color: #EE6C4D;
+}
+
+
+/* CONTENT GRID */ 
+.contentSect {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 86vw;
+  padding-left: 14vw;
+}
+
+footer {
+  margin: 3.5% 0 2% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
 }
-.buttons{
-    border-radius: 20px;
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.copyrightBox {
+  opacity: 0.6;
+  text-align: center;
+  font-size: 1.5vh;
+}
+
+
+/* LINKS */
+a:link {
+color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+color: none;
+}
+
+a:active {
+color: #fff;
+}
+
+a:visited {
+color: #fff;
+}
+
+
+
+
+
+
+  
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: center;
+    justify-self: center;
+    padding: 30px;
+    align-items: center;
+    background-color: rgb(28, 28, 28);
+    width: 70%;
+    height: 70%;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+  
+.headerText {
+    text-align: start;
+    font-size: 3.5vh;
+}
+
+.add-habitBox {
     display: flex;
     flex-direction: row;
-    justify-content:right;
-    margin-right: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 1%;
+}
+  
 
-}
-.user:hover{
-    color: #ffc2b3;
-    transition: 0.5s;
-}
-button{
-    padding:15px;
-    margin-right: 10px;
+  
+.add-habit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    background-color:#293241;
-    color: #E0FBFC;
-    border-radius: 8px;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 5px solid #FFEF30;
+}
+  
+.habit, .rep, .frequency {
+    font-family: Berlin Rounded Regular;
+    padding: 10px;
+    margin: 0px 10px 10px 0px;
+    outline: none;
     border: none;
-    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    border-radius: 7px;
+    font-size: 15px;
+    height: 100%;
+}
 
+.habit:hover, .rep:hover, .frequency:hover {
+    background-color: #242207;
+    transition: 0.2s;
 }
-.habitat{
-  background-color:#3D5A80;
-  font-size: 39px;
-  border-radius: 8px;
-  margin-top: 5px;
-  transition: 0.5s;
+
+.habit:active, .rep:active, .frequency:active {
+  background-color: #655e13;
+  transition: 0.1s;
 }
-.habitat:hover{
-  color: #ffc2b3;
-  font-size: 45px;
-  transition: 0.5s;
+
+.habit {
+    width: 55%;
 }
-.nav-buttons{
+
+.rep {
+    width: 17%;
+}
+
+.frequency {
+    width: 15%;
+    border: none;
+    color: rgba(255, 255, 255, 0.40);
+    cursor: pointer;
+}
+  
+.addHabitButton {
     display: flex;
-    flex-direction: row;
+    justify-self: flex-start;
+    align-self: flex-start;
+    font-size: 15px;
+    font-family: Berlin Rounded Regular;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: #363636;
+    color: #fff;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.addHabitButton:hover {
+    background-color: #FFEF30;
+    color: #0e0e0e;
+    transition: 0.2s;
+}
+
+.addHabitButton:active {
+    background-color: #479324;
+    transition: 0.1s;
+}
+
+
+
+.habitsList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.habits {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.navnav{
-    height: 40px;
-    font-size: 90px;
-}
-hr{
-  border: 7px solid #3D5A80;
-  position: relative;
-}
-ul.bt{
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    height: 60px;
-    margin-left: 50px;
-}
-.nb{
-
-    font-size: 39px;
-    border-radius: 8px;
-    margin-top: 5px;
-}
-.nb:hover{
-    color: #ffc2b3;
-    font-size: 45px;
-    transition: 0.5s;
-}
-
-  
-  .container {
-    padding: 90px;
-    align-items: center;
-    background-color: #EE6C4D;
-
-  }
-  
-  h2 {
-    text-align: center;
-    font-weight: 400;
-  }
-  
-  .habits {
     text-align: left;
     list-style: none;
-  }
-  
-  .habits li {
-    border-bottom: 5px solid #3D5A80;
+    padding: 10px;
+}
+
+.habits li {
+    border-bottom: 3px solid #e0d44e;
     padding: 10px;
     font-weight: 400;
+    width: 100%;
     display: flex;
     align-items: center;
-  }
-  
-  .habits label {
+}
+
+.habits label {
     flex: 1;
     cursor: pointer;
-  }
-  
-  .habits input {
+
+}
+
+.habits input {
     margin-right: 12px;
-  }
-  
-  .habits input {
     display: none;
-  }
-  
-  .habits input + label:before {
+}
+
+.habits input + label:before {
     content: "+";
     margin-right: 12px;
-  }
-  
-  .habits input + label span {
+}
+
+.habits input + label span {
     font-weight: 200;
     font-size: 0.75rem;
-  }
-  
-  .habits input:checked + label {
+}
+
+.habits input:checked + label {
     text-decoration: line-through;
-    color: #3D5A80;
-  }
-  
-  .habits button {
-    padding-left: 30px;
-    background: none;
+    color: #FFEF30;
+}
+
+.habits button {
+    font-family: Berlin Rounded Regular;
+    background-color: #7f1717;
+    color: #fff;
+    font-size: 15px;
+    padding: 7px;
     margin: 5px;
     outline: 0;
     border: 0;
     border-radius: 5px;
-  }
-  
-  .add-habit {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 5px solid #3D5A80;
-  }
-  
-  .add-habit input {
-    padding: 10px;
-    margin: 5px;
-    outline: 0;
-    border: 0;
-    border-radius: 100px;
-  }
-  
-  .add-habit select {
-    border-radius: 10px;
-    border: none;
-  }
-  
-  .frequency {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: row;
-  }
+    cursor: pointer;
+}
+
+.habits button:hover {
+    background-color: #c13030;
+    transition: 0.2s;
+}
+
+.habits button:active {
+    background-color: #ef2020;
+    transition: 0.1s;
+}

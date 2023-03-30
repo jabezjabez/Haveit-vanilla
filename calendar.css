@@ -50,7 +50,7 @@ body {
     justify-content: center;
     align-items: center;
     position: fixed;
-    border-right: 5px solid #3E5187;
+    border-right: 5px solid #8757FF;
 }
 
 .logoBox {
@@ -93,7 +93,7 @@ nav {
 
 .activeButton {
     display: flex;
-    background-color: #4B77FF;
+    background-color: #8757FF;
     font-family: Party Confetti;
     letter-spacing: 1.5px;
     font-size: 20px;
@@ -122,12 +122,12 @@ nav .navButton {
 }
 
 nav .navButton:hover {
-    background-color: #3E5187;
+    background-color: #48347d;
     transition: 0.2s;
 }
 
 nav .navButton:active {
-    background-color: #7698ff;
+    background-color: #9a73fd;
     transition: 0.1s;
 }
 
@@ -168,60 +168,11 @@ nav .navButton:active {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 90vw;
+    width: 86vw;
     padding-left: 14vw;
 }
 
-.greetingsText {
-    display: flex;
-    font-size: 3.5vh;
-    user-select: none;
-    padding: 0px 10px 0px 10px;
-}
 
-.shortcutSect {
-    display:inline-grid;
-    grid-template-columns: 4fr 1.75fr 1.75fr;
-    grid-auto-rows:minmax(4fr, auto);
-    grid-gap: 2vh;
-    justify-content:center;
-    align-items:center;
-    padding: 0px 30px 0px 10px;
-    margin-top: 3%;
-    padding-left: 30px;
-}
-
-
-.shortcutBox {
-    display:inline-flex;
-    flex-direction: column;
-    justify-content:right;
-    align-items:self-start;
-    border: 3px solid rgb(193, 193, 193);
-    border-radius: 8px;
-    padding: 20px;
-    width:60%;
-    box-sizing: border-box;
-    border-style: double;
-    border-width: 7px;
-  border-color: rgb(255, 255, 255);
-  border-radius:15px;
-}
-
-
-
-
-
-.graphic img, .shortcutBox img {
-    width: 100%;
-    object-fit: cover;
-}
-
-.graphic span, .shortcutBox span {
-    font-size: 3vh;
-    text-align: center;
-    margin: 10px 5px 5px 5px;
-}
 
 footer {
     margin: 3.5% 0 2% 0;
@@ -255,145 +206,9 @@ a:hover {
 }
 
 a:active {
-	color: none;
+	color: #fff;
 }
 
 a:visited {
-	color: none;
+	color: #fff;
 }
-.check{
-    background-color:#4B77FF ;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-}
-/* Include the padding and border in an element's total width and height */
-* {
-    box-sizing: border-box;
-  }
-  
-  /* Remove margins and padding from the list */
-  ul {
-    margin: 0;
-    width: 95%;
-    padding: 0;
-    padding-left: 15px; 
-    border-radius:10px;
-    list-style-type: none;
-  }
-  
-  /* Style the list items */
-  ul li {
-    cursor: pointer;
-    position: relative;
-    padding: 12px 8px 12px 40px;
-    background: #43aaff;
-    font-size: 18px;
-    transition: 0.2s;
-  
-    /* make the list items unselectable */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Set all odd list items to a different color (zebra-stripes) */
-  ul li:nth-child(odd) {
-    background: #43aaff;
-  }
-  
-  /* Darker background-color on hover */
-  ul li:hover {
-    background: #43aaff95;
-  }
-  
-  /* When clicked on, add a background color and strike out text */
-  ul li.checked {
-    background: #ffa8a8;
-    color: rgb(240, 240, 240);
-    text-decoration: line-through;
-  }
-  
-  /* Add a "checked" mark when clicked on */
-  ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
-  }
-  
-  /* Style the close button */
-  .close {
-    position: absolute;
-    right: 3px;
-    bottom: -10px;
-    padding: 12px 16px 12px 16px;
-  }
-  
-  .close:hover {
-    background-color: #3E5187;
-    color: white;
-  }
-  
-  /* Style the header */
-  .header {
-    background-color: #3E5187;
-    padding: 30px 40px;
-    color: white;
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    
-  }
-  
-  /* Clear floats after the header */
-  .header:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Style the input */
-  input {
-    margin: 0;
-    border: none;
-    border-radius: 0;
-    width: 75%;
-    padding: 10px;
-    float: left;
-    font-size: 16px;
-    border-radius: 10px;
-  }
-  
-  /* Style the "Add" button */
-  .addBtn {
-    padding: 5px;
-    width: 50%;
-    background: #3DD4FF;
-    color: #ffffff;
-    float: left;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 10px;
-  }
-  
-  .addBtn:hover {
-    background-color: #3dd5ffae;
-  }

@@ -1,0 +1,215 @@
+@font-face {
+    font-family: "Party Confetti";
+    src: url('Fonts/Party-Confetti.ttf');
+}
+
+@font-face {
+    font-family: "Berlin Rounded Regular";
+    src: url('Fonts/BerlinRounded-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Berlin Rounded Light";
+    src: url('Fonts/BerlinRounded-Light.ttf');
+}
+
+@font-face {
+    font-family: "Berlin Rounded Bold";
+    src: url('Fonts/BerlinRounded-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Berlin Rounded Extra Bold";
+    src: url('Fonts/BerlinRounded-Extra-Bold.ttf');
+}
+
+
+/* BODY */ 
+body {
+	  font-family: Berlin Rounded Regular, Arial, sans-serif;
+	  color: #fff;
+	  background-color: #0e0e0e;
+    margin: 0 0 0 0;
+}
+
+
+/* MAIN GRID */ 
+.wrapperGrid {
+    display: grid;
+    grid-template-columns: 15vh 85vh;
+}
+
+
+/* SIDEBAR */ 
+.sidebarSect {
+    background-color: rgb(28, 28, 28);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 28vh;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    border-right: 5px solid #d1d1d1;
+}
+
+.logoBox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px 0px 10px 0px;
+}
+
+.logoBox img {
+    opacity: 0.3;
+    display: flex;
+    width: 90%;
+    user-select: none;
+}
+
+.logoBox img:hover {
+    opacity: 1;
+    transition: 0.1s;
+}
+
+.tabsBox {
+    display: flex;
+    width: 100%;
+    height: 70vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.activeButton {
+    display: flex;
+    background-color: #d1d1d1;
+    font-family: Party Confetti;
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    height: 50px;
+    border: none;
+    color: #0e0e0e;
+    padding: 10px;
+    border-radius: 5px 0px 0px 5px;
+    cursor: default;
+    padding-left: 15px;
+}
+
+nav .navButton {
+    font-family: Party Confetti;
+    letter-spacing: 1.5px;
+    display: flex;
+    font-size: 20px;
+    height: 50px;
+    border: none;
+    color: #fff;
+    background-color: #0e0e0e00;
+    padding: 10px;
+    border-radius: 5px 0px 0px 5px;
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+nav .navButton:hover {
+    background-color: #636363;
+    transition: 0.2s;
+}
+
+nav .navButton:active {
+    background-color: #9c9c9c;
+    color: #0e0e0e;
+    transition: 0.1s;
+}
+
+.accountBox {
+    display: flex;
+    width: 90%;
+    height: 7vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-self: flex-end;
+    border: 2px solid rgba(255, 255, 255, 0.363);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.accountBox .accountPic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.accountBox .accountPic img {
+    filter: invert(1);
+    width: 80%;
+}
+
+.accountBox:hover {
+    background-color: #EE6C4D;
+    color: #0e0e0e;
+    transition: 0.1s;
+    border-color: #EE6C4D;
+}
+
+
+/* CONTENT GRID */ 
+.contentSect {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 86vw;
+    padding-left: 14vw;
+}
+
+
+
+footer {
+    margin: 3.5% 0 2% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.footerGrid {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.copyrightBox {
+    opacity: 0.6;
+    text-align: center;
+    font-size: 1.5vh;
+}
+
+
+/* LINKS */
+a:link {
+	color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+	color: none;
+}
+
+a:active {
+	color: #fff;
+}
+
+a:visited {
+	color: #fff;
+}

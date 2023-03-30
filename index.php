@@ -17,7 +17,6 @@
         <input type="password" name="password" placeholder="password">
         <button type="submit">Log in</button>
         <a href="registration.php">REGISTER</a>
-    .
     </form>
 </body>
 </html>
