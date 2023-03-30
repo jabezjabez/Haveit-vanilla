@@ -213,3 +213,19 @@ a:active {
 a:visited {
 	color: #fff;
 }
+
+.bg-custom{
+    background-color: #0e0e0e;
+}
+
+.text-custom {
+    color: #6c757d;
+}
+
+.fc-toolbar-title {
+    color: #8757FF;
+}
+
+.fc-view-agendaWeek{
+    color: #8757FF;
+}

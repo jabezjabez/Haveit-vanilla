@@ -23,8 +23,8 @@ include("db_conn.php");
     <script src="./fullcalendar/lib/main.min.js"></script>
     <script src="./js/jquery-3.6.0.min.js"></script>
 </head>
-<body >
-    <div class="wrapperGrid">
+<body class="bg-custom">
+    <div class="wrapperGrid bg-custom">
         <!--SIDEBAR-->
         <div class="sidebarSect">
             <div class="logoBox">
@@ -47,7 +47,7 @@ include("db_conn.php");
                     <img src="CSS/Images/Account-Placeholder.png">
                 </div>
 
-                <div class="accountName">
+                <div class="accountName text-white">
                     <span onclick="location.href='profile.php'">Daniel Austin Berba</span>
                 </div>
             </div>
@@ -82,7 +82,6 @@ include("db_conn.php");
                                                 <br>
                                                 <input type="datetime-local" class="" name="start_datetime" id="start_datetime" required>
                                             </div>
-                                            <br><br>
                                             <div class="form-group mb-2">
                                                 <label for="end_datetime" class="control-label">End</label>
                                                 <br>
@@ -178,8 +177,8 @@ include("db_conn.php");
                 </script>
                 <script src="./js/script.js"></script>
 
-            <footer>
-                <div class="footerGrid">
+            <footer class="bg-custom text-white">
+                <div class="footerGrid " >
                     <div class="copyrightBox">
                         &copy;2023 "HAVE IT" and "Have it your way!" under MALINTA KALIWA. All rights reserved.
                     </div>
