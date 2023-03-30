@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HAVE IT - DASHBOARD</title>
-	<link rel="stylesheet" type="text/css" href="about.css">
+	<link rel="stylesheet" type="text/css" href="dboard.css">
 	<link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 </head>
@@ -19,12 +19,12 @@
 
             <div class="tabsBox">
                 <nav>
-                    <button class="navButton" onclick="location.href='index.html'"><span class="material-symbols-outlined">home</span>&nbsp;HOME</button>
-                    <button class="navButton" onclick="location.href='calendar.html'"><span class="material-symbols-outlined">calendar_month</span>&nbsp;CALENDAR</button>
-                    <button class="navButton" onclick="location.href='habits.html'"><span class="material-symbols-outlined">cycle</span>&nbsp;HABITS</button>
-                    <button class="navButton" onclick="location.href='journal.html'"><span class="material-symbols-outlined">auto_stories</span>&nbsp;JOURNAL</button>
-                    <button class="navButton" onclick="location.href='dboard.html'"><span class="material-symbols-outlined">monitoring</span>&nbsp;DASHBOARD</button>
-                    <button class="activeButton"><span class="material-symbols-outlined">info</span>&nbsp;ABOUT</button>
+                    <button class="navButton" onclick="location.href='home.php'"><span class="material-symbols-outlined">home</span>&nbsp;HOME</button>
+                    <button class="navButton" onclick="location.href='calendar.php'"><span class="material-symbols-outlined">calendar_month</span>&nbsp;CALENDAR</button>
+                    <button class="navButton" onclick="location.href='habits.php'"><span class="material-symbols-outlined">cycle</span>&nbsp;HABITS</button>
+                    <button class="navButton" onclick="location.href='journal.php'"><span class="material-symbols-outlined">auto_stories</span>&nbsp;JOURNAL</button>
+                    <button class="activeButton"><span class="material-symbols-outlined">monitoring</span>&nbsp;DASHBOARD</button>
+                    <button class="navButton" onclick="location.href='about.php'"><span class="material-symbols-outlined">info</span>&nbsp;ABOUT</button>
                 </nav>
             </div>
 
@@ -34,14 +34,13 @@
                 </div>
 
                 <div class="accountName">
-                    <span onclick="location.href='profile.html'">Daniel Austin Berba</span>
+                    <span onclick="location.href='profile.php'">Daniel Austin Berba</span>
                 </div>
             </div>
         </div>
 
         <!--CONTENT-->
         <div class="contentSect">
-
 
             <footer>
                 <div class="footerGrid">

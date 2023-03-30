@@ -4,28 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar</title>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/gen.css">
-    <script src="script.js"></script>
-    <script src='dist/index.global.js'></script>  
+	<title>HAVE IT - CALENDAR</title>
+	<link rel="stylesheet" type="text/css" href="calendar.css">
+	<link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 </head>
 <body>
-    <span>
-        <div class="profile"><a href="profile.php">PROFILE</a></div>
-        <div class="logout"><a href="logout.php">LOG OUT</a></div>
-    </span>
-    <nav class="topNav">
-        <ul class="list">
-            <li><a href="HOME.php">HOME</a></li>
-            <li><a href="CALLENDAR.php">CALLENDAR</a></li>
-            <li><a href="TASKLIST.php">TASK LIST</a></li>
-            <li><a href="DASHBOARD.php">DASHBOARD</a></li>
-        </ul>
-    </nav>
-    <div class="parentholder">  
-        <div id='calendar'></div>
+    <div class="wrapperGrid">
+        <!--SIDEBAR-->
+        <div class="sidebarSect">
+            <div class="logoBox">
+                <img src="CSS/Images/Have-It-Logo-White.png">
+            </div>
+
+            <div class="tabsBox">
+                <nav>
+                    <button class="navButton" onclick="location.href='home.php'"><span class="material-symbols-outlined">home</span>&nbsp;HOME</button>
+                    <button class="activeButton"><span class="material-symbols-outlined">calendar_month</span>&nbsp;CALENDAR</button>
+                    <button class="navButton" onclick="location.href='habits.php'"><span class="material-symbols-outlined">cycle</span>&nbsp;HABITS</button>
+                    <button class="navButton" onclick="location.href='journal.php'"><span class="material-symbols-outlined">auto_stories</span>&nbsp;JOURNAL</button>
+                    <button class="navButton" onclick="location.href='dboard.php'"><span class="material-symbols-outlined">monitoring</span>&nbsp;DASHBOARD</button>
+                    <button class="navButton" onclick="location.href='about.php'"><span class="material-symbols-outlined">info</span>&nbsp;ABOUT</button>
+                </nav>
+            </div>
+
+            <div class="accountBox">
+                <div class="accountPic">
+                    <img src="CSS/Images/Account-Placeholder.png">
+                </div>
+
+                <div class="accountName">
+                    <span onclick="location.href='profile.php'">Daniel Austin Berba</span>
+                </div>
+            </div>
+        </div>
+
+        <!--CONTENT-->
+        <div class="contentSect">
+
+
+            <footer>
+                <div class="footerGrid">
+                    <div class="copyrightBox">
+                        &copy;2023 "HAVE IT" and "Have it your way!" under MALINTA KALIWA. All rights reserved.
+                    </div>
+                </div>
+            </footer>
+        </div>
+
     </div>
-    
 </body>
+
 </html>

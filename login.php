@@ -31,7 +31,7 @@ if (isset($_POST['username']) && isset($_POST['username'])) {
                         $_SESSION['userName'] = $row['userName'];
                         $_SESSION['first_name'] = $row['first_name'];
                         $_SESSION['id'] = $row['id'];
-                        header("location: calendar.php");
+                        header("location: home.php");
                 }else{
                     header("location: index.php?error=incorrect username or password");
                     exit();

@@ -19,12 +19,12 @@
 
             <div class="tabsBox">
                 <nav>
-                    <button class="navButton" onclick="location.href='index.html'"><span class="material-symbols-outlined">home</span>&nbsp;HOME</button>
-                    <button class="navButton" onclick="location.href='calendar.html'"><span class="material-symbols-outlined">calendar_month</span>&nbsp;CALENDAR</button>
+                    <button class="navButton" onclick="location.href='home.php'"><span class="material-symbols-outlined">home</span>&nbsp;HOME</button>
+                    <button class="navButton" onclick="location.href='calendar.php'"><span class="material-symbols-outlined">calendar_month</span>&nbsp;CALENDAR</button>
                     <button class="activeButton"><span class="material-symbols-outlined">cycle</span>&nbsp;HABITS</button>
-                    <button class="navButton" onclick="location.href='journal.html'"><span class="material-symbols-outlined">auto_stories</span>&nbsp;JOURNAL</button>
-                    <button class="navButton" onclick="location.href='dboard.html'"><span class="material-symbols-outlined">monitoring</span>&nbsp;DASHBOARD</button>
-                    <button class="navButton" onclick="location.href='about.html'"><span class="material-symbols-outlined">info</span>&nbsp;ABOUT</button>
+                    <button class="navButton" onclick="location.href='journal.php'"><span class="material-symbols-outlined">auto_stories</span>&nbsp;JOURNAL</button>
+                    <button class="navButton" onclick="location.href='dboard.php'"><span class="material-symbols-outlined">monitoring</span>&nbsp;DASHBOARD</button>
+                    <button class="navButton" onclick="location.href='about.php'"><span class="material-symbols-outlined">info</span>&nbsp;ABOUT</button>
                 </nav>
             </div>
 
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="accountName">
-                    <span onclick="location.href='profile.html'">Daniel Austin Berba</span>
+                    <span onclick="location.href='profile.php'">Daniel Austin Berba</span>
                 </div>
             </div>
         </div>
