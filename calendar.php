@@ -61,9 +61,9 @@ include("db_conn.php");
                         <div class="col-md-9">
                             <div id="calendar"></div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="card rounded-0 shadow">
-                                <div class="card-body">
+                        <div class="col-md-3 bg-custom2 text-white">
+                            <div class="card border-0">
+                                <div class="card-body bg-custom2 text-white border-0">
                                     <div class="container-fluid">
                                         <form action="save_schedule.php" method="post" id="schedule-form">
                                             <input type="hidden" name="id" value="">
@@ -90,10 +90,10 @@ include("db_conn.php");
                                         </form>
                                     </div>
                                 </div>
-                                <div class="card-footer">
+                                <div class="card-footer text-white" style="background-color: rgb(28, 28, 28);;">
                                     <div class="text-center">
                                         <button class="btn btn-primary btn-sm rounded-0" type="submit" form="schedule-form"><i class="fa fa-save"></i> Save</button>
-                                        <button class="btn btn-default border btn-sm rounded-0" type="reset" form="schedule-form"><i class="fa fa-reset"></i> Cancel</button>
+                                        <button class="btn btn-default border btn-sm rounded-0 text-white" type="reset" form="schedule-form"><i class="fa fa-reset"></i> Cancel</button>
                                     </div>
                                 </div>
                             </div>

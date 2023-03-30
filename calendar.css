@@ -222,10 +222,37 @@ a:visited {
     color: #6c757d;
 }
 
-.fc-toolbar-title {
-    color: #8757FF;
-}
+/* Change the background color of the calendar widget */
+.fc-view {
+    background-color: #0e0e0e;
+    color: #fff;
+  }
+  
+  /* Change the background color of the header */
+  .fc-toolbar {
+    background-color: #0e0e0e;
+    color: #fff;
+  }
+  
+  /* Change the text color of the title */
+  .fc-toolbar-title {
+    color: #fff;
+  }
+  
+  /* Change the color of the calendar events */
+  .fc-event-time,  .fc-event, .fc-event-main-frame{
+    background-color: #48347d;
+    color: #fff;
+  }
 
-.fc-view-agendaWeek{
-    color: #8757FF;
-}
+  .fc-daygrid-day-number{
+    color: #fff;
+  }
+  
+  .fc-col-header-cell-cushion {
+    color: #EE6C4D;
+  }
+
+  .bg-custom2{
+    background-color: rgb(28, 28, 28);
+    }
