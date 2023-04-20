@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    $user_id = $_SESSION['user_id'];
+
+    // update the user's email address in the database
+    $sql = "UPDATE users SET email = 'new_email@example.com' WHERE id = $user_id";
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +67,7 @@
                 </div>
             </div>
             
-            <!-- <div class="update">
+            <div class="update">
             <form method="post">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" value="<?php echo $username; ?>">
@@ -68,7 +80,7 @@
                 <br><br>
                 <input type="submit" name="update" value="Update">
             </form>
-            </div> -->
+            </div>
             <footer>
                 <div class="footerGrid">
                     <div class="copyrightBox">

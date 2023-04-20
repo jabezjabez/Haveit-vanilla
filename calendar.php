@@ -1,5 +1,23 @@
 <?php
 include("db_conn.php");
+
+        // start the session
+        session_start();
+
+        if (!isset($_SESSION['user_id'])) 
+        // {
+        //     // user is logged in, do something
+        // } else {
+        //     // redirect the user to the login page
+        //     header("Location: login.php");
+        //     exit();
+        // }
+
+        // get the user ID from the session
+        $user_id = $_SESSION['id'];
+        // get the username from the seesion
+        $userName = $_SESSION['userName'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +66,7 @@ include("db_conn.php");
                 </div>
 
                 <div class="accountName text-white">
-                    <span onclick="location.href='profile.php'">Daniel Austin Berba</span>
+                    <span onclick="location.href='profile.php'"><?php   echo $userName  ?></span>
                 </div>
             </div>
         </div>
