@@ -62,7 +62,7 @@
                     <button id="delete-account-btn" type="submit" class="btn btn-danger">Delete Account</button>
                 </form>
                 <form action="logout.php" method="post">
-                    <button type="submit" name="logout" class="btn btn-danger">Logout</button>
+                    <button type="submit" name="logout" class="btn btn-danger">Log Out</button>
                 </form>
                 </div>
             </div>
