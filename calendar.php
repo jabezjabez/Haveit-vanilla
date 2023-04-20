@@ -56,41 +56,41 @@ include("db_conn.php");
         <!--CONTENT-->
         <div class="contentSect">
             <!-- Main calendar -->
-            <div class="container py-5 " id="page-container">
+            <div class="container py-5" id="page-container">
                     <div class="row">
                         <div class="col-md-9">
                             <div id="calendar"></div>
                         </div>
-                        <div class="col-md-3 bg-custom2 text-white">
+                        <div class="col-md-3 text-white">
                             <div class="card border-0">
-                                <div class="card-body bg-custom2 text-white border-0">
+                                <div class="card-body bg-custom2 text-white border-0" style="font-family: Berlin Rounded Regular;">
                                     <div class="container-fluid">
                                         <form action="save_schedule.php" method="post" id="schedule-form">
                                             <input type="hidden" name="id" value="">
                                             <div class="form-group mb-2">
                                                 <label for="title" class="control-label">Title</label>
                                                 <br>
-                                                <input type="text" class="asdas" name="title" id="title" required>
+                                                <input type="text" style="background-color: #0e0e0e; border-radius: 7px; color: #fff;" class="asdas" name="title" id="title" required>
                                             </div>
                                             <div class="form-group mb-2">
                                                 <label for="description" class="control-label">Description</label>
                                                 <br>
-                                                <textarea rows="3" class="" name="description" id="description" required></textarea>
+                                                <textarea rows="3" style="background-color: #0e0e0e; border-radius: 7px; color: #fff;" class="" name="description" id="description" required></textarea>
                                             </div>
                                             <div class="form-group mb-2">
                                                 <label for="start_datetime" class="control-label">Start</label>
                                                 <br>
-                                                <input type="datetime-local" class="" name="start_datetime" id="start_datetime" required>
+                                                <input type="datetime-local" style="color: #fff; cursor: pointer;" class="" name="start_datetime" id="start_datetime" required>
                                             </div>
                                             <div class="form-group mb-2">
                                                 <label for="end_datetime" class="control-label">End</label>
                                                 <br>
-                                                <input type="datetime-local" class="" name="end_datetime" id="end_datetime" required>
+                                                <input type="datetime-local" style="color: #fff; cursor: pointer;" class="" name="end_datetime" id="end_datetime" required>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
-                                <div class="card-footer text-white" style="background-color: rgb(28, 28, 28);;">
+                                <div class="card-footer text-white" style="background-color: #0e0e0e;">
                                     <div class="text-center">
                                         <button class="btn btn-primary btn-sm rounded-0" type="submit" form="schedule-form"><i class="fa fa-save"></i> Save</button>
                                         <button class="btn btn-default border btn-sm rounded-0 text-white" type="reset" form="schedule-form"><i class="fa fa-reset"></i> Cancel</button>
