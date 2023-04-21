@@ -18,6 +18,10 @@ let fontList = [
   "Georgia",
   "Courier New",
   "Cursive",
+  "Verdana",
+  "Helvetica",
+  "Open Sans",
+
 ];
 
 //Initial Settings
@@ -37,14 +41,14 @@ const initializer = () => {
     fontName.appendChild(option);
   });
 
-  //fontSize allows only till 7
-  for (let i = 1; i <= 7; i++) {
+  //fontSize allows only till 32
+  for (let i = 1; i <= 32; i++) {
     let option = document.createElement("option");
     option.value = i;
     option.innerHTML = i;
     fontSizeRef.appendChild(option);
   }
-
+  
   //default size
   fontSizeRef.value = 3;
 };
@@ -80,6 +84,10 @@ linkButton.addEventListener("click", () => {
     modifyText(linkButton.id, false, userLink);
   }
 });
+function eraseHighlight() {
+  document.execCommand('hiliteColor', false, 'transparent');
+}
+
 
 //Highlight clicked button
 const highlighter = (className, needsRemoval) => {
@@ -115,3 +123,4 @@ const highlighterRemover = (className) => {
 };
 
 window.onload = initializer();
+
