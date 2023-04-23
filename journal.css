@@ -74,6 +74,30 @@ body {
     opacity: 1;
     transition: 0.1s;
 }
+input[type="text"],
+input[type="time"],
+input[type="date"],
+textarea {
+  display:flex;
+  flex-direction: row;
+    align-items: center;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 14px;
+  border: 3px solid #ed9b48;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="time"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2196F3;
+}
+  
 
 .tabsBox {
     display: flex;
@@ -162,7 +186,17 @@ nav .navButton:active {
     transition: 0.1s;
     border-color: #EE6C4D;
 }
-
+  
+form {
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
 
 /* CONTENT GRID */ 
 .contentSect {
@@ -220,20 +254,15 @@ a:visited {
     color: #fff;
 }
 
-
-
-
-
-
 .container {
     display: grid;
-    grid-template-columns: repeat(3, 2fr);
-    grid-template-rows: repeat(3, 4fr);
+    grid-template-columns: repeat(2, 3fr);
+    grid-template-rows: repeat(5, 8fr);
     background-color: rgb(28, 28, 28);
     justify-content: center;
     align-items: flex-start;
     width: 70%;
-    height: 70%;
+    height: 75%;
     margin-top: 5%;
     padding: 25px 35px;
     border-radius: 10px;
