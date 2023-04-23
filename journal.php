@@ -15,7 +15,7 @@
         $user_id = $_SESSION['id'];
         // get the username from the seesion
         $userName = $_SESSION['userName'];
-
+        echo $user_id;
 ?>
 
 <!DOCTYPE html>
@@ -180,12 +180,17 @@
                             <i class="fa-solid fa-rotate-right"></i>
                         </button>
                     </div>
+                    <div>
+                    <input type="datetime-local" style="cursor: pointer;" class="curdate" name="curdate" id="curdate" required>
+                    </div>
                 </div>
-
+                <div class="titleBoxSect">
+                    <div id="titleBoxSect" class="inputBox" contenteditable="true"></div>
+                </div>
                 <div class="inputBoxSect">
                     <div id="text-input" class="inputBox" contenteditable="true"></div>
                 </div>
-
+                
                 <div class="publishButtonSect">
                     <button class="publishButton" onclick="document.location='#'">Publish</button>
               </div>
@@ -205,4 +210,21 @@
     </div>
 
 </body>
+
+
+<script>
+  // get current date and time
+  var now = new Date();
+  
+  // format date and time as string for datetime-local input
+  var year = now.getFullYear();
+  var month = ('0' + (now.getMonth() + 1)).slice(-2);
+  var day = ('0' + now.getDate()).slice(-2);
+  var hour = ('0' + now.getHours()).slice(-2);
+  var minute = ('0' + now.getMinutes()).slice(-2);
+  var datetimeString = year + '-' + month + '-' + day + 'T' + hour + ':' + minute;
+  
+  // set the value of the datetime-local input
+  document.getElementById("curdate").value = datetimeString;
+</script>
 </html>
