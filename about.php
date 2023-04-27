@@ -1,10 +1,29 @@
+<?php
+        // start the session
+        session_start();
+
+        if (!isset($_SESSION['user_id'])) 
+        // {
+        //     // user is logged in, do something
+        // } else {
+        //     // redirect the user to the login page
+        //     header("Location: login.php");
+        //     exit();
+        // }
+
+        // get the user ID from the session
+        $user_id = $_SESSION['id'];
+        // get the username from the seesion
+        $userName = $_SESSION['userName'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>HAVE IT - DASHBOARD</title>
+	<title>HAVE IT - ABOUT</title>
 	<link rel="stylesheet" type="text/css" href="about.css">
 	<link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
@@ -34,7 +53,7 @@
                 </div>
 
                 <div class="accountName">
-                    <span onclick="location.href='profile.php'">Daniel Austin Berba</span>
+                    <span onclick="location.href='profile.php'"><?php   echo $userName  ?></span>
                 </div>
             </div>
         </div>

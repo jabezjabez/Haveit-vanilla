@@ -2,6 +2,8 @@
 session_start();
 include("db_conn.php");
 
+$_SESSION['user_id'] = $user_id;
+
 if (isset($_POST['username']) && isset($_POST['username'])) {
     
     function val($data){
@@ -45,6 +47,26 @@ if (isset($_POST['username']) && isset($_POST['username'])) {
 }else
     {
         header("location: index.php");
+        exit();
+    }
+
+    // create the SQL query
+    $sql = "SELECT id FROM users WHERE username = '$username' AND password = '$password'";
+
+    // execute the SQL query
+    $result = mysqli_query($conn, $sql);
+
+    // check if there is a row returned
+    if (mysqli_num_rows($result) > 0) {
+        // get the user ID
+        $row = mysqli_fetch_assoc($result);
+        $user_id = $row['id'];
+
+        // store the user ID in the session
+        $_SESSION['user_id'] = $user_id;
+
+        // redirect the user to the home page
+        header("Location: home.php");
         exit();
     }
 ?>

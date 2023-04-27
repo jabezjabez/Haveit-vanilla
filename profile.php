@@ -1,3 +1,23 @@
+<?php
+    include('db_conn.php');
+    session_start();
+    $user_id = $_SESSION['id'];
+    $userName = $_SESSION['userName'];
+
+    $getData = mysqli_query($conn, "SELECT * FROM tbl_accounts WHERE id='$user_id'");
+    $row = mysqli_fetch_assoc($getData);
+    $email = $row['email'];
+    $password = $row['password'];
+
+
+     
+// var_dump($_SESSION)
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +56,7 @@
                 </div>
 
                 <div class="accountName">
-                    <span>Daniel Austin Berba</span>
+                    <span><?php   echo $userName  ?></span>
                 </div>
             </div>
         </div>
@@ -50,25 +70,66 @@
                     <button id="delete-account-btn" type="submit" class="btn btn-danger">Delete Account</button>
                 </form>
                 <form action="logout.php" method="post">
-                    <button type="submit" name="logout" class="btn btn-danger">Logout</button>
+                    <button type="submit" name="logout" class="btn btn-danger">Log Out</button>
                 </form>
                 </div>
             </div>
             
-            <!-- <div class="update">
+            <div class="update">
             <form method="post">
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" value="<?php echo $username; ?>">
+                    <input type="text" id="username" name="username" value="<?php echo $userName; ?>">
                 <br><br>
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" value="<?php echo $email; ?>">
                 <br><br>
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" value="<?php echo $password; ?>">
+                    <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
                 <br><br>
+                <?php
+                    // update code here
+                    if(isset($_POST['update'])) {
+                        $user_id = $_SESSION['id'];
+                        $username = $_POST['username'];
+                        $email = $_POST['email'];
+                        $password = $_POST['password'];
+
+
+                        if(isset($_POST['update'])) {
+                        $password = $_POST['password'];
+                        $password_regex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/';
+                        if(!preg_match($password_regex, $password)) {
+                        // password does not meet requirements
+                        echo "Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.";
+                        }else{
+                        // Update user information in the database
+                        $update_query = "UPDATE tbl_accounts SET username='$username', email='$email', password='$password' WHERE id='$user_id'";
+                        mysqli_query($conn, $update_query);
+
+                        // Redirect to the profile page
+                        updaters($user_id, $conn);
+                        header("Location: profile.php");
+                        exit();
+                        }
+                        
+                        }
+                    }
+
+                    function updaters($user_id, $conn){
+                        $query = "SELECT * FROM tbl_accounts WHERE id = '$user_id'";
+                        $result = mysqli_query($conn, $query);
+                        $row = mysqli_fetch_assoc($result);
+                    
+                        // update the session variables with the new values
+                        $_SESSION['email'] = $row['email'];
+                        $_SESSION['userName'] = $row['userName'];
+                        $_SESSION['password'] = $row['password'];
+                    }
+                ?><br><br>
                 <input type="submit" name="update" value="Update">
             </form>
-            </div> -->
+            </div>
             <footer>
                 <div class="footerGrid">
                     <div class="copyrightBox">
@@ -78,6 +139,18 @@
             </footer>
         </div>
     </div>
+    
+    <script>
+        //for the hide/unhide button
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("password");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+        } else {
+            passwordInput.type = "password";
+        }
+    }
+    </script>
 
 
 

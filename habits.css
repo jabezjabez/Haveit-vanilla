@@ -158,6 +158,10 @@ nav .navButton:active {
   width: 80%;
 }
 
+.accountName {
+  font-family: Berlin Rounded Regular;
+}
+
 .accountBox:hover {
   background-color: #EE6C4D;
   color: #0e0e0e;

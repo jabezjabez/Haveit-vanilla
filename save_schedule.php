@@ -9,10 +9,11 @@ extract($_POST);
 $allday = isset($allday);
 
 if(empty($id)){
-    $sql = "INSERT INTO `events` (`title`,`description`,`start_datetime`,`end_datetime`) VALUES ('$title','$description','$start_datetime','$end_datetime')";
+    $sql = "INSERT INTO `events` (`title`,`description`,`start_datetime`,`end_datetime`, `status`) VALUES ('$title','$description','$start_datetime','$end_datetime', 0)";
 }else{
-    $sql = "UPDATE `events` set `title` = '{$title}', `description` = '{$description}', `start_datetime` = '{$start_datetime}', `end_datetime` = '{$end_datetime}' where `id` = '{$id}'";
+    $sql = "UPDATE `events` set `title` = '{$title}', `description` = '{$description}', `start_datetime` = '{$start_datetime}', `end_datetime` = '{$end_datetime}', `status` = 0 where `id` = '{$id}'";
 }
+
 $save = $conn->query($sql);
 if($save){
     echo "<script> alert('Schedule Successfully Saved.'); location.replace('./calendar.php') </script>";

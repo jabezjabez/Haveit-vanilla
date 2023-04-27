@@ -1,47 +1,48 @@
 @font-face {
     font-family: "Party Confetti";
     src: url('Fonts/Party-Confetti.ttf');
-}
-
-@font-face {
+  }
+  
+  @font-face {
     font-family: "Berlin Rounded Regular";
     src: url('Fonts/BerlinRounded-Regular.ttf');
-}
-
-@font-face {
+  }
+  
+  @font-face {
     font-family: "Berlin Rounded Light";
     src: url('Fonts/BerlinRounded-Light.ttf');
-}
-
-@font-face {
+  }
+  
+  @font-face {
     font-family: "Berlin Rounded Bold";
     src: url('Fonts/BerlinRounded-Bold.ttf');
-}
-
-@font-face {
+  }
+  
+  @font-face {
     font-family: "Berlin Rounded Extra Bold";
     src: url('Fonts/BerlinRounded-Extra-Bold.ttf');
-}
-
-
-/* BODY */ 
-body {
-	  font-family: Berlin Rounded Regular, Arial, sans-serif;
-	  color: #fff;
-	  background-color: #0e0e0e;
+  }
+  
+  
+  /* BODY */ 
+  body {
+    font-family: Berlin Rounded Regular, Arial, sans-serif;
+    color: #fff;
+    background-color: #0e0e0e;
     margin: 0 0 0 0;
-}
-
-
-/* MAIN GRID */ 
-.wrapperGrid {
+    overflow-x: hidden;
+  }
+  
+  
+  /* MAIN GRID */ 
+  .wrapperGrid {
     display: grid;
     grid-template-columns: 15vh 85vh;
-}
-
-
-/* SIDEBAR */ 
-.sidebarSect {
+  }
+  
+  
+  /* SIDEBAR */ 
+  .sidebarSect {
     background-color: rgb(28, 28, 28);
     display: flex;
     flex-direction: column;
@@ -50,31 +51,31 @@ body {
     justify-content: center;
     align-items: center;
     position: fixed;
-    border-right: 5px solid #3DD4FF;
-}
-
-.logoBox {
+    border-right: 5px solid #39efdd;
+  }
+  
+  .logoBox {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: center;
     align-items: flex-start;
     padding: 0px 0px 10px 0px;
-}
-
-.logoBox img {
+  }
+  
+  .logoBox img {
     opacity: 0.3;
     display: flex;
     width: 90%;
     user-select: none;
-}
-
-.logoBox img:hover {
+  }
+  
+  .logoBox img:hover {
     opacity: 1;
     transition: 0.1s;
-}
-
-.tabsBox {
+  }
+  
+  .tabsBox {
     display: flex;
     width: 100%;
     height: 70vh;
@@ -82,31 +83,31 @@ body {
     justify-content: center;
     align-items: flex-start;
     margin-top: 10px;
-}
-
-nav {
+  }
+  
+  nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-}
-
-.activeButton {
+  }
+  
+  .activeButton {
     display: flex;
-    background-color: #3DD4FF;
+    background-color: #39efdd;
     font-family: Party Confetti;
     letter-spacing: 1.5px;
     font-size: 20px;
     height: 50px;
     border: none;
-    color: #fff;
+    color: #0e0e0e;
     padding: 10px;
     border-radius: 5px 0px 0px 5px;
     cursor: default;
     padding-left: 15px;
-}
-
-nav .navButton {
+  }
+  
+  nav .navButton {
     font-family: Party Confetti;
     letter-spacing: 1.5px;
     display: flex;
@@ -119,19 +120,21 @@ nav .navButton {
     border-radius: 5px 0px 0px 5px;
     cursor: pointer;
     padding-left: 15px;
-}
-
-nav .navButton:hover {
-    background-color: #27748a;
+  }
+  
+  nav .navButton:hover {
+    background-color: #5afaea;
+    color: #0e0e0e;
     transition: 0.2s;
-}
-
-nav .navButton:active {
-    background-color: #8ce5fd;
+  }
+  
+  nav .navButton:active {
+    background-color: #b1faf3;
+    color: #0e0e0e;
     transition: 0.1s;
-}
-
-.accountBox {
+  }
+  
+  .accountBox {
     display: flex;
     width: 90%;
     height: 7vh;
@@ -142,73 +145,175 @@ nav .navButton:active {
     border: 2px solid rgba(255, 255, 255, 0.363);
     border-radius: 5px;
     cursor: pointer;
-}
-
-.accountBox .accountPic {
+  }
+  
+  .accountBox .accountPic {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.accountBox .accountPic img {
+  }
+  
+  .accountBox .accountPic img {
     filter: invert(1);
     width: 80%;
-}
-
-.accountBox:hover {
+  }
+  
+  .accountName {
+    font-family: Berlin Rounded Regular;
+  }
+  
+  .accountBox:hover {
     background-color: #EE6C4D;
     color: #0e0e0e;
     transition: 0.1s;
     border-color: #EE6C4D;
-}
-
-
-/* CONTENT GRID */ 
-.contentSect {
+  }
+  
+  
+  /* CONTENT GRID */ 
+  .contentSect {
     display: flex;
     flex-direction: column;
     height: 100vh;
     width: 86vw;
     padding-left: 14vw;
-}
-
-
-
-footer {
+  }
+  
+  footer {
     margin: 3.5% 0 2% 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-}
-
-.footerGrid {
+  
+  }
+  
+  .footerGrid {
     display: grid;
     grid-template-columns: 100%;
-}
-
-.copyrightBox {
+  }
+  
+  .copyrightBox {
     opacity: 0.6;
     text-align: center;
     font-size: 1.5vh;
-}
-
-
-/* LINKS */
-a:link {
-	color: inherit;
+  }
+  
+  
+  /* LINKS */
+  a:link {
+  color: inherit;
     text-decoration: none;
+  }
+  
+  a:hover {
+  color: none;
+  }
+  
+  a:active {
+  color: #fff;
+  }
+  
+  a:visited {
+  color: #fff;
+  }
+  
+  
+  
+  
+  
+  
+    
+  .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-self: center;
+      justify-self: center;
+      padding: 30px;
+      align-items: flex-start;
+      background-color: rgb(28, 28, 28);
+      width: 70%;
+      height: 70%;
+      margin-top: 5%;
+      border-radius: 10px;
+  }
+
+  .completedGoals, .createdGoals {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 5px solid #39efdd;
+  }
+
+  .createdJournals {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+  }
+  
+  .header-CompG, .header-CreatG, .header-CreatJ {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+    
+.header-CompG-Text {
+    text-align: start;
+    display: flex;
+    flex-direction: row;
+    font-size: 3.5vh;
 }
 
-a:hover {
-	color: none;
+.header-CreatG-Text {
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+  font-size: 3.5vh;
 }
 
-a:active {
-	color: #fff;
+.header-CreatJ-Text {
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+  font-size: 3.5vh;
 }
 
-a:visited {
-	color: #fff;
+
+.sortBox {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
 }
+
+.sortBy {
+    width: 100%;
+    border: none;
+    color: rgba(255, 255, 255, 0.40);
+    cursor: pointer;
+    font-family: Berlin Rounded Regular;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 7px;
+    font-size: 15px;
+    height: 100%;
+}
+  
+.list-CompG, .list-CreatG, .list-CreatJ {
+    display: flex;
+    align-self: center;
+    width: 90%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #2f2f2f;
+    margin-top: 10px;
+}
+    

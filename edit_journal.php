@@ -25,7 +25,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAVE IT - JOURNAL</title>
-    <link rel="stylesheet" type="text/css" href="journal.css">
+    <link rel="stylesheet" type="text/css" href="edit_journal.css">
     <link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,7 +49,7 @@
                     <button class="navButton" onclick="location.href='about.php'"><span class="material-symbols-outlined">info</span>&nbsp;ABOUT</button>
                 </nav>
             </div>
-
+            
             <div class="accountBox">
                 <div class="accountPic">
                     <img src="CSS/Images/Account-Placeholder.png">
@@ -60,7 +60,65 @@
                 </div>
             </div>
         </div>
-      </div>
+
+        <!--CONTENT-->
+        <div class="contentSect">
+            <div class="container">
+                <label for="title">Title:</label>
+                    <input type="text" class="" id="title" name="title" required>
+                <br>
+                <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required>
+                <br><br>
+                <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                <br>
+
+                <div class="fontButtons">
+                    <span class="toolCategory">Font</span>
+                    <div class="fontButtonsSect">
+                        <!--Font Dropdown-->
+                        <select id="fontName" class="adv-option-button fName"></select>
+                        <!--Font Size Dropdown-->
+                        <select id="fontSize" class="adv-option-button fSize"></select>
+                        <!--Superscript-->
+                        <button id="superscript" class="option-button script fSuperS">
+                            <i class="fa-solid fa-superscript"></i>
+                        </button>
+                        <!--Subscript-->
+                        <button id="subscript" class="option-button script fSubS">
+                            <i class="fa-solid fa-subscript"></i>
+                        </button>                    
+                        
+                        <!--Bold-->
+                        <button id="bold" class="option-button format">
+                            <i class="fa-solid fa-bold"></i>
+                        </button>
+                        <!--Italic-->
+                        <button id="italic" class="option-button format">
+                            <i class="fa-solid fa-italic"></i>
+                        </button>
+                        <!--Underline-->
+                        <button id="underline" class="option-button format">
+                            <i class="fa-solid fa-underline"></i>
+                        </button>
+                        <!--Strikethrough-->
+                        <button id="strikethrough" class="option-button format">
+                            <i class="fa-solid fa-strikethrough"></i>
+                        </button>
+
+                        <!--Font Color-->
+                        <div class="input-wrapper">
+                            <input type="color" id="foreColor" class="adv-option-button fColor" />
+                                <i class="fa-solid fa-fill-drip"></i>
+                        </div>
+                        <!--Highlight Color-->
+                        <div class="input-wrapper">
+                            <input type="color" id="backColor" class="adv-option-button fHighlight" />
+                                <i class="fa-solid fa-highlighter"> </i>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="paragraphButtons">
                     <span class="toolCategory">Paragraph</span>
@@ -136,9 +194,7 @@
                     <input type="datetime-local" style="cursor: pointer;" class="curdate" name="curdate" id="curdate" required>
                     </div>
                 </div>
-                <div class="titleBoxSect">
-                    <div id="titleBoxSect" class="inputBox" contenteditable="true"></div>
-                </div>
+                
                 <div class="inputBoxSect">
                     <div id="text-input" class="inputBox" contenteditable="true"></div>
                 </div>
@@ -149,7 +205,7 @@
             </div>
           
             <!--Script-->
-            <script src="journal.js"></script>
+            <script src="edit_journal.js"></script>
             
             <footer>
                 <div class="footerGrid">
@@ -157,9 +213,10 @@
                         &copy;2023 "HAVE IT" and "Have it your way!" under MALINTA KALIWA. All rights reserved.
                     </div>
                 </div>
-        </footer>
-    
-    <script src="journal.js"></script>
+            </footer>
+        </div>
+    </div>
+
 </body>
 
 
