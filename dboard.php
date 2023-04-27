@@ -28,6 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="dboard.css">
 	<link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    
 </head>
 <body>
     <div class="wrapperGrid">
@@ -123,6 +124,8 @@
             <footer>
                 <div class="footerGrid">
                     <div class="copyrightBox">
+            
+        
                         &copy;2023 "HAVE IT" and "Have it your way!" under MALINTA KALIWA. All rights reserved.
                     </div>
                 </div>

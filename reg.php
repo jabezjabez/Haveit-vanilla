@@ -78,15 +78,15 @@ $emptyfield= "A field was left empty, please fill it up";
 				
 				<div class="divTAC">
 					<input id="TAC" type="checkbox"/>
-					<label for="checkbox"> I have read and AGREED to the <a href="#">Terms and Conditions</a> of HAVE IT.</label>
+					<label for="checkbox" required > I have read and AGREED to the <a href="#">Terms and Conditions</a> of HAVE IT.</label>
 				</div>
 
 				<div class="divPP">
 					<input id="PP" type="checkbox"/>
-					<label for="checkbox"> I have also read and AGREED to the <a href="#">Privacy Policy</a> of HAVE IT.</label>
+					<label for="checkbox" required > I have also read and AGREED to the <a href="#">Privacy Policy</a> of HAVE IT.</label>
 				</div>
 
-				  <input type="submit" class="btn" name="submit">
+				  <input type="submit" class="btn" name="submit" id="submit-btn">
 			</form>
 
         	<div class="alr">
@@ -106,6 +106,18 @@ $emptyfield= "A field was left empty, please fill it up";
             passwordInput.type = "password";
         }
     }
+		//checkbox
+	document.querySelector('form').addEventListener('submit', function(event) {
+	var tacCheckbox = document.getElementById('TAC');
+	var ppCheckbox = document.getElementById('PP');
+	var submitBtn = document.getElementById('submit-btn');
+
+	if (!tacCheckbox.checked || !ppCheckbox.checked) {
+		event.preventDefault(); // Prevent the form from submitting
+		alert('Please agree to the Terms and Conditions and Privacy Policy.');
+	}
+	});
+
     </script>
 
 </html>
