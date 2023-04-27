@@ -1,13 +1,13 @@
+@@ -0,0 +1,64 @@
 <?php
 session_start();
 
 // Connect to the database
 require_once('db_conn.php');
 
-// Check if the habit ID to edit was submitted via GET
-if (isset($_GET['id'])) {
+
     // Get the habit ID to edit from the query string
-    $habit_id = $_GET['id'];
+    $habit_id = $_POST['id'];
 
     // Fetch the habit from the database
     $sql = "SELECT * FROM habits WHERE id = '$habit_id'";
@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
     if (mysqli_num_rows($result) == 1) {
         // Fetch the habit data
         $row = mysqli_fetch_assoc($result);
-        $habit = $row['habit'];
+        $habit = $row['text'];
         $reps = $row['reps'];
         $timeframe = $row['timeframe'];
 
@@ -58,11 +58,7 @@ if (isset($_GET['id'])) {
         header('Location: habits.php');
         exit();
     }
-} else {
-    // If the habit ID was not submitted via GET, redirect the user back to the homepage
-    header('Location: habits.php');
-    exit();
-}
+
 
 // Close the database connection
 mysqli_close($conn);
