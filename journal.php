@@ -132,29 +132,21 @@
                             <i class="fa-solid fa-rotate-right"></i>
                         </button>
                     </div>
-
-                    <!-- lddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
                     <div>
-                        <form method="post" action="save_journal.php" id="myForm">
-                            <input type="date" style="cursor: pointer;" class="curdate" name="curdate" id="curdate" required></input>
+                    <input type="datetime-local" style="cursor: pointer;" class="curdate" name="curdate" id="curdate" required>
                     </div>
-                    </div>
-                <!-- title here -->
-                    <div class="titleBoxSect">
-                        <div id="title" class="inputBox" contenteditable="true" name="title"></div>
-                    </div>
-                <!-- body  here -->
-                    <div class="inputBoxSect">
-                        <div id="body" class="inputBox" contenteditable="true" name="body"></div>
-                    </div>
+                </div>
+                <div class="titleBoxSect">
+                    <div id="titleBoxSect" class="inputBox" contenteditable="true"></div>
+                </div>
+                <div class="inputBoxSect">
+                    <div id="text-input" class="inputBox" contenteditable="true"></div>
+                </div>
                 
                 <div class="publishButtonSect">
-                    <button class="publishButton" onclick="saveBtn()"  >Publish</button>
+                    <button class="publishButton" onclick="document.location='#'">Publish</button>
               </div>
-                </form>
             </div>
-                
-                    
           
             <!--Script-->
             <script src="journal.js"></script>
