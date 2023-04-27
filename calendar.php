@@ -139,23 +139,21 @@ include("db_conn.php");
                                 <dd id="start" class=""></dd>
                                 <dt class="text-muted">End</dt>
                                 <dd id="end" class=""></dd>
-
+                                <dt class="text-muted">Status</dt>
+                                <dd>
+                                    <label>
+                                        <input type="checkbox" id="status" class="form-check-input" data-id="">
+                                        Done
+                                    </label>
+                                </dd>
                             </dl>
                         </div>
                     </div>
                     <div class="modal-footer rounded-0">
                         <div class="text-end">
-                        <dt class="text-muted">Status</dt>
-                                <dd>
-                                    <label>
-                                        <input type="checkbox" id="status" class="form-check-input">
-                                        Done
-                                    </label>
-                                </dd>
                             <button type="button" class="btn btn-primary btn-sm rounded-0" id="edit" data-id="">Edit</button>
                             <button type="button" class="btn btn-danger btn-sm rounded-0" id="delete" data-id="">Delete</button>
                             <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Close</button>
-
                         </div>
                     </div>
                 </div>
@@ -167,7 +165,7 @@ include("db_conn.php");
 
                 <?php 
                 // MUST CHANGE THE WHERE CONDITION HERE AFTER MODIFYING THE 
-                $schedules = $conn->query("SELECT * FROM `events` WHERE author_id = $user_id");
+                $schedules = $conn->query("SELECT * FROM `events`");
                 $sched_res = [];
 
                 foreach($schedules->fetch_all(MYSQLI_ASSOC) as $row){

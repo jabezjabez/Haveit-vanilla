@@ -22,7 +22,7 @@ start.addEventListener('click', () => {
 reset.addEventListener('click', () => {
   h.value = 0;
   m.value = 0;
-  s.value = 60;
+  s.value = 0;
   stopInterval();
 });
 
@@ -32,18 +32,17 @@ function timer() {
     h.value = 0;
     m.value = 0;
     s.value = 0;
-  } else if (s.value > 0) {
+  } else if (s.value != 0) {
     s.value--;
-  } else if (m.value > 0 && s.value == 0) {
+  } else if (m.value != 0 && s.value == 0) {
     s.value = 59;
     m.value--;
-  } else if (h.value > 0 && m.value == 0) {
-    m.value = 59;
+  } else if (h.value != 0 && m.value == 0) {
+    m.value = 60;
     h.value--;
   }
   return;
 }
-
 
 // stop the timer interval when the Reset button is clicked
 function stopInterval() {

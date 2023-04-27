@@ -61,12 +61,7 @@
         <!--CONTENT-->
         <div class="contentSect">
 
-            something something
-            images  
 
-            ang mga lalagay dito is yung purpose ng ating website(?)
-            and then some images kung pede and etc
-            
             <footer>
                 <div class="footerGrid">
                     <div class="copyrightBox">

@@ -16,7 +16,6 @@
         // get the username from the seesion
         $userName = $_SESSION['userName'];
         echo $user_id;
-        $author_id = $user_id;
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +30,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-    
 </head>
 <body>
     <div class="wrapperGrid">
@@ -119,14 +117,18 @@
 
 
 <script>
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();
-
-  today = yyyy + '-' + mm + '-' + dd;
-  document.getElementById("curdate").value = today;
-// 
-
+  // get current date and time
+  var now = new Date();
+  
+  // format date and time as string for datetime-local input
+  var year = now.getFullYear();
+  var month = ('0' + (now.getMonth() + 1)).slice(-2);
+  var day = ('0' + now.getDate()).slice(-2);
+  var hour = ('0' + now.getHours()).slice(-2);
+  var minute = ('0' + now.getMinutes()).slice(-2);
+  var datetimeString = year + '-' + month + '-' + day + 'T' + hour + ':' + minute;
+  
+  // set the value of the datetime-local input
+  document.getElementById("curdate").value = datetimeString;
 </script>
 </html>

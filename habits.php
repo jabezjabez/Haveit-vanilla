@@ -15,7 +15,6 @@
         $user_id = $_SESSION['id'];
         // get the username from the seesion
         $userName = $_SESSION['userName'];
-        $author_id = $_SESSION['id'];
 
 ?>
 <!DOCTYPE html>
@@ -67,7 +66,7 @@
                 </div>
 
                 <div class="add-habitBox">
-                    <form class="add-habit" method="POST" action="save_habit.php">
+                    <form class="add-habit">
                         <input
                             class="habit"
                             type="text"
@@ -90,53 +89,14 @@
                             <option value="Monthly">Monthly</option>
                             <option value="Yearly">Yearly</option>
                         </select>
-                        <input type="hidden" name="author_id" value="<?php echo $author_id; ?>" />
+
                         <input class="addHabitButton" type="submit" value="+ Add Habit" />
                     </form>
                 </div>
 
                 <div class="habitsList">
                     <ul class="habits">
-                        <!-- <li>Loading...</li> -->
-                        <?php
-                            // Connect to the database
-                            require_once('db_conn.php');
-                            
-
-                            // Construct the SQL query
-                            $sql = "SELECT * FROM habits WHERE author_id = '$author_id'";
-
-                            // Execute the query and get the result set
-                            $result = mysqli_query($conn, $sql);
-
-                            // Loop through the result set and display the data
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                // Display the habit data
-                                ?>
-                                <li>
-                                <?php
-                                echo "Habit Title: " . $row['text'] . "<br>";
-                                echo "Repititions: ". $row['totalCounts'] ."/". $row['reps'] . "<br>";
-                                echo "Frequency: " . $row['timeframe'] . "<br>";
-                                $habit_id  = $row['id']; 
-                                ?>
-                                <form action="update_habit.php" method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $habit_id; ?>">
-                                    <button class="edit">edit</button>
-                                </form>
-
-                                <form id="delete-form" action="delete_habit.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $habit_id; ?>">
-                                <button type="submit">Delete Habit</button>
-                                </form>
-
-
-                            
-                                </li>
-                                <?php
-                            }
-
-                        ?>
+                        <li>Loading...</li>
                     </ul>
                 </div>
             </div>
@@ -151,26 +111,7 @@
         </div>
     </div>
     
-    <script>
-                $('#edit').click(function() {
-            var id = $(this).attr('data-id')
-            if (!!habits[id]) {
-                var _form = $('#schedule-form')
-                console.log(String(habits[id].start_datetime), String(habits[id].start_datetime).replace(" ", "\\t"))
-                _form.find('[name="id"]').val(id)
-                _form.find('[name="habit"]').val(habits[id].title)
-                _form.find('[name="reps"]').val(habits[id].description)
-                _form.find('[name="timeframe"]').val(String(habits[id].start_datetime).replace(" ", "T"))
-                _form.find('[name="end_datetime"]').val(String(habits[id].end_datetime).replace(" ", "T"))
-                $('#event-details-modal').modal('hide')
-                _form.find('[name="title"]').focus()
-            } else {
-                alert("Event is undefined");
-            }
-        })
-
-    </script>
-    
+    <script src="habits.js"></script>
 </body>
 
 </html>

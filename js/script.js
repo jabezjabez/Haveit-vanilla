@@ -23,6 +23,7 @@
             themeSystem: '',
             //Random default events
             events: events,
+            
             eventClick: function(info) {
                 var _details = $('#event-details-modal');
                 var id = info.event.id;
