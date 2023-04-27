@@ -16,6 +16,7 @@
         // get the username from the seesion
         $userName = $_SESSION['userName'];
         echo $user_id;
+        $author_id = $user_id;
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +31,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    
 </head>
 <body>
     <div class="wrapperGrid">
@@ -180,21 +182,29 @@
                             <i class="fa-solid fa-rotate-right"></i>
                         </button>
                     </div>
+
+                    <!-- lddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
                     <div>
-                    <input type="datetime-local" style="cursor: pointer;" class="curdate" name="curdate" id="curdate" required>
+                        <form method="post" action="save_journal.php" id="myForm">
+                            <input type="date" style="cursor: pointer;" class="curdate" name="curdate" id="curdate" required></input>
                     </div>
-                </div>
-                <div class="titleBoxSect">
-                    <div id="titleBoxSect" class="inputBox" contenteditable="true"></div>
-                </div>
-                <div class="inputBoxSect">
-                    <div id="text-input" class="inputBox" contenteditable="true"></div>
-                </div>
+                    </div>
+                <!-- title here -->
+                    <div class="titleBoxSect">
+                        <div id="title" class="inputBox" contenteditable="true" name="title"></div>
+                    </div>
+                <!-- body  here -->
+                    <div class="inputBoxSect">
+                        <div id="body" class="inputBox" contenteditable="true" name="body"></div>
+                    </div>
                 
                 <div class="publishButtonSect">
-                    <button class="publishButton" onclick="document.location='#'">Publish</button>
+                    <button class="publishButton" onclick="saveBtn()"  >Publish</button>
               </div>
+                </form>
             </div>
+                
+                    
           
             <!--Script-->
             <script src="journal.js"></script>
@@ -213,18 +223,14 @@
 
 
 <script>
-  // get current date and time
-  var now = new Date();
-  
-  // format date and time as string for datetime-local input
-  var year = now.getFullYear();
-  var month = ('0' + (now.getMonth() + 1)).slice(-2);
-  var day = ('0' + now.getDate()).slice(-2);
-  var hour = ('0' + now.getHours()).slice(-2);
-  var minute = ('0' + now.getMinutes()).slice(-2);
-  var datetimeString = year + '-' + month + '-' + day + 'T' + hour + ':' + minute;
-  
-  // set the value of the datetime-local input
-  document.getElementById("curdate").value = datetimeString;
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = yyyy + '-' + mm + '-' + dd;
+  document.getElementById("curdate").value = today;
+// 
+
 </script>
 </html>
