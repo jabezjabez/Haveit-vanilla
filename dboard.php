@@ -15,6 +15,7 @@
         $user_id = $_SESSION['id'];
         // get the username from the seesion
         $userName = $_SESSION['userName'];
+        echo $user_id;
 
 ?>
 <!DOCTYPE html>
@@ -60,6 +61,64 @@
 
         <!--CONTENT-->
         <div class="contentSect">
+            <div class="container">
+                <div class="completedGoals">
+                    <div class="header-CompG">
+                        <span class="header-CompG-Text">YOUR COMPLETED GOALS</span>
+                        <div class="sortBox">
+                            <select id="sortBy-CompG" class="sortBy">
+                                <option value="" disabled selected hidden class="sortBy">Sort By</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="weekly">Weekly</option>
+                            </select> 
+                        </div>
+                    </div>
+
+                    <div class="list-CompG">
+                        <ul class="compG">
+                            <li>Loading...</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="createdGoals">
+                    <div class="header-CreatG">
+                        <span class="header-CreatG-Text">YOUR CREATED GOALS</span>
+                        <div class="sortBox">
+                            <select id="sortBy-CreatG" class="sortBy">
+                                <option value="" disabled selected hidden class="sortBy">Sort By</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="weekly">Weekly</option>
+                            </select> 
+                        </div>
+                    </div>
+
+                    <div class="list-CreatG">
+                        <ul class="creatG">
+                            <li>Loading...</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="createdJournals">
+                    <div class="header-creatJ">
+                        <span class="header-CreatJ-Text">YOUR CREATED JOURNALS</span>
+                        <div class="sortBox">
+                            <select id="sortBy-Dropdown" class="sortBy">
+                                <option value="" disabled selected hidden class="sortBy">Sort By</option>
+                                <option value="monthly">Monthly</option>
+                            </select> 
+                        </div>
+                    </div>
+
+                    <div class="list-creatJ">
+                        <ul class="creatJ">
+                            <li>Loading...</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
 
             <footer>
                 <div class="footerGrid">

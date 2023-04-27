@@ -49,182 +49,70 @@
                     <button class="navButton" onclick="location.href='about.php'"><span class="material-symbols-outlined">info</span>&nbsp;ABOUT</button>
                 </nav>
             </div>
-            
+
             <div class="accountBox">
                 <div class="accountPic">
                     <img src="CSS/Images/Account-Placeholder.png">
                 </div>
 
                 <div class="accountName">
-                    <span onclick="location.href='profile.php'"><?php   echo $userName  ?></</span>
+                    <span onclick="location.href='profile.php'"><?php   echo $userName  ?></span>
                 </div>
             </div>
         </div>
+      </div>
 
-        <!--CONTENT-->
-        <div class="contentSect">
-            <div class="container">
-                <div class="fontButtons">
-                    <span class="toolCategory">Font</span>
-                    <div class="fontButtonsSect">
-                        <!--Font Dropdown-->
-                        <select id="fontName" class="adv-option-button fName"></select>
-                        <!--Font Size Dropdown-->
-                        <select id="fontSize" class="adv-option-button fSize"></select>
-                        <!--Superscript-->
-                        <button id="superscript" class="option-button script fSuperS">
-                            <i class="fa-solid fa-superscript"></i>
-                        </button>
-                        <!--Subscript-->
-                        <button id="subscript" class="option-button script fSubS">
-                            <i class="fa-solid fa-subscript"></i>
-                        </button>                    
-                        
-                        <!--Bold-->
-                        <button id="bold" class="option-button format">
-                            <i class="fa-solid fa-bold"></i>
-                        </button>
-                        <!--Italic-->
-                        <button id="italic" class="option-button format">
-                            <i class="fa-solid fa-italic"></i>
-                        </button>
-                        <!--Underline-->
-                        <button id="underline" class="option-button format">
-                            <i class="fa-solid fa-underline"></i>
-                        </button>
-                        <!--Strikethrough-->
-                        <button id="strikethrough" class="option-button format">
-                            <i class="fa-solid fa-strikethrough"></i>
-                        </button>
-
-                        <!--Font Color-->
-                        <div class="input-wrapper">
-                            <input type="color" id="foreColor" class="adv-option-button fColor" />
-                                <i class="fa-solid fa-fill-drip"></i>
-                        </div>
-                        <!--Highlight Color-->
-                        <div class="input-wrapper">
-                            <input type="color" id="backColor" class="adv-option-button fHighlight" />
-                                <i class="fa-solid fa-highlighter"> </i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="paragraphButtons">
-                    <span class="toolCategory">Paragraph</span>
-                    <div class="paragraphButtonsSect">
-                        <!--Headings Dropdown-->
-                        <select id="formatBlock" class="adv-option-button">
-                            <option value="H1">H1</option>
-                            <option value="H2">H2</option>
-                            <option value="H3">H3</option>
-                            <option value="H4">H4</option>
-                            <option value="H5">H5</option>
-                            <option value="H6">H6</option>
-                        </select>
-                        <!--Ordered List-->
-                        <button id="insertOrderedList" class="option-button">
-                            <div class="fa-solid fa-list-ol"></div>
-                        </button>
-                        <!--Unordered List-->
-                        <button id="insertUnorderedList" class="option-button">
-                            <i class="fa-solid fa-list"></i>
-                        </button>
-
-                        <!--Align Left-->
-                        <button id="justifyLeft" class="option-button align">
-                            <i class="fa-solid fa-align-left"></i>
-                        </button>
-                        <!--Align Center-->
-                        <button id="justifyCenter" class="option-button align">
-                            <i class="fa-solid fa-align-center"></i>
-                        </button>
-                        <!--Align Right-->
-                        <button id="justifyRight" class="option-button align">
-                            <i class="fa-solid fa-align-right"></i>
-                        </button>
-                        <!--Justify Full-->
-                        <button id="justifyFull" class="option-button align">
-                            <i class="fa-solid fa-align-justify"></i>
-                        </button>
-
-                        <!--Indent-->
-                        <button id="indent" class="option-button spacing">
-                            <i class="fa-solid fa-indent"></i>
-                        </button>
-                        <!--Outdent-->
-                        <button id="outdent" class="option-button spacing">
-                            <i class="fa-solid fa-outdent"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="insertButtons">
-                    <span class="toolCategory">Insert</span>            
-                    <div class="insertButtonsSect">
-                        <!--Create Link-->
-                        <button id="createLink" class="adv-option-buttonLink">
-                            <i class="fa fa-link"></i>
-                        </button>
-                        <!--Unlink-->
-                        <button id="unlink" class="option-button">
-                            <i class="fa fa-unlink"></i>
-                        </button>
-
-                        <!--Undo-->
-                        <button id="undo" class="option-button">
-                            <i class="fa-solid fa-rotate-left"></i>
-                        </button>
-                        <!--Redo-->
-                        <button id="redo" class="option-button">
-                            <i class="fa-solid fa-rotate-right"></i>
-                        </button>
-                    </div>
-                    <div>
-                    <input type="datetime-local" style="cursor: pointer;" class="curdate" name="curdate" id="curdate" required>
-                    </div>
-                </div>
-                <div class="titleBoxSect">
-                    <div id="titleBoxSect" class="inputBox" contenteditable="true"></div>
-                </div>
-                <div class="inputBoxSect">
-                    <div id="text-input" class="inputBox" contenteditable="true"></div>
-                </div>
-                
-                <div class="publishButtonSect">
-                    <button class="publishButton" onclick="document.location='#'">Publish</button>
+        
+            <div class="journals">
+              <h2>JOURNAL YOUR JOURNEY</h2>
               </div>
-            </div>
-          
-            <!--Script-->
-            <script src="journal.js"></script>
-            
-            <footer>
+        
+
+              <div class="journs">
+              <div class="journalist">
+              <a href="edit_journal.php"><p>&nbsp;&nbsp;Concert Experience!</a>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+
+            <button onclick="location.href='edit_journal.php'" id="edit" class="edit-journal">
+              <i class="fas fa-edit"></i>  
+            </button>
+
+            <button id="delete" class="delete-journal">
+              <i class="fa fa-trash" aria-hidden="true"></i>   
+            </button>&nbsp;&nbsp;
+          </p></div>
+        </div>
+
+        <footer>
                 <div class="footerGrid">
                     <div class="copyrightBox">
                         &copy;2023 "HAVE IT" and "Have it your way!" under MALINTA KALIWA. All rights reserved.
                     </div>
                 </div>
-            </footer>
-        </div>
-    </div>
-
+        </footer>
+    
+    <script src="journal.js"></script>
 </body>
 
-
-<script>
-  // get current date and time
-  var now = new Date();
-  
-  // format date and time as string for datetime-local input
-  var year = now.getFullYear();
-  var month = ('0' + (now.getMonth() + 1)).slice(-2);
-  var day = ('0' + now.getDate()).slice(-2);
-  var hour = ('0' + now.getHours()).slice(-2);
-  var minute = ('0' + now.getMinutes()).slice(-2);
-  var datetimeString = year + '-' + month + '-' + day + 'T' + hour + ':' + minute;
-  
-  // set the value of the datetime-local input
-  document.getElementById("curdate").value = datetimeString;
-</script>
 </html>

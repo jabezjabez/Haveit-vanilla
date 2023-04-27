@@ -1,3 +1,23 @@
+<?php
+        // start the session
+        session_start();
+
+        if (!isset($_SESSION['user_id'])) 
+        // {
+        //     // user is logged in, do something
+        // } else {
+        //     // redirect the user to the login page
+        //     header("Location: login.php");
+        //     exit();
+        // }
+
+        // get the user ID from the session
+        $user_id = $_SESSION['id'];
+        // get the username from the seesion
+        $userName = $_SESSION['userName'];
+        echo $user_id;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +25,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAVE IT - JOURNAL</title>
-    <link rel="stylesheet" type="text/css" href="journal.css">
+    <link rel="stylesheet" type="text/css" href="edit_journal.css">
     <link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,28 +56,26 @@
                 </div>
 
                 <div class="accountName">
-                    <span onclick="location.href='profile.php'"><?php   echo $userName  ?></</span>
+                    <span onclick="location.href='profile.php'"><?php   echo $userName  ?></span>
                 </div>
             </div>
         </div>
-      
+
         <!--CONTENT-->
         <div class="contentSect">
-        
             <div class="container">
-
                 <label for="title">Title:</label>
-                <input type="text" class="" id="title" name="title" required>
+                    <input type="text" class="" id="title" name="title" required>
                 <br>
                 <label for="time">Time:</label>
-                <input type="time" id="time" name="time" required>
+                    <input type="time" id="time" name="time" required>
                 <br><br>
                 <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required>
-                <br> 
+                    <input type="date" id="date" name="date" required>
+                <br>
+
                 <div class="fontButtons">
-                    
-                    <br><span class="toolCategory">Font</span>
+                    <span class="toolCategory">Font</span>
                     <div class="fontButtonsSect">
                         <!--Font Dropdown-->
                         <select id="fontName" class="adv-option-button fName"></select>
@@ -70,18 +88,12 @@
                         <!--Subscript-->
                         <button id="subscript" class="option-button script fSubS">
                             <i class="fa-solid fa-subscript"></i>
-                        </button> 
-                      
-                        
+                        </button>                    
                         
                         <!--Bold-->
                         <button id="bold" class="option-button format">
                             <i class="fa-solid fa-bold"></i>
                         </button>
-                        <!--erase highlight-->
-                        <div contenteditable="true"></div>
-                        <button onclick="eraseHighlight()" class="option-button format">
-                            <i class="fa-solid fa-eraser"></i></button>
                         <!--Italic-->
                         <button id="italic" class="option-button format">
                             <i class="fa-solid fa-italic"></i>
@@ -109,7 +121,7 @@
                 </div>
 
                 <div class="paragraphButtons">
-                    <br><span class="toolCategory">Paragraph</span>
+                    <span class="toolCategory">Paragraph</span>
                     <div class="paragraphButtonsSect">
                         <!--Headings Dropdown-->
                         <select id="formatBlock" class="adv-option-button">
@@ -158,7 +170,7 @@
                 </div>
 
                 <div class="insertButtons">
-                    <br> <span class="toolCategory">Insert</span>            
+                    <span class="toolCategory">Insert</span>            
                     <div class="insertButtonsSect">
                         <!--Create Link-->
                         <button id="createLink" class="adv-option-buttonLink">
@@ -178,17 +190,22 @@
                             <i class="fa-solid fa-rotate-right"></i>
                         </button>
                     </div>
+                    <div>
+                    <input type="datetime-local" style="cursor: pointer;" class="curdate" name="curdate" id="curdate" required>
+                    </div>
                 </div>
-
+                
                 <div class="inputBoxSect">
                     <div id="text-input" class="inputBox" contenteditable="true"></div>
                 </div>
-
+                
                 <div class="publishButtonSect">
-                    <button type="submit" button class="publishButton" id="submit-button">Publish</button>              </div>
-            </div>  
+                    <button class="publishButton" onclick="document.location='#'">Publish</button>
+              </div>
+            </div>
+          
             <!--Script-->
-            <script src="journal.js"></script>
+            <script src="edit_journal.js"></script>
             
             <footer>
                 <div class="footerGrid">
@@ -201,4 +218,21 @@
     </div>
 
 </body>
+
+
+<script>
+  // get current date and time
+  var now = new Date();
+  
+  // format date and time as string for datetime-local input
+  var year = now.getFullYear();
+  var month = ('0' + (now.getMonth() + 1)).slice(-2);
+  var day = ('0' + now.getDate()).slice(-2);
+  var hour = ('0' + now.getHours()).slice(-2);
+  var minute = ('0' + now.getMinutes()).slice(-2);
+  var datetimeString = year + '-' + month + '-' + day + 'T' + hour + ':' + minute;
+  
+  // set the value of the datetime-local input
+  document.getElementById("curdate").value = datetimeString;
+</script>
 </html>
