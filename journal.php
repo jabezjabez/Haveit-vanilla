@@ -62,49 +62,104 @@
         </div>
       </div>
 
-        
-            <div class="journals">
-              <h2>JOURNAL YOUR JOURNEY</h2>
+                <div class="paragraphButtons">
+                    <span class="toolCategory">Paragraph</span>
+                    <div class="paragraphButtonsSect">
+                        <!--Headings Dropdown-->
+                        <select id="formatBlock" class="adv-option-button">
+                            <option value="H1">H1</option>
+                            <option value="H2">H2</option>
+                            <option value="H3">H3</option>
+                            <option value="H4">H4</option>
+                            <option value="H5">H5</option>
+                            <option value="H6">H6</option>
+                        </select>
+                        <!--Ordered List-->
+                        <button id="insertOrderedList" class="option-button">
+                            <div class="fa-solid fa-list-ol"></div>
+                        </button>
+                        <!--Unordered List-->
+                        <button id="insertUnorderedList" class="option-button">
+                            <i class="fa-solid fa-list"></i>
+                        </button>
+
+                        <!--Align Left-->
+                        <button id="justifyLeft" class="option-button align">
+                            <i class="fa-solid fa-align-left"></i>
+                        </button>
+                        <!--Align Center-->
+                        <button id="justifyCenter" class="option-button align">
+                            <i class="fa-solid fa-align-center"></i>
+                        </button>
+                        <!--Align Right-->
+                        <button id="justifyRight" class="option-button align">
+                            <i class="fa-solid fa-align-right"></i>
+                        </button>
+                        <!--Justify Full-->
+                        <button id="justifyFull" class="option-button align">
+                            <i class="fa-solid fa-align-justify"></i>
+                        </button>
+
+                        <!--Indent-->
+                        <button id="indent" class="option-button spacing">
+                            <i class="fa-solid fa-indent"></i>
+                        </button>
+                        <!--Outdent-->
+                        <button id="outdent" class="option-button spacing">
+                            <i class="fa-solid fa-outdent"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="insertButtons">
+                    <span class="toolCategory">Insert</span>            
+                    <div class="insertButtonsSect">
+                        <!--Create Link-->
+                        <button id="createLink" class="adv-option-buttonLink">
+                            <i class="fa fa-link"></i>
+                        </button>
+                        <!--Unlink-->
+                        <button id="unlink" class="option-button">
+                            <i class="fa fa-unlink"></i>
+                        </button>
+
+                        <!--Undo-->
+                        <button id="undo" class="option-button">
+                            <i class="fa-solid fa-rotate-left"></i>
+                        </button>
+                        <!--Redo-->
+                        <button id="redo" class="option-button">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- lddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
+                    <div>
+                        <form method="post" action="save_journal.php" id="myForm">
+                            <input type="date" style="cursor: pointer;" class="curdate" name="curdate" id="curdate" required></input>
+                    </div>
+                    </div>
+                <!-- title here -->
+                    <div class="titleBoxSect">
+                        <div id="title" class="inputBox" contenteditable="true" name="title"></div>
+                    </div>
+                <!-- body  here -->
+                    <div class="inputBoxSect">
+                        <div id="body" class="inputBox" contenteditable="true" name="body"></div>
+                    </div>
+                
+                <div class="publishButtonSect">
+                    <button class="publishButton" onclick="saveBtn()"  >Publish</button>
               </div>
-        
-
-              <div class="journs">
-              <div class="journalist">
-              <a href="edit_journal.php"><p>&nbsp;&nbsp;Concert Experience!</a>
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-
-            <button onclick="location.href='edit_journal.php'" id="edit" class="edit-journal">
-              <i class="fas fa-edit"></i>  
-            </button>
-
-            <button id="delete" class="delete-journal">
-              <i class="fa fa-trash" aria-hidden="true"></i>   
-            </button>&nbsp;&nbsp;
-          </p></div>
-        </div>
-
-        <footer>
+                </form>
+            </div>
+                
+                    
+          
+            <!--Script-->
+            <script src="journal.js"></script>
+            
+            <footer>
                 <div class="footerGrid">
                     <div class="copyrightBox">
                         &copy;2023 "HAVE IT" and "Have it your way!" under MALINTA KALIWA. All rights reserved.
