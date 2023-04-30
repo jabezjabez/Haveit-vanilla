@@ -26,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HAVE IT - HOME</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
-	<link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
+	<link rel="icon" type="x-icon" href="CSS/Images/Have-It-Favicon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 </head>
 <body>

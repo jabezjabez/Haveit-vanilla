@@ -1,6 +1,11 @@
 <?php
     include('db_conn.php');
     session_start();
+    if (isset($_SESSION['update_success']) && $_SESSION['update_success']) {
+        echo '<script>alert("Update successful!");</script>';
+        // unset the session variable to avoid showing the alert again on page refresh
+        unset($_SESSION['update_success']);
+    }
     $user_id = $_SESSION['id'];
     $userName = $_SESSION['userName'];
 
@@ -106,6 +111,8 @@
                         // Update user information in the database
                         $update_query = "UPDATE tbl_accounts SET username='$username', email='$email', password='$password' WHERE id='$user_id'";
                         mysqli_query($conn, $update_query);
+
+                        $_SESSION['update_success'] = true;
 
                         // Redirect to the profile page
                         updaters($user_id, $conn);

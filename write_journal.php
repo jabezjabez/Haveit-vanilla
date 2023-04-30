@@ -15,15 +15,6 @@
         $user_id = $_SESSION['id'];
         // get the username from the seesion
         $userName = $_SESSION['userName'];
-
-        // For the displayement
-        require_once('db_conn.php');
-        $id = $_GET['id'];
-        $author_id = $_SESSION['id'];
-        $sql = "SELECT * FROM tbl_articles WHERE id='$id' AND author_id='$author_id'";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -75,11 +66,10 @@
 
             
                 <label for="title">Title:</label>
-                    <input type="hidden" id="journal_id" name="journal_id" value="<?php echo $row['id']; ?>" required >
-                    <input type="text" class="" id="title" name="title"  value="<?php echo $row['title']; ?>" required >
+                    <input type="text" class="" id="title" name="title" required>
                 <br>
                 <label for="date">Date:</label>
-                <input type="date" id="date" name="date" value="<?php echo $row['date']; ?>" required>
+                <input type="date" id="date" name="date" value="<?php echo date('Y-m-d'); ?>" required>
                 <br>
 
 
@@ -202,20 +192,12 @@
                 </div>
                 
                 <div class="inputBoxSect">
-                    <div id="text-input" class="inputBox" contenteditable="true"><?php echo $row['description']?></div>
+                    <div id="text-input" class="inputBox" contenteditable="true"></div>
                 </div>
-
-                        
+                
                 <div class="publishButtonSect">
-                    <button class="publishButton" onclick="location.href='update_journal.php'">Publish</button>
+                    <button class="publishButton" onclick="location.href='save_journal.php'">Publish</button>
                 </div>
-
-                <?php
-                    } else {
-                        echo "Article not found";
-                    }
-                    $conn->close();
-                ?>
             </div>
           
             <!--Script-->
@@ -246,7 +228,7 @@
             // Send an AJAX request to the server to save the content
             $.ajax({
             type: "POST",
-            url: "update_journal.php",
+            url: "save_journal.php",
             data: {
                 content: content,
                 date: date,
@@ -257,7 +239,7 @@
                 location.replace('./journal.php');
             },
             error: function() {
-                alert('An error occurred while saving the journal.');
+                alert('An error occurred while saving the schedule.');
             }
             });
         } else {

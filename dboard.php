@@ -16,9 +16,6 @@
         $user_id = $_SESSION['id'];
         // get the username from the seesion
         $userName = $_SESSION['userName'];
-        echo $user_id;
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +105,6 @@
 
                     <div class="list-CreatG">
                         <ul class="creatG">
-                            <li>
                             <?php 
                                 // prepare the SQL statement
                                 $stmt = $conn->prepare("SELECT id, title, description, start_datetime, end_datetime, 
@@ -128,24 +124,26 @@
 
                                 // check if there are any rows in the result set
                                 if ($result->num_rows > 0) {
+                                    // start the unordered list
+
                                     // loop through the rows in the result set
                                     while ($row = $result->fetch_assoc()) {
-                                        // output the data for each row
+                                        // output the data for each row as a list item
+                                        echo "<li>";
                                         echo "Title: " . $row["title"] . "<br>";
                                         echo "Description: " . $row["description"] . "<br>";
                                         echo "Progress: " . $row["progress_status"] . "<br>"; // output progress_status instead of progress
                                         // add any other fields you want to display
+                                        echo "</li>";
                                     }
+                                    // close the unordered list
+                                    echo "</ul>";
                                 } else {
                                     // output a message indicating that there is no data to display
                                     echo "No Goals to display.";
                                 }
-
-
-
                             ?>
-                            </li>
-                        </ul>
+
                     </div>
                 </div>
 
