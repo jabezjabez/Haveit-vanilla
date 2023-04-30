@@ -84,6 +84,7 @@ include("db_conn.php");
                                 <div class="card-body bg-custom2 text-white border-0" style="font-family: Berlin Rounded Regular;">
                                     <div class="container-fluid">
                                         <form action="save_schedule.php" method="post" id="schedule-form">
+                                            <h3>GOALS</H3>
                                             <input type="hidden" name="id" value="">
                                             <div class="form-group mb-2">
                                                 <label for="title" class="control-label">Title</label>
@@ -122,9 +123,9 @@ include("db_conn.php");
     
             <!-- Event Details Modal -->
             <div class="modal fade" tabindex="-1" data-bs-backdrop="static" id="event-details-modal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header rounded-0">
+            <div class="modal-dialog modal-dialog-centered-">
+                <div class="modal-content rounded-0 ">
+                    <div class="modal-header rounded-0 ">
                         <h5 class="modal-title">Schedule Details</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -151,6 +152,12 @@ include("db_conn.php");
                     </div>
                     <div class="modal-footer rounded-0">
                         <div class="text-end">
+                        <dt class="text-muted">Status</dt>
+                                <dd>
+                                    <label>
+                                        <?php echo  $row['progress'];  ?>
+                                    </label>
+                                </dd>
                             <button type="button" class="btn btn-primary btn-sm rounded-0" id="edit" data-id="">Edit</button>
                             <button type="button" class="btn btn-danger btn-sm rounded-0" id="delete" data-id="">Delete</button>
                             <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Close</button>
