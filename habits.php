@@ -27,8 +27,6 @@
     <link rel="stylesheet" type="text/css" href="habits.css">
     <link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </head>
 <body>
     <div class="wrapperGrid">
@@ -68,13 +66,11 @@
                 </div>
 
                 <div class="add-habitBox">
-                    <form class="add-habit" method="POST" action="save_habit.php"  id="myForm">
-                    <input type="hidden" name="id" value="">
+                    <form class="add-habit">
                         <input
                             class="habit"
                             type="text"
                             name="habit"
-                            id="habit"
                             placeholder="Enter a Habit Title"
                             required
                         />
@@ -82,7 +78,6 @@
                             class="rep"
                             type="number"
                             name="reps"
-                            id="rep"
                             placeholder="No. of Repetitions"
                             min="1"
                             required
@@ -101,50 +96,10 @@
 
                 <div class="habitsList">
                     <ul class="habits">
-                        <!-- <li>Loading...</li> -->
-                        <?php
-                            // Connect to the database
-                            require_once('db_conn.php');
-                            
-
-                            // Construct the SQL query
-                            $sql = "SELECT * FROM habits WHERE author_id = '$author_id'";
-
-                            // Execute the query and get the result set
-                            $result = mysqli_query($conn, $sql);
-
-                            // Loop through the result set and display the data
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                // Display the habit data
-                                ?>
-                                <li>
-                                <?php
-                                echo "Habit Title: " . $row['text'] . "<br>";
-                                echo "Repititions: ". $row['totalCounts'] ."/". $row['reps'] . "<br>";
-                                echo "Frequency: " . $row['timeframe'] . "<br>";
-                                $habit_id  = $row['id']; 
-                                ?>
-
-                                <button class="edit" data-id="<?php echo $habit_id; ?>">edit</button>
-                                
-
-                                <form id="delete-form" action="delete_habit.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $habit_id; ?>">
-                                <button type="submit">Delete Habit</button>
-                                </form>
-
-                                </li>
-                                <?php
-                            }
-
-                        ?>
+                        <li>Loading...</li>
                     </ul>
                 </div>
             </div>
-                            
-
-
-
 
             <footer>
                 <div class="footerGrid">
@@ -153,49 +108,10 @@
                     </div>
                 </div>
             </footer>
-            
         </div>
-
-        
     </div>
-
     
-    
-    <script>
-// Get all of the edit buttons
-const editButtons = document.querySelectorAll('.edit');
-
-// Loop through each button and attach an event listener
-editButtons.forEach(function(button) {
-  button.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default button click behavior
-
-    const habitId = this.getAttribute('data-id');
-
-    // Send a request to the server to fetch the data
-    fetch(`fetch_data.php?id=${habitId}`)
-      .then(response => response.json()) // Parse the response as JSON
-      .then(data => {
-        // Populate the form fields with the fetched data
-        const habitField = document.getElementById('habit');
-        const repField = document.getElementById('rep');
-        const timeframeField = document.getElementById('timeframe');
-
-        habitField.value = data.text;
-        repField.value = data.reps;
-        timeframeField.value = data.timeframe;
-
-        // Optionally, you could set the ID of the hidden input field to the habit ID
-        const idField = document.querySelector('input[name="id"]');
-        idField.value = data.id;
-      })
-      .catch(error => console.error(error)); // Handle any errors
-  });
-});
-
-
-    </script>
-    
+    <script src="habits.js"></script>
 </body>
 
 </html>
