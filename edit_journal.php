@@ -15,7 +15,6 @@
         $user_id = $_SESSION['id'];
         // get the username from the seesion
         $userName = $_SESSION['userName'];
-        echo $user_id;
 ?>
 
 <!DOCTYPE html>
@@ -64,12 +63,11 @@
         <!--CONTENT-->
         <div class="contentSect">
             <div class="container">
+
+            
                 <label for="title">Title:</label>
                     <input type="text" class="" id="title" name="title" required>
                 <br>
-                <label for="time">Time:</label>
-                    <input type="time" id="time" name="time" required>
-                <br><br>
                 <label for="date">Date:</label>
                     <input type="date" id="date" name="date" required>
                 <br>
@@ -189,10 +187,7 @@
                         <button id="redo" class="option-button">
                             <i class="fa-solid fa-rotate-right"></i>
                         </button>
-                    </div>
-                    <div>
-                    <input type="datetime-local" style="cursor: pointer;" class="curdate" name="curdate" id="curdate" required>
-                    </div>
+                    </div>  
                 </div>
                 
                 <div class="inputBoxSect">
