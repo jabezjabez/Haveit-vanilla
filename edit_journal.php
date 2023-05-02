@@ -99,6 +99,9 @@
                             <i class="fa-solid fa-subscript"></i>
                         </button>                    
                         
+                        <button id="erase-highlight" onclick="eraseHighlight()" class="option-button format">
+                        <i class="fa-solid fa-eraser"></i>
+                    </button>
                         <!--Bold-->
                         <button id="bold" class="option-button format">
                             <i class="fa-solid fa-bold"></i>
