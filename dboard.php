@@ -160,7 +160,34 @@
 
                     <div class="list-creatJ">
                         <ul class="creatJ">
-                            <li>Loading...</li>
+                        <?php
+                            // Select records from tbl_articles for the current user
+                            $sql = "SELECT * FROM tbl_articles WHERE author_id = '$user_id'";
+                            $result = $conn->query($sql);
+
+                            // Display records
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    $title = $row['title'];
+                                    $description = $row['description'];
+
+                                    // Display the record using the desired HTML structure
+                                    echo "<div class='journalist'>";
+                                    echo "<a href='edit_journal.php?id=$row[id]'\'><p>&nbsp;&nbsp;$title</a>";
+                                    echo "<button onclick=\"location.href='edit_journal.php?id=$row[id]'\" id='edit' class='edit-journal'>";
+                                    echo "<i class='fas fa-edit'></i></button>";
+                                    echo "<form action='delete_journal.php' method='POST'>";
+                                    echo "<input type='hidden' name='journal_id' value='" . $row['id'] . "'>";
+                                    echo "<button id='delete' type='submit' class='delete-journal'>";
+                                    echo "<i class='fa fa-trash' aria-hidden='true'></i></button></form>&nbsp;&nbsp;";
+                                    echo "</p></div>";
+                                }
+                            } else {
+                                echo "No records found.";
+                            }
+
+                            $conn->close();
+                            ?>
                         </ul>
                     </div>
                 </div>

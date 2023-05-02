@@ -207,12 +207,13 @@
 
                         
                 <div class="publishButtonSect">
-                    <button class="publishButton" onclick="location.href='update_journal.php'">Publish</button>
+                    <button class="publishButton" onclick="location.href='update_journal.php'" >Publish</button>
                 </div>
 
                 <?php
                     } else {
-                        echo "Article not found";
+                        echo  "<script>  alert 'Article not found'";
+                        echo "location.replace('./journal.php')";
                     }
                     $conn->close();
                 ?>
@@ -232,44 +233,55 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
+            // Get the journal ID from the URL parameter
+            var journal_id = <?php echo $_GET['id']; ?>;
+            
+            $('.publishButton').on('click', function() {
+                // Get the content of the text-input
+                var content = $('#text-input').html();
 
-        $('.publishButton').on('click', function() {
-        // Get the content of the text-input
-        var content = $('#text-input').html();
-
-        // Get the date and title inputs
-        var date = $('#date').val();
-        var title = $('#title').val();
-
-        // Check if content, date, and title are not empty
-        if (content && date && title) {
-            // Send an AJAX request to the server to save the content
-            $.ajax({
-            type: "POST",
-            url: "update_journal.php",
-            data: {
-                content: content,
-                date: date,
-                title: title
-            },
-            success: function() {
-                alert('Schedule Successfully Saved.');
-                location.replace('./journal.php');
-            },
-            error: function() {
-                alert('An error occurred while saving the journal.');
-            }
-            });
-        } else {
-            alert('Error: Missing data.');
-            location.replace('./write_journal.php')
-        }
-        });
-
-    console.log("Loaded jQuery version " + $.fn.jquery);
+                // Get the date and title inputs
+                var date = $('#date').val();
+                var title = $('#title').val();
 
 
-    </script>
+
+                // Check if content, date, and title are not empty
+                if (content && date && title && journal_id) {
+                    // Send an AJAX request to the server to edit the content
+                    $.ajax({
+                    type: "POST",
+                    url: "update_journal.php",
+                    data: {
+                        content: content,
+                        date: date,
+                        title: title,
+                        journal_id: journal_id,
+                    },
+                    success: function() {
+                        alert('journal Successfully Saved.');
+
+                    },
+                    error: function() {
+                        alert('An error occurred while saving the journal.');
+                    },
+
+                    });
+                    console.log("Journal ID: " + content);
+                    console.log("Journal ID: " + date);
+                    console.log("Journal ID: " + title);
+                    console.log("Journal ID: " + journal_id);
+                } else {
+                    alert('Error: Missing data.');
+                    location.replace('./write_journal.php')
+                }
+                });
+
+            console.log("Loaded jQuery version " + $.fn.jquery);
+        </script>
+
+
+
 </body>
 
 

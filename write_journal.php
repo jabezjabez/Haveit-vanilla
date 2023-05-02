@@ -235,11 +235,11 @@
                 title: title
             },
             success: function() {
-                alert('Schedule Successfully Saved.');
+                alert('journal Successfully Saved.');
                 location.replace('./journal.php');
             },
             error: function() {
-                alert('An error occurred while saving the schedule.');
+                alert('An error occurred while saving the journal.');
             }
             });
         } else {
