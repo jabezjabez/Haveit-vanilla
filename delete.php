@@ -17,6 +17,7 @@ if($stmt = mysqli_prepare($conn, $sql)){
         session_destroy();
         ?>
         <script>
+            alert("Account deleted successfully, Returning to Login page");
             window.location.href = "login.php";
         </script>
         <?php

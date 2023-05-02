@@ -22,14 +22,20 @@
     font-family: "Berlin Rounded Extra Bold";
     src: url('Fonts/BerlinRounded-Extra-Bold.ttf');
 }
-
+*{
+     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 /* BODY */ 
 body {
 	  font-family: Berlin Rounded Regular, Arial, sans-serif;
 	  color: #fff;
-	  background-color: #0e0e0e;
+	  background: linear-gradient(#2b1055, #7597de);
     margin: 0 0 0 0;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 
@@ -165,15 +171,69 @@ nav .navButton:active {
 
 
 /* CONTENT GRID */ 
-.contentSect {
-    display: flex;
-    flex-direction: column;
+section{
+    width: 100%;
     height: 100vh;
-    width: 86vw;
-    padding-left: 14vw;
+    padding: 100px;
+    overflow: hidden;
+}
+section::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 580px;
+    width: 86%;
+    height: 100px;
+    background: linear-gradient(to top,#1c0522,transparent);
+    z-index: 1000;
+}
+section img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 86%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    overflow: hidden;
+    z-index: -10;
+}
+section img#moon{
+    mix-blend-mode: screen;
 }
 
 
+#text {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 6.5vw;
+    margin-top: 170px;
+    margin-left: 470px;
+    z-index: -10;
+}
+
+.desc{
+    position: absolute;
+    z-index: -1;
+    left: 12%;
+    max-width: 1200px;
+    background: #1c0522;
+    padding: 100px;
+}
+.w{
+    font-size: 42px;
+    font-family: sans-serif;
+    font-weight: bolder;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+p{
+    line-height: 25px;
+}
+.o{
+    margin-bottom: 20px;
+}
 
 footer {
     margin: 3.5% 0 2% 0;

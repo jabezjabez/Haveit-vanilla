@@ -15,6 +15,8 @@
         $user_id = $_SESSION['id'];
         // get the username from the seesion
         $userName = $_SESSION['userName'];
+        require_once('db_conn.php');
+        $author_id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -64,44 +66,43 @@
         
             <div class="journals">
               <h2>JOURNAL YOUR JOURNEY</h2>
+              <button onclick="location.href='write_journal.php'" id="edit" class="edit-journal">
+                    Write &nbsp;&nbsp; <i class="fas fa-pen"></i>  
+                </button>
               </div>
         
 
               <div class="journs">
-              <div class="journalist">
-              <a href="edit_journal.php"><p>&nbsp;&nbsp;Concert Experience!</a>
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
+              <?php
+                // Select records from tbl_articles for the current user
+                $sql = "SELECT * FROM tbl_articles WHERE author_id = '$author_id'";
+                $result = $conn->query($sql);
 
-            <button onclick="location.href='edit_journal.php'" id="edit" class="edit-journal">
-              <i class="fas fa-edit"></i>  
-            </button>
+                // Display records
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        $title = $row['title'];
+                        $description = $row['description'];
 
-            <button id="delete" class="delete-journal">
-              <i class="fa fa-trash" aria-hidden="true"></i>   
-            </button>&nbsp;&nbsp;
-          </p></div>
-        </div>
+                        // Display the record using the desired HTML structure
+                        echo "<div class='journalist'>";
+                        echo "<a href='edit_journal.php?id=$row[id]'\'><p>&nbsp;&nbsp;$title</a>";
+                        echo "<button onclick=\"location.href='edit_journal.php?id=$row[id]'\" id='edit' class='edit-journal'>";
+                        echo "<i class='fas fa-edit'></i></button>";
+                        echo "<form action='delete_journal.php' method='POST'>";
+                        echo "<input type='hidden' name='journal_id' value='" . $row['id'] . "'>";
+                        echo "<button id='delete' type='submit' class='delete-journal'>";
+                        echo "<i class='fa fa-trash' aria-hidden='true'></i></button></form>&nbsp;&nbsp;";
+                        echo "</p></div>";
+                    }
+                } else {
+                    echo "No records found.";
+                }
+
+                $conn->close();
+                ?>
+
+                </div>
 
         <footer>
                 <div class="footerGrid">
@@ -116,18 +117,5 @@
 
 
 <script>
-  // get current date and time
-  var now = new Date();
-  
-  // format date and time as string for datetime-local input
-  var year = now.getFullYear();
-  var month = ('0' + (now.getMonth() + 1)).slice(-2);
-  var day = ('0' + now.getDate()).slice(-2);
-  var hour = ('0' + now.getHours()).slice(-2);
-  var minute = ('0' + now.getMinutes()).slice(-2);
-  var datetimeString = year + '-' + month + '-' + day + 'T' + hour + ':' + minute;
-  
-  // set the value of the datetime-local input
-  document.getElementById("curdate").value = datetimeString;
 </script>
 </html>

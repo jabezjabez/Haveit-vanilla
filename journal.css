@@ -361,6 +361,7 @@ a:visited {
     margin-top: 120px;
 } 
 .journalist {
+    justify-content: space-between;
     text-align: center;
     margin-left: 400px;
     margin-right: 200px;
@@ -370,7 +371,7 @@ a:visited {
     padding: 3px;
     padding-left: 3px;
     word-spacing: 3px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     
 }
 .delete-journal{

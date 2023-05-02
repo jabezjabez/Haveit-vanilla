@@ -15,15 +15,6 @@
         $user_id = $_SESSION['id'];
         // get the username from the seesion
         $userName = $_SESSION['userName'];
-
-        // For the displayement
-        require_once('db_conn.php');
-        $id = $_GET['id'];
-        $author_id = $_SESSION['id'];
-        $sql = "SELECT * FROM tbl_articles WHERE id='$id' AND author_id='$author_id'";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -75,11 +66,10 @@
 
             
                 <label for="title">Title:</label>
-                    <input type="hidden" id="journal_id" name="journal_id" value="<?php echo $row['id']; ?>" required >
-                    <input type="text" class="" id="title" name="title"  value="<?php echo $row['title']; ?>" required >
+                    <input type="text" class="" id="title" name="title" required>
                 <br>
                 <label for="date">Date:</label>
-                <input type="date" id="date" name="date" value="<?php echo $row['date']; ?>" required>
+                <input type="date" id="date" name="date" value="<?php echo date('Y-m-d'); ?>" required>
                 <br>
 
 
@@ -99,9 +89,6 @@
                             <i class="fa-solid fa-subscript"></i>
                         </button>                    
                         
-                        <button id="erase-highlight" onclick="eraseHighlight()" class="option-button format">
-                        <i class="fa-solid fa-eraser"></i>
-                    </button>
                         <!--Bold-->
                         <button id="bold" class="option-button format">
                             <i class="fa-solid fa-bold"></i>
@@ -205,21 +192,12 @@
                 </div>
                 
                 <div class="inputBoxSect">
-                    <div id="text-input" class="inputBox" contenteditable="true"><?php echo $row['description']?></div>
+                    <div id="text-input" class="inputBox" contenteditable="true"></div>
                 </div>
-
-                        
+                
                 <div class="publishButtonSect">
-                    <button class="publishButton" onclick="location.href='update_journal.php'" >Publish</button>
+                    <button class="publishButton" onclick="location.href='save_journal.php'">Publish</button>
                 </div>
-
-                <?php
-                    } else {
-                        echo  "<script>  alert 'Article not found'";
-                        echo "location.replace('./journal.php')";
-                    }
-                    $conn->close();
-                ?>
             </div>
           
             <!--Script-->
@@ -236,55 +214,44 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-            // Get the journal ID from the URL parameter
-            var journal_id = <?php echo $_GET['id']; ?>;
-            
-            $('.publishButton').on('click', function() {
-                // Get the content of the text-input
-                var content = $('#text-input').html();
 
-                // Get the date and title inputs
-                var date = $('#date').val();
-                var title = $('#title').val();
+        $('.publishButton').on('click', function() {
+        // Get the content of the text-input
+        var content = $('#text-input').html();
 
+        // Get the date and title inputs
+        var date = $('#date').val();
+        var title = $('#title').val();
 
+        // Check if content, date, and title are not empty
+        if (content && date && title) {
+            // Send an AJAX request to the server to save the content
+            $.ajax({
+            type: "POST",
+            url: "save_journal.php",
+            data: {
+                content: content,
+                date: date,
+                title: title
+            },
+            success: function() {
+                alert('journal Successfully Saved.');
+                location.replace('./journal.php');
+            },
+            error: function() {
+                alert('An error occurred while saving the journal.');
+            }
+            });
+        } else {
+            alert('Error: Missing data.');
+            location.replace('./write_journal.php')
+        }
+        });
 
-                // Check if content, date, and title are not empty
-                if (content && date && title && journal_id) {
-                    // Send an AJAX request to the server to edit the content
-                    $.ajax({
-                    type: "POST",
-                    url: "update_journal.php",
-                    data: {
-                        content: content,
-                        date: date,
-                        title: title,
-                        journal_id: journal_id,
-                    },
-                    success: function() {
-                        alert('journal Successfully Saved.');
-
-                    },
-                    error: function() {
-                        alert('An error occurred while saving the journal.');
-                    },
-
-                    });
-                    console.log("Journal ID: " + content);
-                    console.log("Journal ID: " + date);
-                    console.log("Journal ID: " + title);
-                    console.log("Journal ID: " + journal_id);
-                } else {
-                    alert('Error: Missing data.');
-                    location.replace('./write_journal.php')
-                }
-                });
-
-            console.log("Loaded jQuery version " + $.fn.jquery);
-        </script>
+    console.log("Loaded jQuery version " + $.fn.jquery);
 
 
-
+    </script>
 </body>
 
 

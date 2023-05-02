@@ -16,9 +16,6 @@
         $user_id = $_SESSION['id'];
         // get the username from the seesion
         $userName = $_SESSION['userName'];
-        echo $user_id;
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +105,6 @@
 
                     <div class="list-CreatG">
                         <ul class="creatG">
-                            <li>
                             <?php 
                                 // prepare the SQL statement
                                 $stmt = $conn->prepare("SELECT id, title, description, start_datetime, end_datetime, 
@@ -128,24 +124,26 @@
 
                                 // check if there are any rows in the result set
                                 if ($result->num_rows > 0) {
+                                    // start the unordered list
+
                                     // loop through the rows in the result set
                                     while ($row = $result->fetch_assoc()) {
-                                        // output the data for each row
+                                        // output the data for each row as a list item
+                                        echo "<li>";
                                         echo "Title: " . $row["title"] . "<br>";
                                         echo "Description: " . $row["description"] . "<br>";
                                         echo "Progress: " . $row["progress_status"] . "<br>"; // output progress_status instead of progress
                                         // add any other fields you want to display
+                                        echo "</li>";
                                     }
+                                    // close the unordered list
+                                    echo "</ul>";
                                 } else {
                                     // output a message indicating that there is no data to display
                                     echo "No Goals to display.";
                                 }
-
-
-
                             ?>
-                            </li>
-                        </ul>
+
                     </div>
                 </div>
 
@@ -162,7 +160,34 @@
 
                     <div class="list-creatJ">
                         <ul class="creatJ">
-                            <li>Loading...</li>
+                        <?php
+                            // Select records from tbl_articles for the current user
+                            $sql = "SELECT * FROM tbl_articles WHERE author_id = '$user_id'";
+                            $result = $conn->query($sql);
+
+                            // Display records
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    $title = $row['title'];
+                                    $description = $row['description'];
+
+                                    // Display the record using the desired HTML structure
+                                    echo "<div class='journalist'>";
+                                    echo "<a href='edit_journal.php?id=$row[id]'\'><p>&nbsp;&nbsp;$title</a>";
+                                    echo "<button onclick=\"location.href='edit_journal.php?id=$row[id]'\" id='edit' class='edit-journal'>";
+                                    echo "<i class='fas fa-edit'></i></button>";
+                                    echo "<form action='delete_journal.php' method='POST'>";
+                                    echo "<input type='hidden' name='journal_id' value='" . $row['id'] . "'>";
+                                    echo "<button id='delete' type='submit' class='delete-journal'>";
+                                    echo "<i class='fa fa-trash' aria-hidden='true'></i></button></form>&nbsp;&nbsp;";
+                                    echo "</p></div>";
+                                }
+                            } else {
+                                echo "No records found.";
+                            }
+
+                            $conn->close();
+                            ?>
                         </ul>
                     </div>
                 </div>

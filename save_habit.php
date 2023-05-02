@@ -8,7 +8,7 @@ require_once('db_conn.php');
 $habit_title = $_POST['habit'];
 $repetitions = $_POST['reps'];
 $frequency = $_POST['timeframe'];
-$author_id = $_POST['author_id'];
+$author_id = $_SESSION['id'];
 $id = $_POST['id']; // The ID of the habit to update, if applicable
 
 // Insert or update habit in database, depending on whether an ID is provided

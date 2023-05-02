@@ -84,6 +84,7 @@ linkButton.addEventListener("click", () => {
     modifyText(linkButton.id, false, userLink);
   }
 });
+
 function eraseHighlight() {
   document.execCommand('hiliteColor', false, 'transparent');
 }
