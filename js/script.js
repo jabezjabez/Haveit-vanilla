@@ -27,14 +27,12 @@
             eventClick: function(info) {
                 var _details = $('#event-details-modal');
                 var id = info.event.id;
-                var status = scheds[id].status ? 'done' : 'not done';
                 if (!!scheds[id]) {
                     _details.find('#title').text(scheds[id].title);
                     _details.find('#description').text(scheds[id].description);
                     _details.find('#start').text(scheds[id].sdate);
                     _details.find('#end').text(scheds[id].edate);
-                    _details.find('#status').prop('checked', scheds[id].status);
-                    _details.find('#status').attr('data-id', id);
+                    _details.find('#progress').text(scheds[id].progress);
                     _details.find('#edit,#delete').attr('data-id', id);
                     _details.modal('show');
                 } else {

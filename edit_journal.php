@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
     <div class="wrapperGrid">
@@ -98,10 +99,10 @@
                         <button id="subscript" class="option-button script fSubS">
                             <i class="fa-solid fa-subscript"></i>
                         </button>                    
-                        
+                        <!--Erase higlight -->
                         <button id="erase-highlight" onclick="eraseHighlight()" class="option-button format">
                         <i class="fa-solid fa-eraser"></i>
-                    </button>
+                        </button>
                         <!--Bold-->
                         <button id="bold" class="option-button format">
                             <i class="fa-solid fa-bold"></i>
@@ -234,10 +235,13 @@
             </footer>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
     <script>
             // Get the journal ID from the URL parameter
             var journal_id = <?php echo $_GET['id']; ?>;
+            var author_id = <?php echo  $user_id; ?>;
             
             $('.publishButton').on('click', function() {
                 // Get the content of the text-input
@@ -246,8 +250,6 @@
                 // Get the date and title inputs
                 var date = $('#date').val();
                 var title = $('#title').val();
-
-
 
                 // Check if content, date, and title are not empty
                 if (content && date && title && journal_id) {
@@ -260,20 +262,22 @@
                         date: date,
                         title: title,
                         journal_id: journal_id,
+                        author_id:author_id
                     },
-                    success: function() {
+                    success: function(response) {
                         alert('journal Successfully Saved.');
-
+                        location.replace('./journal.php')
                     },
                     error: function() {
                         alert('An error occurred while saving the journal.');
                     },
 
                     });
-                    console.log("Journal ID: " + content);
-                    console.log("Journal ID: " + date);
-                    console.log("Journal ID: " + title);
+                    console.log("Content: " + content);
+                    console.log("Date: " + date);
+                    console.log("Title: " + title);
                     console.log("Journal ID: " + journal_id);
+                    console.log("Author ID: " + author_id);
                 } else {
                     alert('Error: Missing data.');
                     location.replace('./write_journal.php')
@@ -281,6 +285,23 @@
                 });
 
             console.log("Loaded jQuery version " + $.fn.jquery);
+
+
+            // 
+            let title = document.getElementById('title');
+            let content = document.getElementById('content');
+            let submitBtn = document.getElementById('submitBtn');
+            let changesMade = false;
+
+            function checkChanges() {
+                if (title.value !== 'Initial title' || content.value !== 'Initial content') {
+                changesMade = true;
+                submitBtn.disabled = false;
+                } else {
+                changesMade = false;
+                submitBtn.disabled = true;
+                }
+            }
         </script>
 
 

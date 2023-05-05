@@ -306,7 +306,7 @@
     font-size: 15px;
     height: 100%;
 }
-  
+
 .list-CompG, .list-CreatG, .list-CreatJ {
     display: flex;
     align-self: center;
@@ -317,15 +317,13 @@
     margin-top: 10px;
 }
     
-
-
 .journalist {
   text-align: left;
   display: flex;
   align-content: center;
-  justify-content: center;
+  justify-content: start;
   margin-top: 10px;
-  background-color: #ed9b48;
+  background-color: #2f2f2f;
   border-radius: 13px;
   padding-left: 3px;
   word-spacing: 3px;

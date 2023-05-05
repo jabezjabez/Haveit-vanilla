@@ -86,7 +86,42 @@
 
                     <div class="list-CompG">
                         <ul class="compG">
-                            <li>Loading...</li>
+                        <?php 
+                                // prepare the SQL statement
+                                $stmt = $conn->prepare("SELECT id, title, description, start_datetime, end_datetime, 
+                                                        CASE progress 
+                                                            WHEN 0 THEN 'Ongoing' 
+                                                            WHEN 1 THEN 'Completed' 
+                                                            ELSE '' 
+                                                        END AS progress_status
+                                                        FROM events 
+                                                        WHERE progress = 1");
+                                // bind the parameter to the statement
+                                // execute the query
+                                $stmt->execute();
+                                // get the result set
+                                $result = $stmt->get_result();
+
+                                // check if there are any rows in the result set
+                                if ($result->num_rows > 0) {
+                                    // start the unordered list
+
+                                    // loop through the rows in the result set
+                                    while ($row = $result->fetch_assoc()) {
+                                        // output the data for each row as a list item
+                                        echo "<li>";
+                                        echo "Title: " . $row["title"] . "<br>";
+                                        echo "Description: " . $row["description"] . "<br>";
+                                        // add any other fields you want to display
+                                        echo "</li>";
+                                    }
+                                    // close the unordered list
+                                    echo "</ul>";
+                                } else {
+                                    // output a message indicating that there is no data to display
+                                    echo "No Goals to display.";
+                                }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -173,14 +208,8 @@
 
                                     // Display the record using the desired HTML structure
                                     echo "<div class='journalist'>";
-                                    echo "<a href='edit_journal.php?id=$row[id]'\'><p>&nbsp;&nbsp;$title</a>";
-                                    echo "<button onclick=\"location.href='edit_journal.php?id=$row[id]'\" id='edit' class='edit-journal'>";
-                                    echo "<i class='fas fa-edit'></i></button>";
-                                    echo "<form action='delete_journal.php' method='POST'>";
-                                    echo "<input type='hidden' name='journal_id' value='" . $row['id'] . "'>";
-                                    echo "<button id='delete' type='submit' class='delete-journal'>";
-                                    echo "<i class='fa fa-trash' aria-hidden='true'></i></button></form>&nbsp;&nbsp;";
-                                    echo "</p></div>";
+                                    echo "<a href='journal.php'><p>&nbsp;&nbsp;$title</a>";
+                                    echo "</div>";
                                 }
                             } else {
                                 echo "No records found.";

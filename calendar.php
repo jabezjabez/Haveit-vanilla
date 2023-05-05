@@ -18,6 +18,21 @@ include("db_conn.php");
         // get the username from the seesion
         $userName = $_SESSION['userName'];
 
+        // MUST CHANGE THE WHERE CONDITION HERE AFTER MODIFYING THE 
+        $schedules = $conn->query("SELECT * FROM `events` WHERE author_id = $user_id");
+        $sched_res = [];
+
+        foreach($schedules->fetch_all(MYSQLI_ASSOC) as $row){
+        $row['sdate'] = date("F d, Y h:i A",strtotime($row['start_datetime']));
+        $row['edate'] = date("F d, Y h:i A",strtotime($row['end_datetime']));
+        $row['progress'] = $row['progress'] == '0' ? 'Ongoing' : 'Done';
+        $sched_res[$row['id']] = $row;
+        }
+
+        
+        if(isset($conn)) $conn->close();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +46,7 @@ include("db_conn.php");
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 
     <!-- For the CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <!-- CSS of the calendar -->    
     <link rel="stylesheet" href="./fullcalendar/lib/main.min.css">
@@ -40,6 +56,9 @@ include("db_conn.php");
     <!-- For The Calendar -->
     <script src="./fullcalendar/lib/main.min.js"></script>
     <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+
 </head>
 <body class="bg-custom">
     <div class="wrapperGrid bg-custom">
@@ -51,12 +70,12 @@ include("db_conn.php");
 
             <div class="tabsBox">
                 <nav>
-                    <button class="navButton" onclick="location.href='home.php'"><span class="material-symbols-outlined">home</span>&nbsp;HOME</button>
-                    <button class="activeButton"><span class="material-symbols-outlined">calendar_month</span>&nbsp;CALENDAR</button>
-                    <button class="navButton" onclick="location.href='habits.php'"><span class="material-symbols-outlined">cycle</span>&nbsp;HABITS</button>
-                    <button class="navButton" onclick="location.href='journal.php'"><span class="material-symbols-outlined">auto_stories</span>&nbsp;JOURNAL</button>
-                    <button class="navButton" onclick="location.href='dboard.php'"><span class="material-symbols-outlined">monitoring</span>&nbsp;DASHBOARD</button>
-                    <button class="navButton" onclick="location.href='about.php'"><span class="material-symbols-outlined">info</span>&nbsp;ABOUT</button>
+                    <button class="navButton btn-block" onclick="location.href='home.php'"><span class="material-symbols-outlined">home</span>&nbsp;HOME</button>
+                    <button class="activeButton btn-block"><span class="material-symbols-outlined">calendar_month</span>&nbsp;CALENDAR</button>
+                    <button class="navButton btn-block" onclick="location.href='habits.php'"><span class="material-symbols-outlined">cycle</span>&nbsp;HABITS</button>
+                    <button class="navButton btn-block" onclick="location.href='journal.php'"><span class="material-symbols-outlined">auto_stories</span>&nbsp;JOURNAL</button>
+                    <button class="navButton btn-block" onclick="location.href='dboard.php'"><span class="material-symbols-outlined">monitoring</span>&nbsp;DASHBOARD</button>
+                    <button class="navButton btn-block" onclick="location.href='about.php'"><span class="material-symbols-outlined">info</span>&nbsp;ABOUT</button>
                 </nav>
             </div>
 
@@ -127,7 +146,9 @@ include("db_conn.php");
                 <div class="modal-content rounded-0 ">
                     <div class="modal-header rounded-0 ">
                         <h5 class="modal-title">Schedule Details</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span class="material-symbols-outlined">
+close
+</span></button>
                     </div>
                     <div class="modal-body rounded-0">
                         <div class="container-fluid">
@@ -140,26 +161,24 @@ include("db_conn.php");
                                 <dd id="start" class=""></dd>
                                 <dt class="text-muted">End</dt>
                                 <dd id="end" class=""></dd>
-                                <dt class="text-muted">Status</dt>
-                                <dd>
-                                    <label>
-                                        <input type="checkbox" id="status" class="form-check-input" data-id="">
-                                        Done
-                                    </label>
-                                </dd>
+
+                                <!-- progress show -->
+                                <button id="doneBtn" class="btn btn-success btn-sm rounded-0" onclick="updateProgress(<?php echo $row['id']; ?>, 1)">Done </button>
+                                <button id="ongoingBtn" class="btn btn-warning btn-sm rounded-0" onclick="updateProgress(<?php echo $row['id']; ?>, 0)">Ongoing</button>
+
                             </dl>
                         </div>
                     </div>
                     <div class="modal-footer rounded-0">
                         <div class="text-end">
                         <dt class="text-muted">Status</dt>
-                                <dd>
-                                    <label>
-                                        <?php echo  $row['progress'];  ?>
-                                    </label>
-                                </dd>
+                        <dd id="progress" class=""></dd>
+
                             <button type="button" class="btn btn-primary btn-sm rounded-0" id="edit" data-id="">Edit</button>
                             <button type="button" class="btn btn-danger btn-sm rounded-0" id="delete" data-id="">Delete</button>
+
+
+
                             <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -170,23 +189,59 @@ include("db_conn.php");
     
 
 
-                <?php 
-                // MUST CHANGE THE WHERE CONDITION HERE AFTER MODIFYING THE 
-                $schedules = $conn->query("SELECT * FROM `events` WHERE author_id = '$user_id'");
-                $sched_res = [];
 
-                foreach($schedules->fetch_all(MYSQLI_ASSOC) as $row){
-                    $row['sdate'] = date("F d, Y h:i A",strtotime($row['start_datetime']));
-                    $row['edate'] = date("F d, Y h:i A",strtotime($row['end_datetime']));
-                    $sched_res[$row['id']] = $row;
-                }
-                ?>
-                <?php 
-                    if(isset($conn)) $conn->close();
-                ?>
                 </body>
                 <script>
                     var scheds = $.parseJSON('<?= json_encode($sched_res) ?>')
+
+                    const progress = document.getElementById('progress');
+                    const doneBtn = document.getElementById('doneBtn');
+                    const ongoingBtn = document.getElementById('ongoingBtn');
+                    console.log('Progress value:', progress.textContent);
+
+                    // if (progress && doneBtn && ongoingBtn) {
+                    //     if (progress === 1) {
+                    //             doneBtn.style.display = 'none';
+                    //             ongoingBtn.style.display = 'inline';
+                    //         } else {
+                    //             ongoingBtn.style.display = 'none';
+                    //             doneBtn.style.display = 'inline';
+                    //         }
+                    // } else {
+                    // console.log('Error: Element not found');
+                    // }
+
+                    function updateProgress(journal_id, progress) {
+                    $.ajax({
+                        type: "POST",
+                        url: "update_progress.php",
+                        data: { journal_id: journal_id, progress: progress },
+                        success: function(response) {
+                            // update progress display
+                            const progressDisplay = document.getElementById('progress');
+                            progressDisplay.textContent = progress === 1 ? 'Done' : 'Ongoing';
+
+                            console.log("Progress value:", progress.textContent);
+
+                            // update button visibility
+                            const doneBtn = document.getElementById('doneBtn');
+                            const ongoingBtn = document.getElementById('ongoingBtn');
+                            if (progress === 1) {
+                                doneBtn.style.display = 'none';
+                                ongoingBtn.style.display = 'inline';
+                            } else {
+                                ongoingBtn.style.display = 'none';
+                                doneBtn.style.display = 'inline';
+                            }
+                            console.log(response);
+
+                        },
+                        error: function(xhr, status, error) {
+                            // Handle error response here
+                            console.log(xhr.responseText);
+                        }
+                    });
+                }
                 </script>
                 <script src="./js/script.js"></script>
 
