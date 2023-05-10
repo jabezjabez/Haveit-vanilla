@@ -27,6 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="dboard.css">
 	<link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrapperGrid">
@@ -78,17 +79,17 @@
                         <div class="sortBox">
                             <select id="sortBy-CompG" class="sortBy">
                                 <option value="" disabled selected hidden class="sortBy">Sort By</option>
-                                <option value="monthly">Monthly</option>
-                                <option value="weekly">Weekly</option>
+                                <option value="Newest">Newest</option>
+                                <option value="Oldest">Oldest</option>
                             </select> 
                         </div>
                     </div>
 
                     <div class="list-CompG">
-                        <ul class="compG">
+                        <ul class="compG" id="completedGoalsList">
                         <?php 
                                 // prepare the SQL statement
-                                $stmt = $conn->prepare("SELECT id, title, description, start_datetime, end_datetime, 
+                                $stmt = $conn->prepare("SELECT id, title, description, date_update, 
                                                         CASE progress 
                                                             WHEN 0 THEN 'Ongoing' 
                                                             WHEN 1 THEN 'Completed' 
@@ -107,14 +108,15 @@
                                     // start the unordered list
 
                                     // loop through the rows in the result set
-                                    while ($row = $result->fetch_assoc()) {
-                                        // output the data for each row as a list item
-                                        echo "<li>";
-                                        echo "Title: " . $row["title"] . "<br>";
-                                        echo "Description: " . $row["description"] . "<br>";
-                                        // add any other fields you want to display
-                                        echo "</li>";
-                                    }
+                                // loop through the rows in the result set
+                                while ($row = $result->fetch_assoc()) {
+                                    // output the data for each row as a list item
+                                    echo "<li data-end-datetime='" . $row["date_update"] . "'>";
+                                    echo "Title: " . $row["title"] . "<br>";
+                                    echo "Description: " . $row["description"] . "<br>";
+                                    echo "</li>";
+                                }
+
                                     // close the unordered list
                                     echo "</ul>";
                                 } else {
@@ -132,17 +134,17 @@
                         <div class="sortBox">
                             <select id="sortBy-CreatG" class="sortBy">
                                 <option value="" disabled selected hidden class="sortBy">Sort By</option>
-                                <option value="monthly">Monthly</option>
-                                <option value="weekly">Weekly</option>
+                                <option value="Newest">Newest</option>
+                                <option value="Oldest">Oldest</option>
                             </select> 
                         </div>
                     </div>
 
                     <div class="list-CreatG">
-                        <ul class="creatG">
+                        <ul class="creatG" id="allGoalslist">
                             <?php 
                                 // prepare the SQL statement
-                                $stmt = $conn->prepare("SELECT id, title, description, start_datetime, end_datetime, 
+                                $stmt = $conn->prepare("SELECT id, title, description, date_update, 
                                                         CASE progress 
                                                             WHEN 0 THEN 'Ongoing' 
                                                             WHEN 1 THEN 'Completed' 
@@ -164,11 +166,9 @@
                                     // loop through the rows in the result set
                                     while ($row = $result->fetch_assoc()) {
                                         // output the data for each row as a list item
-                                        echo "<li>";
+                                        echo "<li data-end-datetime='" . $row["date_update"] . "'>";
                                         echo "Title: " . $row["title"] . "<br>";
                                         echo "Description: " . $row["description"] . "<br>";
-                                        echo "Progress: " . $row["progress_status"] . "<br>"; // output progress_status instead of progress
-                                        // add any other fields you want to display
                                         echo "</li>";
                                     }
                                     // close the unordered list
@@ -188,13 +188,14 @@
                         <div class="sortBox">
                             <select id="sortBy-Dropdown" class="sortBy">
                                 <option value="" disabled selected hidden class="sortBy">Sort By</option>
-                                <option value="monthly">Monthly</option>
+                                <option value="Newest">Newest</option>
+                                <option value="Oldest">Oldest</option>
                             </select> 
                         </div>
                     </div>
 
                     <div class="list-creatJ">
-                        <ul class="creatJ">
+                        <ul class="creatJ" id="journalListall">
                         <?php
                             // Select records from tbl_articles for the current user
                             $sql = "SELECT * FROM tbl_articles WHERE author_id = '$user_id'";
@@ -207,7 +208,7 @@
                                     $description = $row['description'];
 
                                     // Display the record using the desired HTML structure
-                                    echo "<div class='journalist'>";
+                                    echo "<div class='journalist' data-end-datetime='" . $row["date"] . "'>";
                                     echo "<a href='journal.php'><p>&nbsp;&nbsp;$title</a>";
                                     echo "</div>";
                                 }
@@ -233,6 +234,100 @@
         </div>
 
     </div>
+    <script>
+    $(document).ready(function() {
+      $('#sortBy-CompG').change(function() {
+        var sortValue = $(this).val().toLowerCase();
+        var goalsList = $('#completedGoalsList');
+        var goals = goalsList.find('li').get();
+
+        goals.sort(function(a, b) {
+          var aDate = new Date($(a).data('end-datetime'));
+          var bDate = new Date($(b).data('end-datetime'));
+
+          if (sortValue === 'newest') {
+            return bDate.getTime() - aDate.getTime(); // Sort from newest to oldest
+          } else if (sortValue === 'oldest') {
+            return aDate.getTime() - bDate.getTime(); // Sort from oldest to newest
+          }
+
+          // If no sorting condition matched, maintain the original order
+          return 0;
+        });
+
+        // Clear the current list
+        goalsList.empty();
+
+        // Append the sorted goals to the list
+        goals.forEach(function(goal) {
+          goalsList.append(goal);
+        });
+      });
+    });
+
+    //
+    $(document).ready(function() {
+      $('#sortBy-CreatG').change(function() {
+        var sortValue = $(this).val().toLowerCase();
+        var goalsList = $('#allGoalslist');
+        var goals = goalsList.find('li').get();
+
+        goals.sort(function(a, b) {
+          var aDate = new Date($(a).data('end-datetime'));
+          var bDate = new Date($(b).data('end-datetime'));
+
+          if (sortValue === 'newest') {
+            return bDate.getTime() - aDate.getTime(); // Sort from newest to oldest
+          } else if (sortValue === 'oldest') {
+            return aDate.getTime() - bDate.getTime(); // Sort from oldest to newest
+          }
+
+          // If no sorting condition matched, maintain the original order
+          return 0;
+        });
+
+        // Clear the current list
+        goalsList.empty();
+
+        // Append the sorted goals to the list
+        goals.forEach(function(goal) {
+          goalsList.append(goal);
+        });
+      });
+    });
+
+    //
+    $(document).ready(function() {
+      $('#sortBy-Dropdown').change(function() {
+        var sortValue = $(this).val().toLowerCase();
+        var journalList = $('#journalListall');
+        var journals = journalList.find('.journalist').get();
+
+        journals.sort(function(a, b) {
+          var aDate = new Date($(a).data('end-datetime'));
+          var bDate = new Date($(b).data('end-datetime'));
+
+          if (sortValue === 'newest') {
+            return bDate.getTime() - aDate.getTime(); // Sort from newest to oldest
+          } else if (sortValue === 'oldest') {
+            return aDate.getTime() - bDate.getTime(); // Sort from oldest to newest
+          }
+
+          // If no sorting condition matched, maintain the original order
+          return 0;
+        });
+
+        // Clear the current list
+        journalList.empty();
+
+        // Append the sorted journals to the list
+        journals.forEach(function(journal) {
+          journalList.append(journal);
+        });
+      });
+    });
+
+</script>
 </body>
 
 </html>

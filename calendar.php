@@ -193,11 +193,11 @@ close
                 </body>
                 <script>
                     var scheds = $.parseJSON('<?= json_encode($sched_res) ?>')
+                    // var aDate = new Date();
 
                     const progress = document.getElementById('progress');
-                    const doneBtn = document.getElementById('doneBtn');
-                    const ongoingBtn = document.getElementById('ongoingBtn');
                     console.log('Progress value:', progress.textContent);
+                    console.log(aDate);
 
                     // if (progress && doneBtn && ongoingBtn) {
                     //     if (progress === 1) {
@@ -211,11 +211,12 @@ close
                     // console.log('Error: Element not found');
                     // }
 
-                    function updateProgress(journal_id, progress) {
+                    function updateProgress(journal_id, progress, aDate) {
+                        var aDate = new Date().toISOString().split('T')[0];
                     $.ajax({
                         type: "POST",
                         url: "update_progress.php",
-                        data: { journal_id: journal_id, progress: progress },
+                        data: { journal_id: journal_id, progress: progress, aDate: aDate},
                         success: function(response) {
                             // update progress display
                             const progressDisplay = document.getElementById('progress');
@@ -224,15 +225,15 @@ close
                             console.log("Progress value:", progress.textContent);
 
                             // update button visibility
-                            const doneBtn = document.getElementById('doneBtn');
-                            const ongoingBtn = document.getElementById('ongoingBtn');
-                            if (progress === 1) {
-                                doneBtn.style.display = 'none';
-                                ongoingBtn.style.display = 'inline';
-                            } else {
-                                ongoingBtn.style.display = 'none';
-                                doneBtn.style.display = 'inline';
-                            }
+                            // const doneBtn = document.getElementById('doneBtn');
+                            // const ongoingBtn = document.getElementById('ongoingBtn');
+                            // if (progress === 1) {
+                            //     doneBtn.style.display = 'none';
+                            //     ongoingBtn.style.display = 'inline';
+                            // } else {
+                            //     ongoingBtn.style.display = 'none';
+                            //     doneBtn.style.display = 'inline';
+                            // }
                             console.log(response);
 
                         },

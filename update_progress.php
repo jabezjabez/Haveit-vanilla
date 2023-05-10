@@ -5,8 +5,9 @@ session_start();
 if (isset($_POST['journal_id'], $_POST['progress'])) {
     $journal_id = $_POST['journal_id'];
     $progress = $_POST['progress'];
+    $aDate = $_POST['aDate'];
 
-    $sql = "UPDATE `events` SET `progress`='$progress' WHERE `id`='$journal_id'";
+    $sql = "UPDATE `events` SET `progress`='$progress', `date_update`='$aDate' WHERE `id`='$journal_id'";
     $result = $conn->query($sql);
 
     if ($result) {

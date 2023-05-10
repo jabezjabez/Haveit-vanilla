@@ -86,7 +86,7 @@
 
                         // Display the record using the desired HTML structure
                         echo "<div class='journalist'>";
-                        echo "<a href='edit_journal.php?id=$row[id]'\'><p>&nbsp;&nbsp;$title</a>";
+                        echo "<b><p>&nbsp;&nbsp;$title</b>";
                         echo "<button onclick=\"location.href='edit_journal.php?id=$row[id]'\" id='edit' class='edit-journal'>";
                         echo "<i class='fas fa-edit'></i></button>";
                         echo "<form action='delete_journal.php' method='POST'>";
