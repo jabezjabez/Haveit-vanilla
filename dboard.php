@@ -121,7 +121,7 @@
                                     echo "</ul>";
                                 } else {
                                     // output a message indicating that there is no data to display
-                                    echo "No Goals to display.";
+                                    echo "No Goals Completed to display.";
                                 }
                             ?>
                         </ul>
@@ -175,7 +175,7 @@
                                     echo "</ul>";
                                 } else {
                                     // output a message indicating that there is no data to display
-                                    echo "No Goals to display.";
+                                    echo "No Created Goals to display.";
                                 }
                             ?>
 
@@ -213,7 +213,7 @@
                                     echo "</div>";
                                 }
                             } else {
-                                echo "No records found.";
+                                echo "No Created Journals to display.";
                             }
 
                             $conn->close();

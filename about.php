@@ -65,17 +65,17 @@
             <img src="CSS/Images/stars.png" id="stars">
             <img src="CSS/Images/moon.png" id="moon">
             <img src="CSS/Images/mountains_behind.png" id="mountains_behind">
-            <h2 id="text">About Us</h2>
+            <h2 id="text">ABOUT US</h2>
             <img src="CSS/Images/mountains_front.png" id="mountains_front">
         </section>
        <div class="desc">
-            <p class="w">We Are HAVEIT</p><br>
-            <p>At HAVEIT, we believe in the power of daily habits, goal-setting, and self-reflection to create a life full of positive changes. We know that building habits,
+            <p class="w">We Are HAVE IT</p><br>
+            <p>At HAVE IT, we believe in the power of daily habits, goal-setting, and self-reflection to create a life full of positive changes. We know that building habits,
 achieving goals, and writing about how your day went can be difficult to do, which is why we create this all-in-one tracker and journal application to make it easier.</p><br>
-            <p>HAVEIT is designed to provide you with the necessary tools to set achievable goals, establish lasting habits, and express yourself through writing. Our user-friendly 
+            <p>HAVE IT is designed to provide you with the necessary tools to set achievable goals, establish lasting habits, and express yourself through writing. Our user-friendly 
 dashboard feature enables you to track and assess your performance using clear and concise graphs, so you can stay motivated and on the right track towards your personal best. </p><br>
             <p class="o">Our dedicated team is committed to empowering individuals to reach their utmost potential and live a fulfilling life. With this mission in mind, we have developed and offer 
-everyone our application, HAVEIT. </p>
+everyone our application, HAVE IT. </p>
        </div>
     </div>
     <script>

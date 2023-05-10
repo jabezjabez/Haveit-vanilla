@@ -68,30 +68,24 @@
 
         <!--CONTENT-->
         <div class="contentSect">
-            <div class="container">
-                <div class="center">
-                <form id="delete-account-form" action="delete.php" method="POST">
-                    <!-- Any additional form fields here -->
-                    <button id="delete-account-btn" type="submit" class="btn btn-danger">Delete Account</button>
-                </form>
-                <form action="logout.php" method="post">
-                    <button type="submit" name="logout" class="btn btn-danger">Log Out</button>
-                </form>
+            <div class="updateBox">
+                <div class="noticeMessage">
+                    <span>Notice: Make sure to only update your account when needed.</span>
                 </div>
-            </div>
-            
-            <div class="update">
-            <form method="post">
+
+                <div class="updateFields">
+                    <form method="post">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" value="<?php echo $userName; ?>">
-                <br><br>
+
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" value="<?php echo $email; ?>">
-                <br><br>
+
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" value="<?php echo $password; ?>">
                     <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
-                <br><br>
+                </div>
+
                 <?php
                     // update code here
                     if(isset($_POST['update'])) {
@@ -133,10 +127,27 @@
                         $_SESSION['userName'] = $row['userName'];
                         $_SESSION['password'] = $row['password'];
                     }
-                ?><br><br>
-                <input type="submit" name="update" value="Update">
-            </form>
+                ?>
+                        <input type="submit" name="update" value="Update">
+                    </form>
+
+                <div class="btnSect">
+                    <div class="logoutBtn">
+                        <form action="logout.php" method="post">
+                            <button type="submit" name="logout" class="logOutBtn">Log Out</button>
+                        </form>
+                    </div>
+                    <div class="deleteBtn">
+                        <form id="delete-account-form" action="delete.php" method="POST">
+                            <!-- Any additional form fields here -->
+                            <button id="delete-account-btn" type="submit" class="deleteAccountBtn">Delete Account</button>
+                        </form>
+                    </div>
+                </div>
             </div>
+
+
+
             <footer>
                 <div class="footerGrid">
                     <div class="copyrightBox">

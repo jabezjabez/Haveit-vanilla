@@ -213,7 +213,8 @@ section img#moon{
     z-index: -10;
 }
 
-.desc{
+.desc {
+    font-family: Berlin Rounded Regular;
     position: absolute;
     z-index: -1;
     left: 12%;
@@ -221,9 +222,9 @@ section img#moon{
     background: #1c0522;
     padding: 100px;
 }
-.w{
+.w {
+    font-family: Berlin Rounded Regular;
     font-size: 42px;
-    font-family: sans-serif;
     font-weight: bolder;
     margin-top: 40px;
     margin-bottom: 20px;

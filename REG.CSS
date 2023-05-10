@@ -143,6 +143,7 @@ label {
 
 
 input[type="text"],
+input[type="email"],
 input[type="password"] {
 	background-color: black;
 	color: #fff;

@@ -139,9 +139,11 @@ nav .navButton:active {
     justify-content: center;
     align-items: center;
     justify-self: flex-end;
-    border: 2px solid rgba(255, 255, 255, 0.363);
+    background-color: #EE6C4D;
+    border: 2px solid #EE6C4D;
     border-radius: 5px;
     cursor: pointer;
+    color: #000000;
 }
 
 .accountBox .accountPic {
@@ -153,13 +155,6 @@ nav .navButton:active {
 .accountBox .accountPic img {
     filter: invert(1);
     width: 80%;
-}
-
-.accountBox:hover {
-    background-color: #EE6C4D;
-    color: #0e0e0e;
-    transition: 0.1s;
-    border-color: #EE6C4D;
 }
 
 
@@ -285,32 +280,140 @@ a:visited {
 
 
 
-.center {
+.updateBox {
+	background-color: rgb(28, 28, 28);
+	border-radius: 15px;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	margin: 50px auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+	max-width: 950px;
+    padding: 20px;
 }
 
-.center button {
+.noticeMessage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.updateFields {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    margin: 40px 0px 20px 0px;
+}
+
+.updateFields form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	background-color: black;
+    font-family: Berlin Rounded Regular;
+	color: #fff;
+	caret-color: #4B77FF;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	font-size: 16px;
+	margin: 10px 0px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+	padding: 10px;
+	width: 90%;
+}
+
+input[type="checkbox"] {
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+}
+
+input[type="submit"] {
+    font-family: Berlin Rounded Regular;
+    font-size: 3vh;
+    background-color: #363636;
+    border-radius: 10px;
+    padding: 10px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #3E5187;
+    transition: 0.2s;
+}
+  
+input[type="submit"]:active {
+    background-color: #4B77FF;
+    transition: 0.1s;
+}
+
+.btnSect {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.btnSect form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.logOutBtn, .deleteAccountBtn {
     font-family: Berlin Rounded Regular;
     background-color: #7f1717;
     color: #fff;
-    font-size: 15px;
+    font-size: 2.5vh;
     padding: 7px;
-    margin-top: 20%;
     outline: 0;
     border: 0;
     border-radius: 5px;
     cursor: pointer;
+    width: 190%;
 }
 
-.center button:hover {
+.logOutBtn {
+    margin: 20px 10px 10px 0px;
+}
+
+.deleteAccountBtn {
+    margin: 20px 0px 10px 10px;
+}
+
+.logOutBtn:hover {
     background-color: #c13030;
     transition: 0.2s;
 }
 
-.center button:active {
+.logOutBtn:active {
+    background-color: #ef2020;
+    transition: 0.1s;
+}
+
+.deleteAccountBtn:hover {
+    background-color: #c13030;
+    transition: 0.2s;
+}
+
+.deleteAccountBtn:active {
     background-color: #ef2020;
     transition: 0.1s;
 }

@@ -12,7 +12,7 @@ $emptyfield= "A field was left empty, please fill it up";
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HAVE IT - REGISTER</title>
-	<link rel="stylesheet" type="text/css" href="reg.css">
+	<link rel="stylesheet" type="text/css" href="REG.css">
 	<link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
 </head>
 
@@ -62,19 +62,13 @@ $emptyfield= "A field was left empty, please fill it up";
 			?>
 			<form form action="" method="post">
 				<div class="fields">
-					<!-- email dapat yung input type nung email -->
-					<input type="text" id="email" name="email" placeholder="Email" required> 
+					<input type="email" id="email" name="email" placeholder="Email" required> 
 					<input type="text" id="username" name="username" placeholder="Username" required>
 					<input type="password" id="password" name="password" placeholder="Password" required>
-					
-					
-				</div>
 
-				<div class="divTAC">
 					<input type="checkbox" onclick="togglePasswordVisibility()"> 
-				 	<label for="checkbox"> Show Password.</label>
+				 	<label for="checkbox"> Show Password</label>
 				</div>
-
 				
 				<div class="divTAC">
 					<input id="TAC" type="checkbox"/>
@@ -86,7 +80,7 @@ $emptyfield= "A field was left empty, please fill it up";
 					<label for="checkbox" required > I have also read and AGREED to the <a href="#">Privacy Policy</a> of HAVE IT.</label>
 				</div>
 
-				  <input type="submit" class="btn" name="submit" id="submit-btn">
+				  <input type="submit" class="btn" name="submit" value="REGISTER" id="submit-btn">
 			</form>
 
         	<div class="alr">
