@@ -317,8 +317,7 @@ a:visited {
 }
 
 input[type="text"],
-input[type="email"],
-input[type="password"] {
+input[type="email"] {
 	background-color: black;
     font-family: Berlin Rounded Regular;
 	color: #fff;
@@ -328,6 +327,24 @@ input[type="password"] {
 	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
 	font-size: 16px;
 	margin: 10px 0px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+	padding: 10px;
+	width: 90%;
+}
+
+input[type="password"] {
+	background-color: black;
+    font-family: Berlin Rounded Regular;
+	color: #fff;
+	caret-color: #4B77FF;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	font-size: 16px;
+	margin-top: 10px;
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -361,6 +378,14 @@ input[type="submit"]:hover {
 input[type="submit"]:active {
     background-color: #4B77FF;
     transition: 0.1s;
+}
+
+.showPassBox {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	margin-bottom: 25px;
 }
 
 .btnSect {

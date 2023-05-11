@@ -83,8 +83,11 @@
 
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" value="<?php echo $password; ?>">
-                    <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
                 </div>
+
+                <div class="showPassBox">
+                        <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
+				</div>
 
                 <?php
                     // update code here

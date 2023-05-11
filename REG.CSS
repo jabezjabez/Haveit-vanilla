@@ -129,11 +129,19 @@ label {
 	margin-bottom: 10px;
 }
 
+.showPassBox {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	margin-bottom: 15px;
+}
 
 .divTAC, .divPP {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	align-items: center;
 	width: 100%;
 }
 
@@ -143,8 +151,7 @@ label {
 
 
 input[type="text"],
-input[type="email"],
-input[type="password"] {
+input[type="email"] {
 	background-color: black;
 	color: #fff;
 	caret-color: #4B77FF;
@@ -154,6 +161,20 @@ input[type="password"] {
 	display: block;
 	font-size: 16px;
 	margin-bottom: 20px;
+	padding: 10px;
+	width: 100%;
+}
+
+input[type="password"] {
+	background-color: black;
+	color: #fff;
+	caret-color: #4B77FF;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	display: block;
+	font-size: 16px;
+	margin-bottom: 5px;
 	padding: 10px;
 	width: 100%;
 }

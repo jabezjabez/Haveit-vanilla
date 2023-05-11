@@ -65,9 +65,11 @@ $emptyfield= "A field was left empty, please fill it up";
 					<input type="email" id="email" name="email" placeholder="Email" required> 
 					<input type="text" id="username" name="username" placeholder="Username" required>
 					<input type="password" id="password" name="password" placeholder="Password" required>
+				</div>
 
-					<input type="checkbox" onclick="togglePasswordVisibility()"> 
-				 	<label for="checkbox"> Show Password</label>
+				<div class="showPassBox">
+						<input type="checkbox" onclick="togglePasswordVisibility()"> 
+						<label for="checkbox"> Show Password</label>
 				</div>
 				
 				<div class="divTAC">
