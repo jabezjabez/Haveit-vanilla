@@ -12,7 +12,7 @@ $emptyfield= "A field was left empty, please fill it up";
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HAVE IT - REGISTER</title>
-	<link rel="stylesheet" type="text/css" href="REG.css">
+	<link rel="stylesheet" type="text/css" href="reg.css">
 	<link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
 </head>
 
