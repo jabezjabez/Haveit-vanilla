@@ -178,46 +178,46 @@
                                     echo "No Created Goals to display.";
                                 }
                             ?>
-
+                        </ul>
                     </div>
                 </div>
 
                 <div class="createdJournals">
-                    <div class="header-creatJ">
+                    <div class="header-CreatJ">
                         <span class="header-CreatJ-Text">YOUR CREATED JOURNALS</span>
                         <div class="sortBox">
-                            <select id="sortBy-Dropdown" class="sortBy">
+                            <select id="sortBy-CreatJ" class="sortBy">
                                 <option value="" disabled selected hidden class="sortBy">Sort By</option>
                                 <option value="Newest">Newest</option>
                                 <option value="Oldest">Oldest</option>
                             </select> 
                         </div>
                     </div>
-
-                    <div class="list-creatJ">
+                    
+                    <div class="list-CreatJ">
                         <ul class="creatJ" id="journalListall">
-                        <?php
-                            // Select records from tbl_articles for the current user
-                            $sql = "SELECT * FROM tbl_articles WHERE author_id = '$user_id'";
-                            $result = $conn->query($sql);
+                            <?php
+                                // Select records from tbl_articles for the current user
+                                $sql = "SELECT * FROM tbl_articles WHERE author_id = '$user_id'";
+                                $result = $conn->query($sql);
 
-                            // Display records
-                            if ($result->num_rows > 0) {
-                                while($row = $result->fetch_assoc()) {
-                                    $title = $row['title'];
-                                    $description = $row['description'];
+                                // Display records
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        $title = $row['title'];
+                                        $description = $row['description'];
 
-                                    // Display the record using the desired HTML structure
-                                    echo "<div class='journalist' data-end-datetime='" . $row["date"] . "'>";
-                                    echo "<a href='journal.php'><p>&nbsp;&nbsp;$title</a>";
-                                    echo "</div>";
+                                        // Display the record using the desired HTML structure
+                                        echo "<div class='journalist' data-end-datetime='" . $row["date"] . "'>";
+                                        echo "<a href='journal.php'><p>&nbsp;&nbsp;$title</a>";
+                                        echo "</div>";
+                                    }
+                                } else {
+                                    echo "No Created Journals to display.";
                                 }
-                            } else {
-                                echo "No Created Journals to display.";
-                            }
 
-                            $conn->close();
-                            ?>
+                                $conn->close();
+                                ?>
                         </ul>
                     </div>
                 </div>

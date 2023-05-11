@@ -84,7 +84,7 @@ include("db_conn.php");
                     <img src="CSS/Images/Account-Placeholder.png">
                 </div>
 
-                <div class="accountName text-white">
+                <div class="accountName">
                     <span onclick="location.href='profile.php'"><?php   echo $userName  ?></span>
                 </div>
             </div>
@@ -249,8 +249,8 @@ close
             
         </div>
     </div>
-    <footer class="bg-custom text-white">
-                <div class="footerGrid " >
+    <footer>
+                <div class="footerGrid">
                     <div class="copyrightBox">
                         &copy;2023 "HAVE IT" and "Have it your way!" under MALINTA KALIWA. All rights reserved.
                     </div>

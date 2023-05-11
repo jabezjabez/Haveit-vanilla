@@ -316,10 +316,121 @@ a:visited {
 }
 
 
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: center;
+    justify-self: center;
+    padding: 30px;
+    align-items: flex-start;
+    background-color: rgb(28, 28, 28);
+    width: 70%;
+    height: 100%;
+    margin-top: 5%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.journals, .journs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.journals span {
+    font-size: 40px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+
+.journs {
+    margin-top: 3vh;
+    display: flex;
+    align-self: center;
+    width: 90%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #2f2f2f;
+}
+
+.journalist {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.titleText {
+    margin-right: auto;
+}
+
+.crudBtn {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+}
 
 
 
-.center {
+.newJournal, .editJournal {
+    font-family: Berlin Rounded Regular;
+    color: white;
+    background-color: #ad7843;
+    border-radius: 5px;
+    border: none;
+    align-items: flex-end;
+    cursor: pointer; 
+    padding: 10px;
+}
+
+.newJournal:hover {
+    font-size: 20px;
+    background-color: #ed9b48;
+    transition: 0.2s;
+}
+
+.editJournal:hover {
+    background-color: #ed9b48;
+    transition: 0.2s;
+}
+
+.newJournal:active, .editJournal:active {
+    background-color: #f1b170;
+    transition: 0.1s;
+}
+
+.deleteJournal {
+    font-family: Berlin Rounded Regular;
+    color: white;
+    background-color: #7f1717;
+    border-radius: 5px;
+    border: none;
+    align-items: flex-end;
+    cursor: pointer; 
+    padding: 10px;
+    margin-left: 15px;
+}
+
+.deleteJournal:hover{
+    background-color: #c13030;
+    transition: 0.2s;
+}
+
+.deleteJournal:active{
+    background-color: #ef2020;
+    transition: 0.1s;
+}
+
+
+
+
+/* .center {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -348,7 +459,7 @@ a:visited {
     background-color: #ef2020;
     transition: 0.1s;
 }
-/* Style for the gallery container */
+/* Style for the gallery container
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
@@ -373,39 +484,4 @@ a:visited {
     word-spacing: 3px;
     letter-spacing: 2px;
     
-}
-.delete-journal{
-    color: white;
-    background-color: transparent;
-    border-color: transparent;
-    align-items: flex-end;
-    cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.3s ease-in-out;
-    padding: 10px;
-}
-.edit-journal{
-    color: white;
-    background-color: transparent;
-    border-color: transparent;
-    align-items: flex-end;
-    cursor: pointer; 
-    opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
-}
-.edit-journal:hover{
-    opacity: 1;
-    color: #0e0e0e;
-    font-size: 20px;
-}
-.delete-journal:hover{
-    opacity: 1;
-    color: #0e0e0e;
-    font-size: 20px;
-}
-.edit-journal:active{
- color: white;
-}
-.delete-journal:active{
-    color: white;
-}
+} */

@@ -61,58 +61,61 @@
                 </div>
             </div>
         </div>
-      </div>
 
-        
-            <div class="journals">
-              <h2>JOURNAL YOUR JOURNEY</h2>
-              <button onclick="location.href='write_journal.php'" id="edit" class="edit-journal">
-                    Write &nbsp;&nbsp; <i class="fas fa-pen"></i>  
-                </button>
-              </div>
-        
 
-              <div class="journs">
-              <?php
-                // Select records from tbl_articles for the current user
-                $sql = "SELECT * FROM tbl_articles WHERE author_id = '$author_id'";
-                $result = $conn->query($sql);
-
-                // Display records
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        $title = $row['title'];
-                        $description = $row['description'];
-
-                        // Display the record using the desired HTML structure
-                        echo "<div class='journalist'>";
-                        echo "<b><p>&nbsp;&nbsp;$title</b>";
-                        echo "<button onclick=\"location.href='edit_journal.php?id=$row[id]'\" id='edit' class='edit-journal'>";
-                        echo "<i class='fas fa-edit'></i></button>";
-                        echo "<form action='delete_journal.php' method='POST'>";
-                        echo "<input type='hidden' name='journal_id' value='" . $row['id'] . "'>";
-                        echo "<button id='delete' type='submit' class='delete-journal'>";
-                        echo "<i class='fa fa-trash' aria-hidden='true'></i></button></form>&nbsp;&nbsp;";
-                        echo "</p></div>";
-                    }
-                } else {
-                    echo "No records found.";
-                }
-
-                $conn->close();
-                ?>
-
+        <!--CONTENT-->
+        <div class="contentSect"> 
+            <div class="container">
+                <div class="journals">
+                    <span>JOURNAL YOUR JOURNEY</span>
+                    <button onclick="location.href='write_journal.php'" id="edit" class="newJournal">
+                            Write New &nbsp;&nbsp; <i class="fas fa-pen"></i>  
+                        </button>
                 </div>
+            
+                <div class="journs">
+                    <?php
+                        // Select records from tbl_articles for the current user
+                        $sql = "SELECT * FROM tbl_articles WHERE author_id = '$author_id'";
+                        $result = $conn->query($sql);
 
-        <footer>
-                <div class="footerGrid">
-                    <div class="copyrightBox">
-                        &copy;2023 "HAVE IT" and "Have it your way!" under MALINTA KALIWA. All rights reserved.
+                        // Display records
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $title = $row['title'];
+                                $description = $row['description'];
+
+                                // Display the record using the desired HTML structure
+                                echo "<div class='journalist'>";
+                                echo "<div class='titleText'<b><p>&nbsp;&nbsp;$title</p></b></div>";
+                                echo "<div class='crudBtn'><button onclick=\"location.href='edit_journal.php?id=$row[id]'\" id='edit' class='editJournal'>";
+                                echo "Edit <i class='fas fa-edit'></i></button>";
+                                echo "<form action='delete_journal.php' method='POST'>";
+                                echo "<input type='hidden' name='journal_id' value='" . $row['id'] . "'>";
+                                echo "<button id='delete' type='submit' class='deleteJournal'>";
+                                echo "Delete <i class='fa fa-trash' aria-hidden='true'></i></button></form></div>";
+                                echo "</div>";
+                            }
+                        } else {
+                            echo "Your Created Journals will be displayed here.";
+                        }
+
+                        $conn->close();
+                        ?>
+                </div>
+            </div>
+
+            <footer>
+                    <div class="footerGrid">
+                        <div class="copyrightBox">
+                            &copy;2023 "HAVE IT" and "Have it your way!" under MALINTA KALIWA. All rights reserved.
+                        </div>
                     </div>
-                </div>
-        </footer>
-    
-    <script src="journal.js"></script>
+            </footer>
+        </div>
+        <script src="journal.js"></script>
+    </div>
+
 </body>
 
 

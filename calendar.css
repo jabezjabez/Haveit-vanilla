@@ -144,6 +144,11 @@ nav .navButton:active {
     cursor: pointer;
 }
 
+.accountName {
+    color: #fff;
+    font-family: Berlin Rounded Regular;
+}
+
 .accountBox .accountPic {
     display: flex;
     justify-content: center;
@@ -161,6 +166,8 @@ nav .navButton:active {
     transition: 0.1s;
     border-color: #EE6C4D;
 }
+
+
 
 
 /* CONTENT GRID */ 
@@ -193,6 +200,8 @@ footer {
     opacity: 0.6;
     text-align: center;
     font-size: 1.5vh;
+    color: #fff;
+    font-family: Berlin Rounded Regular;
 }
 
 

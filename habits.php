@@ -125,12 +125,12 @@
                                 $habit_id  = $row['id']; 
                                 ?>
 
-                                <button class="edit" data-id="<?php echo $habit_id; ?>">edit</button>
+                                <button class="edit" data-id="<?php echo $habit_id; ?>">Edit</button>
                                 
 
                                 <form id="delete-form" action="delete_habit.php" method="post">
                                 <input type="hidden" name="id" value="<?php echo $habit_id; ?>">
-                                <button type="submit">Delete Habit</button>
+                                <button type="submit">Delete</button>
                                 </form>
 
                                 </li>
