@@ -314,10 +314,43 @@
 
 .list-CompG, .list-CreatG, .list-CreatJ {
     display: flex;
+    flex-direction: row;
     align-self: center;
     width: 90%;
     border-radius: 10px;
     padding: 10px;
     background-color: #2f2f2f;
     margin-top: 10px;
+}
+
+li{
+  display: flex;
+  margin: 7px 0px 0px 0px;
+  width: 50vw;
+}
+.parent-containter{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.first-containter{
+  display: flex;
+  align-items: center;
+}
+
+.second-containter{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.second-portion-journal{
+  margin-left: auto;
+}
+
+.journalist{
+  display: flex;
+  justify-content: space-between;
+  width: 50vw;
 }

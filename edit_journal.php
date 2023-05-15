@@ -211,6 +211,7 @@
 
                         
                 <div class="publishButtonSect">
+                    <button class="BackButton" onclick="goBack()">Back</button>
                     <button class="publishButton" onclick="location.href='update_journal.php'" >Publish</button>
                 </div>
 
@@ -302,6 +303,11 @@
                 submitBtn.disabled = true;
                 }
             }
+
+             //BACK METHODMYNWORD!
+            function goBack() {
+            window.history.back();
+        }
         </script>
 
 

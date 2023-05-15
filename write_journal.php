@@ -199,6 +199,7 @@
                 </div>
                 
                 <div class="publishButtonSect">
+                    <button class="BackButton" onclick="goBack()">Back</button>
                     <button class="publishButton">Publish</button>
                 </div>
             </div>
@@ -253,7 +254,10 @@
 
     console.log("Loaded jQuery version " + $.fn.jquery);
 
-
+            //BACK METHODMYNWORD!
+            function goBack() {
+            window.history.back();
+        }
     </script>
 </body>
 

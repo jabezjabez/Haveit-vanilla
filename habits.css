@@ -421,7 +421,7 @@ color: #fff;
     color: #FFEF30;
 }
 
-.habits button {
+.habits button  {
     font-family: Berlin Rounded Regular;
     background-color: #7f1717;
     color: #fff;
@@ -445,3 +445,64 @@ color: #fff;
     transition: 0.1s;
 }
 
+.habitcontent{
+  
+}
+
+button.edit{
+  background: #FFEF30;
+  color: #0e0e0e;
+}
+button.edit:hover {
+  background-color: #e0d44e;
+  transition: 0.2s;
+  color: #0e0e0e;
+}
+button.edit:active {
+  background-color: #fff373;
+  transition: 0.1s;
+  color: #0e0e0e;
+}
+
+button.status{
+  background-color: #003DF5;
+  
+}
+button.status:hover {
+  background-color: #4B77FF;
+  transition: 0.2s;
+}
+button.status:active {
+  background-color: #5C85FF;
+  transition: 0.1s;
+}
+
+/* unstatus */
+button.unstatus{
+  background-color: #00203D;
+  
+}
+button.unstatus:hover {
+  background-color: #003566;
+  transition: 0.2s;
+}
+button.unstatus:active {
+  background-color: #0069CC;
+  transition: 0.1s;
+}
+
+
+.habitbuttons{
+  display: flex;
+  margin-left: auto;
+  text-decoration: none;
+}
+
+.status {
+  background: #000;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #E0D44E;
+}

@@ -89,15 +89,16 @@
                         <ul class="compG" id="completedGoalsList">
                         <?php 
                                 // prepare the SQL statement
-                                $stmt = $conn->prepare("SELECT id, title, description, date_update, 
+                                $stmt = $conn->prepare("SELECT id, title, start_datetime, date_update, end_datetime,
                                                         CASE progress 
                                                             WHEN 0 THEN 'Ongoing' 
                                                             WHEN 1 THEN 'Completed' 
                                                             ELSE '' 
                                                         END AS progress_status
                                                         FROM events 
-                                                        WHERE progress = 1");
+                                                        WHERE progress = 1 and author_id = ?");
                                 // bind the parameter to the statement
+                                $stmt->bind_param("i", $user_id);
                                 // execute the query
                                 $stmt->execute();
                                 // get the result set
@@ -112,8 +113,19 @@
                                 while ($row = $result->fetch_assoc()) {
                                     // output the data for each row as a list item
                                     echo "<li data-end-datetime='" . $row["date_update"] . "'>";
+                                    echo "<div class='parent-containter'>";
+                                    echo "<div class='first-containter'>";
                                     echo "Title: " . $row["title"] . "<br>";
-                                    echo "Description: " . $row["description"] . "<br>";
+                                    echo "</div>";
+                                    echo "<div class='second-containter'>";
+                                    echo "<div class='child-containter'>";
+                                    echo "Start: " . date("Y-m-d", strtotime($row["start_datetime"]));
+                                    echo "</div>";
+                                    echo "<div class='child-containter'>";
+                                    echo "End: " . date("Y-m-d", strtotime($row["end_datetime"]));
+                                    echo "</div>";
+                                    echo "</div>";
+                                    echo "</div>";
                                     echo "</li>";
                                 }
 
@@ -144,7 +156,7 @@
                         <ul class="creatG" id="allGoalslist">
                             <?php 
                                 // prepare the SQL statement
-                                $stmt = $conn->prepare("SELECT id, title, description, date_update, 
+                                $stmt = $conn->prepare("SELECT id, title, end_datetime, start_datetime,
                                                         CASE progress 
                                                             WHEN 0 THEN 'Ongoing' 
                                                             WHEN 1 THEN 'Completed' 
@@ -166,9 +178,20 @@
                                     // loop through the rows in the result set
                                     while ($row = $result->fetch_assoc()) {
                                         // output the data for each row as a list item
-                                        echo "<li data-end-datetime='" . $row["date_update"] . "'>";
+                                        echo "<li data-end-datetime='" . $row["start_datetime"] . "'>";
+                                        echo "<div class='parent-containter'>";
+                                        echo "<div class='first-containter'>";
                                         echo "Title: " . $row["title"] . "<br>";
-                                        echo "Description: " . $row["description"] . "<br>";
+                                        echo "</div>";
+                                        echo "<div class='second-containter'>";
+                                        echo "<div class='child-containter'>";
+                                        echo "Start: " . date("Y-m-d", strtotime($row["start_datetime"]));
+                                        echo "</div>";
+                                        echo "<div class='child-containter'>";
+                                        echo "End: " . date("Y-m-d", strtotime($row["end_datetime"]));
+                                        echo "</div>";
+                                        echo "</div>";
+                                        echo "</div>";
                                         echo "</li>";
                                     }
                                     // close the unordered list
@@ -205,12 +228,18 @@
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
                                         $title = $row['title'];
-                                        $description = $row['description'];
+                                        $date = $row['date'];
 
                                         // Display the record using the desired HTML structure
                                         echo "<div class='journalist' data-end-datetime='" . $row["date"] . "'>";
-                                        echo "<a href='journal.php'><p>&nbsp;&nbsp;$title</a>";
+                                        echo "<div class='first-portion-journal'";
+                                        echo "<a href='journal.php'><p>$title</p></a>";
                                         echo "</div>";
+                                        echo "<div class='second-portion-journal'>";
+                                        echo "<p>$date</p>";
+                                        echo "</div>";
+                                        echo "</div>";
+                                        
                                     }
                                 } else {
                                     echo "No Created Journals to display.";
@@ -298,7 +327,7 @@
 
     //
     $(document).ready(function() {
-      $('#sortBy-Dropdown').change(function() {
+      $('#sortBy-CreatJ').change(function() {
         var sortValue = $(this).val().toLowerCase();
         var journalList = $('#journalListall');
         var journals = journalList.find('.journalist').get();

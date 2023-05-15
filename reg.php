@@ -40,23 +40,32 @@ $emptyfield= "A field was left empty, please fill it up";
 			if(empty(trim($username)) | empty(trim($email)) | empty(trim($password))){
 				echo $emptyfield;
 			}else{
-				if(isset($_POST['submit'])) {
-					$password = $_POST['password'];
-					$password_regex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/';
-					if(!preg_match($password_regex, $password)) {
-					  // password does not meet requirements
-					  echo "Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.";
-					} else {
-					  // password meets requirements
-					  // continue with registration process
-						$sql = "INSERT INTO `tbl_accounts`(`id`, `userName`, `email`, `password`) VALUES (null,'$username', '$email','$password')";
-						$result = mysqli_query($conn, $sql);
-						header("Location: index.php");
-						exit();	
+				$checkUsernameQuery = "SELECT * FROM tbl_accounts WHERE userName = '$username'";
+				$checkUsernameResult = mysqli_query($conn, $checkUsernameQuery);
+		
+				if (mysqli_num_rows($checkUsernameResult) > 0) {
+					echo "Username already exists. Please choose a different username."."<br><br>";
+				} else {
+					if(isset($_POST['submit'])) {
+						$password = $_POST['password'];
+						$password_regex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/';
+						if(!preg_match($password_regex, $password)) {
+						  // password does not meet requirements
+						  echo "Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character."."<br><br>";
+						} else {
+						  // password meets requirements
+						  // continue with registration process
+							$sql = "INSERT INTO `tbl_accounts`(`id`, `userName`, `email`, `password`) VALUES (null,'$username', '$email','$password')";
+							$result = mysqli_query($conn, $sql);
+							header("Location: index.php");
+							exit();	
+						}
+					  }
+	
 					}
-				  }
 
 				}
+
 			}
 			
 			?>

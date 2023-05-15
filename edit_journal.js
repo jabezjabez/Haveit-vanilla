@@ -79,9 +79,11 @@ linkButton.addEventListener("click", () => {
   //if link has http then pass directly else add https
   if (/http/i.test(userLink)) {
     modifyText(linkButton.id, false, userLink);
+    console.log("works?");
   } else {
     userLink = "http://" + userLink;
     modifyText(linkButton.id, false, userLink);
+    console.log("notworks?");
   }
 });
 

@@ -197,7 +197,7 @@ close
 
                     const progress = document.getElementById('progress');
                     console.log('Progress value:', progress.textContent);
-                    console.log(aDate);
+                    // console.log(aDate);
 
                     // if (progress && doneBtn && ongoingBtn) {
                     //     if (progress === 1) {
@@ -242,6 +242,24 @@ close
                             console.log(xhr.responseText);
                         }
                     });
+                }
+
+                //ewan ko ano to :3
+                const startDatetimeInput = document.getElementById('start_datetime');
+                const endDatetimeInput = document.getElementById('end_datetime');
+
+                startDatetimeInput.addEventListener('input', validateDateTime);
+                endDatetimeInput.addEventListener('input', validateDateTime);
+
+                function validateDateTime() {
+                    const startDatetime = new Date(startDatetimeInput.value);
+                    const endDatetime = new Date(endDatetimeInput.value);
+
+                    if (startDatetime > endDatetime) {
+                    endDatetimeInput.setCustomValidity('End datetime must be later than start datetime');
+                    } else {
+                    endDatetimeInput.setCustomValidity('');
+                    }
                 }
                 </script>
                 <script src="./js/script.js"></script>

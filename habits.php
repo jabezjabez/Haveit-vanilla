@@ -26,6 +26,7 @@
     <title>HAVE IT - HABITS</title>
     <link rel="stylesheet" type="text/css" href="habits.css">
     <link rel="icon" href="CSS/Images/Have-It-Favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -117,22 +118,45 @@
                             while ($row = mysqli_fetch_assoc($result)) {
                                 // Display the habit data
                                 ?>
-                                <li>
+                                <li <?php  ?>>
                                 <?php
+
+                                echo "<div ";
+                                if ($row['status'] == 1) {echo 'class="completed"';} else {echo 'class="habitcontent"';} 
+                                echo ">";
                                 echo "Habit Title: " . $row['text'] . "<br>";
-                                echo "Repititions: ". $row['totalCounts'] ."/". $row['reps'] . "<br>";
+                                echo "Repititions: ". $row['reps'] . "<br>";
                                 echo "Frequency: " . $row['timeframe'] . "<br>";
                                 $habit_id  = $row['id']; 
+                                echo "</div>";
                                 ?>
 
-                                <button class="edit" data-id="<?php echo $habit_id; ?>">Edit</button>
-                                
+                                <div class="habitbuttons">
 
+                                <?php if ($row['status'] != 1) { ?>
+                                <form id="update-form" action="update_status_habit.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $habit_id; ?>">
+                                <button type="submit" class="status">Done <i class="fas fa-check"></i></button>
+                                </form>
+                                <?php } ?>
+
+                                <?php if ($row['status'] != 0) { ?>
+                                <form id="update-form" action="update_status_habit.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $habit_id; ?>">
+                                <button type="submit" class="unstatus">Undone <i class="fas fa-cancel"></i></button>
+                                </form>
+                                <?php } ?>
+
+
+                                <button class="edit" data-id="<?php echo $habit_id; ?>">Edit <i class="fas fa-pencil"></i></button>
+                                
+                                
                                 <form id="delete-form" action="delete_habit.php" method="post">
                                 <input type="hidden" name="id" value="<?php echo $habit_id; ?>">
-                                <button type="submit">Delete</button>
+                                <button type="submit">Delete <i class="fas fa-trash"></i></button>
                                 </form>
 
+                                </div>
                                 </li>
                                 <?php
                             }

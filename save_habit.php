@@ -13,7 +13,7 @@ $id = $_POST['id']; // The ID of the habit to update, if applicable
 
 // Insert or update habit in database, depending on whether an ID is provided
 if(empty($id)){
-  $sql = "INSERT INTO habits (text, reps, totalCounts, timeframe, completed, author_id) VALUES ('$habit_title', '$repetitions', 0, '$frequency', 0,  '$author_id')";
+  $sql = "INSERT INTO habits (text, reps, status, timeframe,  author_id) VALUES ('$habit_title', '$repetitions',  0, '$frequency',   '$author_id')";
 } else {
   $sql = "UPDATE habits SET text='$habit_title', reps='$repetitions', timeframe='$frequency', author_id='$author_id' WHERE id=$id";
 }
