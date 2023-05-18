@@ -63,10 +63,12 @@
        <div class="contentSect">
         <section>
             <img src="CSS/Images/stars.png" id="stars">
-            <img src="CSS/Images/moon.png" id="moon">
-            <img src="CSS/Images/mountains_behind.png" id="mountains_behind">
-            <h2 id="text">ABOUT US</h2>
-            <img src="CSS/Images/mountains_front.png" id="mountains_front">
+            <img src="CSS/Images/about-hi.png" id="logo" class="logo">
+
+
+            <img src="CSS/Images/book-opened.png" id="book_opened">
+            <img src="CSS/Images/floats-1.png" id="floats_1">
+            <img src="CSS/Images/floats-2.png" id="floats_2">
         </section>
        <div class="desc">
             <p class="w">We Are HAVE IT</p><br>
@@ -80,17 +82,19 @@ everyone our application, HAVE IT. </p>
     </div>
     <script>
         let stars = document.getElementById('stars');
-        let moon = document.getElementById('moon');
-        let mountains_behind = document.getElementById('mountains_behind');
-        let mountains_front = document.getElementById('mountains_front');
+        let logo = document.getElementById('logo');
+        let floats_1 = document.getElementById('floats_1');
+        let floats_2 = document.getElementById('floats_2');
+        let book_opened = document.getElementById('book_opened');
         let text = document.getElementById('text');
 
         window.addEventListener('scroll', function(){
             let value = window.scrollY;
             stars.style.left = value * 0.25 + 'px';
-            moon.style.top = value * 0.5 + 'px';
-            mountains_behind.style.top = value * 0.5 + 'px';
-            mountains_front.style.top = value * 0 + 'px';
+            logo.style.top = value * 0.5 + 'px';
+            floats_1.style.top = value * 0.45 + 'px';
+            floats_2.style.top = value * 0.25 + 'px';
+            book_opened.style.top = value * 0 + 'px';
         })
    </script>
     </body>

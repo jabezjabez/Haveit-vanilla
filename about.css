@@ -32,7 +32,7 @@
 body {
 	  font-family: Berlin Rounded Regular, Arial, sans-serif;
 	  color: #fff;
-	  background: linear-gradient(#2b1055, #7597de);
+	  background: linear-gradient(#0e0e0e, #2f3c59);
     margin: 0 0 0 0;
     min-height: 100vh;
     overflow-x: hidden;
@@ -184,14 +184,13 @@ section::before{
     top: 580px;
     width: 86%;
     height: 100px;
-    background: linear-gradient(to top,#1c0522,transparent);
     z-index: 1000;
 }
 section img{
     position: absolute;
     top: 0;
     right: 0;
-    width: 86%;
+    width: 89%;
     height: 100%;
     display:flex;
     justify-content: center;
@@ -201,6 +200,16 @@ section img{
 }
 section img#moon{
     mix-blend-mode: screen;
+}
+
+.logo {
+    display: flex;
+    width: 450px;
+    height: 450px;
+    flex-items: center;
+    justify-self: center;
+    margin-right: 460px;
+    margin-top: 40px;
 }
 
 
@@ -218,9 +227,9 @@ section img#moon{
     position: absolute;
     z-index: -1;
     left: 12%;
-    max-width: 1200px;
-    background: #1c0522;
-    padding: 100px;
+    width: 90%;
+    background: #2d4799;
+    padding: 50px;
 }
 .w {
     font-family: Berlin Rounded Regular;
